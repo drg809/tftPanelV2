@@ -4,29 +4,28 @@ import { BrowserModule  } from '@angular/platform-browser';
 import { Routes, RouterModule } from '@angular/router';
 
 import { LayoutComponent } from './layouts/layout.component';
+import { LoginComponent } from './components/account/login/login.component';
+import { AuthGuard } from './shared/helpers/auth.guard';
 
 const routes: Routes = [
+  { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
   {
     path: '',
-    redirectTo: 'dashboard',
-    pathMatch: 'full',
-  }, {
-    path: '',
     component: LayoutComponent,
+    canActivate: [AuthGuard],
     children: [{
       path: '',
       loadChildren: './layouts/layout.module#LayoutModule'
     }]
   },
+  { path: 'login', component: LoginComponent},
 ];
 
 @NgModule({
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes, {
-       useHash: true
-    })
+    RouterModule.forRoot(routes)
   ],
   exports: [
   ],

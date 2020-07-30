@@ -4,16 +4,30 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { AuthenticationService } from 'app/shared/services/authentication.service';
 import {AlertService} from '../../../shared/services/alert.service';
 import {first} from 'rxjs/operators';
+import { trigger, transition, style, animate } from '@angular/animations';
+import { AuthGuard } from 'app/shared/helpers/auth.guard';
 
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  animations: [
+    trigger('formState', [
+      transition('* => error', [
+        style({transform: 'translateX(5%)'}),
+        animate(100),
+        style({transform: 'translateX(-5%)'}),
+        animate(100),
+        style({transform: 'translateX(5%)'}),
+        animate(100),
+        style({transform: 'translateX(-5%)'}),
+        animate(100)
+      ]),
+    ])
+  ]
 })
 export class LoginComponent implements OnInit {
-  @ViewChild('emailInputReference', {static: false}) emailInputReference: ElementRef;
-  @ViewChild('passwordInputReference', {static: false}) passwordInputReference: ElementRef;
   formGroup: FormGroup;
   returnUrl: string;
   acceptButtonLabel = 'Entrar';
@@ -31,6 +45,7 @@ export class LoginComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private authenticationService: AuthenticationService,
+    private authGuard: AuthGuard,
     private alertService: AlertService
   ) {
     this.emptyEmailErrorLabel = 'El email es obligatorio';
@@ -39,7 +54,7 @@ export class LoginComponent implements OnInit {
     this.invalidPasswordLenght = 'Password needs to be at least eight characters, one uppercase letter and one number';
 
     if (this.authenticationService.currentUserValue) {
-      this.router.navigate(['/']);
+      this.authGuard.canActivate() ? this.router.navigate(['/dashboard']) : null ;
     }
    }
 

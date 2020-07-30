@@ -13,6 +13,7 @@ import { JwtInterceptor } from './shared/helpers/jwt';
 import { ComponentsModule } from './components/components.module';
 import { CommonModule } from '@angular/common';
 import { AngularMaterialModule } from './angular-material.modules';
+import { AccountModule } from './components/account/account.module';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { AngularMaterialModule } from './angular-material.modules';
     ReactiveFormsModule,
     HttpClientModule,
     ComponentsModule,
+    AccountModule,
     RouterModule,
     AppRoutingModule,
     FormsModule,

@@ -13,7 +13,7 @@ export class AuthenticationService {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser') || '{}');
   }
 
-  public clearAuthData() {
+  private clearAuthData() {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
     this.currentUser = new User();
