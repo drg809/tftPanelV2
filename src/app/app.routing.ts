@@ -5,7 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { LayoutComponent } from './layouts/layout.component';
 
-const routes: Routes =[
+const routes: Routes = [
   {
     path: '',
     redirectTo: 'dashboard',
@@ -24,7 +24,7 @@ const routes: Routes =[
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes,{
+    RouterModule.forRoot(routes, {
        useHash: true
     })
   ],
