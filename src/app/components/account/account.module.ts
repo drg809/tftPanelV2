@@ -28,9 +28,6 @@ import { MatTooltipModule } from '@angular/material/tooltip';
   declarations: [
     LoginComponent,
     AlertComponent
-  ],
-  exports: [
-    LoginComponent
   ]
 })
 export class AccountModule { }

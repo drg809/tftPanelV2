@@ -6,14 +6,24 @@ import { RouterModule } from '@angular/router';
 
 
 import { AppRoutingModule } from './app.routing';
-import { ComponentsModule } from './components/components.module';
-
 import { AppComponent } from './app.component';
 
 import { LayoutComponent } from './layouts/layout.component';
 import { JwtInterceptor } from './shared/helpers/jwt';
+import { ComponentsModule } from './components/components.module';
+import { CommonModule } from '@angular/common';
+import { MatButtonModule } from '@angular/material/button';
+import { MatRippleModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
+  declarations: [
+    AppComponent,
+    LayoutComponent
+  ],
   imports: [
     BrowserAnimationsModule,
     FormsModule,
@@ -22,17 +32,20 @@ import { JwtInterceptor } from './shared/helpers/jwt';
     ComponentsModule,
     RouterModule,
     AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
+    CommonModule,
+    MatButtonModule,
+    MatRippleModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatTooltipModule,
   ],
-  declarations: [
-    AppComponent,
-    LayoutComponent,
+  exports: [
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule,
-    ComponentsModule,
-    RouterModule,
-
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}],
   bootstrap: [AppComponent]

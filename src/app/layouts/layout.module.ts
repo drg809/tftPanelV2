@@ -29,7 +29,7 @@ import {MatSelectModule} from '@angular/material/select';
   declarations: [
     DashboardComponent,
     UserProfileComponent,
-    NotificationsComponent,
+    NotificationsComponent
   ],
   exports: [
     MatButtonModule,
