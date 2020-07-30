@@ -30,6 +30,14 @@ import {MatSelectModule} from '@angular/material/select';
     DashboardComponent,
     UserProfileComponent,
     NotificationsComponent,
+  ],
+  exports: [
+    MatButtonModule,
+    MatRippleModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatTooltipModule,
   ]
 })
 

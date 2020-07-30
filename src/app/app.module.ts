@@ -26,6 +26,12 @@ import { JwtInterceptor } from './shared/helpers/jwt';
   declarations: [
     AppComponent,
     LayoutComponent,
+    BrowserAnimationsModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+    ComponentsModule,
+    RouterModule,
 
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}],
