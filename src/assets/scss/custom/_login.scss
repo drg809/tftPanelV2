@@ -1,5 +1,28 @@
 .login.main-div{
-    background-color: red;
+    background-color: #F4EBA7;
     height: 100vh;
     width: 100vw;
+    .login-box{
+      padding-top: 10vh;
+      .margin-left {
+        margin-left: calc(50% - 250px);
+        max-width: 500px;
+
+      }
+      .form-container {
+        background-color: white;
+        text-align: center;
+        padding: 40px;
+      }
+
+      .div-logo {
+        margin-left: calc(50% - 250px);
+        max-width: 500px;
+        background-color: #49c0fb;
+        img.margin-left {
+          margin-left: calc(50% - 150px);
+          max-width: 300px;
+        }
+      }
+    }
 }

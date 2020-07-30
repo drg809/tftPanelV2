@@ -1,35 +1,32 @@
 <div class="login main-div">
-  <img class="main-logo" src="../../../../assets/img/main_logo.png" alt="logo">
-  <div class="form-container">
-    <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" [@formState]="formState">
-      <app-alert></app-alert>
-      <mat-form-field appearance="standard">
-        <mat-label>Email</mat-label>
-        <input matInput placeholder="Email address" formControlName="email">
-        <mat-error *ngIf="!formGroup.controls['email'].valid && formGroup.controls['email'].touched">{{ getErrorEmail() }}</mat-error>
-      </mat-form-field>
-      <br>
-      <br>
-      <mat-form-field appearance="standard">
-        <mat-label>Contraseña</mat-label>
-        <input type="password" matInput  placeholder="Password" formControlName="password">
-        <mat-error *ngIf="!formGroup.controls['password'].valid && formGroup.controls['password'].touched">
-          {{ getErrorPassword() }}
-        </mat-error>
-      </mat-form-field>
-      <br>
-      <br>
-      <br>
-      <br>
-      <button mat-raised-button  [disabled]="!formGroup.valid" type="submit">
-        <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>{{acceptButtonLabel}}
-      </button>
-    </form>
-    <br>
-    <br>
-    <button class="back-button" mat-button (click)="navigateToRegister()">¿No tienes cuenta? Regístrate</button>
-    <br>
-    <br>
-    <button class="back-button" mat-button (click)="navigateToRecovery()">¿Olvidó contraseña?</button>
+  <div class="container">
+    <div class="login-box">
+      <div class="div-logo">
+        <img class="main-logo margin-left" src="../../../../assets/img/main_logo.png" alt="logo">
+      </div>
+      <div class="form-container margin-left">
+        <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" [@formState]="formState">
+          <app-alert></app-alert>
+          <mat-form-field appearance="standard">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email address" formControlName="email">
+            <mat-error *ngIf="!formGroup.controls['email'].valid && formGroup.controls['email'].touched">{{ getErrorEmail() }}</mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="standard">
+            <mat-label>Contraseña</mat-label>
+            <input type="password" matInput  placeholder="Password" formControlName="password">
+            <mat-error *ngIf="!formGroup.controls['password'].valid && formGroup.controls['password'].touched">
+              {{ getErrorPassword() }}
+            </mat-error>
+          </mat-form-field>
+          <button mat-raised-button  [disabled]="!formGroup.valid" type="submit">
+            <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>{{acceptButtonLabel}}
+          </button>
+        </form>
+        <button class="back-button" mat-button (click)="navigateToRegister()">¿No tienes cuenta? Regístrate</button>
+        <br>
+        <button class="back-button" mat-button (click)="navigateToRecovery()">¿Olvidó contraseña?</button>
+      </div>
+    </div>
   </div>
 </div>
