@@ -8,5 +8,6 @@ export class User {
   public status?: number | null;
   public role?: string | null;
   public phone?: string | null;
+  public puuid?: string | null;
   public deletedAt?: Date | null;
 }
