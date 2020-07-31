@@ -6,7 +6,6 @@
       </div>
       <div class="form-container margin-left">
         <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" [@formState]="formState">
-          <app-alert></app-alert>
           <mat-form-field appearance="standard">
             <mat-label>Email</mat-label>
             <input matInput placeholder="Email address" formControlName="email">
