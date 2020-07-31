@@ -1,5 +1,5 @@
 .login.main-div{
-    background-color: #F4EBA7;
+    background-color: rgba(160, 71, 64, 0.4);
     height: 100vh;
     width: 100vw;
     .login-box{
@@ -13,12 +13,17 @@
         background-color: white;
         text-align: center;
         padding: 40px;
+        border-bottom-right-radius: 10px;
+        border-bottom-left-radius: 10px;
+        box-shadow: 1px 3px 2px grey;
       }
-
       .div-logo {
         margin-left: calc(50% - 250px);
         max-width: 500px;
         background-color: #49c0fb;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        box-shadow: 1px 3px 2px grey;
         img.margin-left {
           margin-left: calc(50% - 150px);
           max-width: 300px;
