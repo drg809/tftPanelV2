@@ -16,7 +16,8 @@ export class SumMatch {
       puuid: string,
       time_eliminated: number,
       total_damage_to_players: number,
-      r: string,
+      r?: string,
+      d?: string,
       traits: [{
         name: string,
         num_units: number,
