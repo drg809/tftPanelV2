@@ -1,170 +1,67 @@
-<div class="row">
-    <div class="col-md-3">
-
-
-        <!--Card-->
-        <mat-card cascade="true" narrower="true">
-
-            <!--Card image-->
-            <div class="view overlay hm-white-slight waves-light" mdbWavesEffect>
-                <img src="https://mdbootstrap.com/img/Photos/Horizontal/People/6-col/img%20%283%29.jpg"
-                     class="img-fluid">
-                <a>
-                    <div class="mask"></div>
-                </a>
-            </div>
-            <!--/Card image-->
-
-            <!--Card content-->
-            <mat-card-body class="text-center">
-                <!--Title-->
-                <h4 class="card-title font-bold mb-2"><strong>{{ user.name }}</strong></h4>
-                <h5 class="indigo-text"><strong>EL fuking master</strong></h5>
-
-                <p class='text-justify'>Aqui podras añadir tus diferentes cuentas de league of legends por su nombre de invocador, no debes añadir cuentas de otros o sufriras un golpe de remo.</p>
-
-                <!-- <div class="text-right">
-                    <button type="button" mdbBtn outline="true" color="primary" rounded="true" size="sm" mdbWavesEffect>
-                        More...
-                    </button>
-                </div> -->
-
-            </mat-card-body>
-            <!--/.Card content-->
-
-        </mat-card>
-        <!--/.Card-->
-
-    </div>
-
-    <div class="col-md-9">
-
-        <!--Projects section v.2-->
-        <section class="section text-center pb-3">
-
-            <!--Section heading-->
-            <!-- <h2 class="section-heading h1 pt-4"><strong>Latest projects:</strong></h2> -->
-            <!--Section description-->
-
-            <!--Grid row-->
-            <div class="row d-flex justify-content-left summoners">
-
-                <!--Grid column-->
-                <div *ngFor="let item of summoners;" class="col-lg-4 col-xl-3 mb-3">
-
-                    <!--Card-->
-                    <mat-card cascade="true" narrower="true" class="d-flex mb-5 summonerscard">
-
-                        <!--Card image-->
-                        <div class="view overlay hm-white-slight iconImage">
-                            <img src="https://ddragon.leagueoflegends.com/cdn/10.14.1/img/profileicon/{{item.profileIconId}}.png"
-                                 class="img-fluid" alt="Icono no encontrado">
-                        </div>
-
-                        <!--Card content-->
-                        <mat-card-body>
-                            <!--Title-->
-                            <h4 class="card-title font-bold mb-3"><strong>{{ item.summonerName }}</strong></h4>
-                            <!--Text-->
-                            <p class="card-text">
-                              Region: {{ item.region }}
-                            </p>
-                            <p class="card-text">
-                              En seguimiento.
-                            </p>
-                        </mat-card-body>
-
-                        <!--Card footer-->
-                        <div class="card-footer links-light">
-                            <span class="right">
-                                <button (click)="setLastMatch(item)"
-                                   class="waves-effect p-2">Eliminar
-                                    <mdb-icon fas icon="trash" class="ml-1"></mdb-icon></button>
-                            </span>
-                        </div>
-
-                    </mat-card>
-                    <!--/.Card-->
-
+<div class="main-content summoners">
+  <div class="container-fluid">
+      <div class="row">
+          <div class="col-md-3">
+              <div class="card card-profile">
+                  <div class="card-avatar">
+                      <a [routerLink]="['user-profile']">
+                          <img class="img" src="./assets/img/faces/marc.jpg" />
+                      </a>
+                  </div>
+                  <div class="card-body">
+                      <h6 class="card-category text-gray">{{user.role}}</h6>
+                      <h4 class="card-title">{{user.name}}</h4>
+                      <p class="card-description">
+                        A&ntilde;ade tus cuentas de invocador a la lista de tracking. De esta manera podras obtener un historico de partidas y aplicarles un analisis estadistico.
+                      </p>
+                  </div>
+                  <div class="card-footer">
+                    <a [routerLink]="['/user-profile']" class="btn btn-danger btn-round">Edit</a>
+                  </div>
+              </div>
+          </div>
+          <div class="col-md-3">
+            <div class="card card-profile">
+                <div class="card-avatar">
+                    <a [routerLink]="['user-profile']">
+                        <img class="img" src="https://ddragon.leagueoflegends.com/cdn/10.14.1/img/profileicon/1.png" />
+                    </a>
                 </div>
-                <!--Grid column-->
-
-                <!--Grid column-->
-                <div class="col-lg-4 col-xl-3 mb-3">
-
-                    <!--Card-->
-                    <mat-card cascade="true" narrower="true" class="d-flex mb-5 summonerscard">
-
-                        <!--Card image-->
-                        <div class="view overlay hm-white-slight iconImageN">
-                            <img src="https://mdbootstrap.com/img/Mockups/Horizontal/6-col/pro-signup.jpg"
-                                 class="img-fluid" alt="">
-                            <a href="#">
-                                <div class="mask"></div>
-                            </a>
-                        </div>
-
-                        <!--Card content-->
-                        <mat-card-body>
-                            <!--Title-->
-                            <h4 class="card-title font-bold mb-3"><strong>Nuevo summoner</strong></h4>
-                            <!--Text-->
-                            <p class="card-text">Introduce tu nombre de invocador para realizar seguimiento. Segun las normas de riot no debes añadir cuentas de otros o sufriras un golpe de remo.
-                            </p>
-                        </mat-card-body>
-
-                        <!--Card footer-->
-                        <div class="card-footer links-light">
-                            <span class="right">
-                                    <button type="button" mdbBtn color="primary" class="waves-light" data-toggle="modal"
-                                            data-target="#basicExample" (click)="centralRegular.show()"
-                                            mdbWavesEffect>
-                                            Nuevo <mdb-icon fas icon="plus" class="ml-1"></mdb-icon>
-                                    </button>
-                            </span>
-                        </div>
-
-                    </mat-card>
-                    <!--/.Card-->
-
+                <div class="card-body">
+                    <p class="card-description" style="padding-top: 20px;">
+                        A&ntilde;ade un nuevo invocador a la lista de tracking. Recuerda que no puedes a a&ntilde;adir cuentas que no te pertenezcan ya que rito se enfada.
+                    </p>
                 </div>
-                <!--Grid column-->
-
+                <div class="card-footer">
+                  <a [routerLink]="['/user-profile']" class="btn btn-danger btn-round">Nuevo Summoner</a>
+                </div>
             </div>
-            <!--Grid row-->
-
-        </section>
-        <!--/Projects section v.2-->
-    </div>
-
-
-</div>
-
-<div mdbModal #centralRegular="mdb-modal" class="modal fade" id="basicExample"
-      tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-      aria-hidden="true" [config]="{backdrop: true, ignoreBackdropClick: false}">
-    <div class="modal-dialog " role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h4 class="modal-title w-100" id="myModalLabel">Nuevo invocador</h4>
-                <button type="button" class="close" data-dismiss="modal"
-                        aria-label="Close" (click)="centralRegular.hide()">
-                    <span aria-hidden="true">×</span>
-                </button>
+          </div>
+          <div *ngFor="let sum of summoners" class="col-md-3">
+            <div class="card card-profile">
+                <div class="card-avatar">
+                    <a [routerLink]="['user-profile']">
+                        <img class="img" src="https://ddragon.leagueoflegends.com/cdn/10.14.1/img/profileicon/{{sum.profileIconId}}.png" />
+                    </a>
+                </div>
+                <div class="card-body">
+                    <h6 class="card-category text-gray">{{sum.region}}</h6>
+                    <h4 class="card-title">{{sum.summonerName}}</h4>
+                    <p class="card-description">
+                      Invocardor registrado, pulsa actualizar para actualizar tu historico de partidas y poder anarlizarlo.
+                    </p>
+                    <a (click)="deleteSummoner()">
+                      <span class="material-icons">
+                        delete_forever
+                      </span>
+                      Eliminar invocador
+                    </a>
+                </div>
+                <div class="card-footer">
+                  <a (click)="getMatches()" class="btn btn-danger btn-round">Actualizar</a>
+                </div>
             </div>
-            <div class="modal-body">
-                Introduce tu nombre de invocador
-                <input  type="text" id="summoner" class="form-control" [(ngModel)]="summonerName">
-            </div>
-            <div class="modal-footer">
-                <button type="button" mdbBtn color="secondary" size="sm"
-                        class="waves-light" data-dismiss="modal"
-                        (click)="centralRegular.hide()" mdbWavesEffect>Close
-                </button>
-                <button type="button" mdbBtn (click)="addNewSummoner()" color="primary" size="sm"
-                        class="waves-light" mdbWavesEffect>Trazar
-                </button>
-            </div>
-        </div>
-    </div>
+          </div>
+      </div>
+  </div>
 </div>

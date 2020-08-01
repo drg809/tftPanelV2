@@ -7,7 +7,7 @@ import { Summoner } from '../../shared/models/summoner';
   templateUrl: './profile.component.html',
   styleUrls: ['./profile.component.scss']
 })
-export class Profile1Component implements OnInit {
+export class ProfileComponent implements OnInit {
   summoners: any;
   newSummoner: Summoner;
   summonerName: string;
