@@ -5,9 +5,10 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LayoutRoutes } from './layout.routing';
 import { DashboardComponent } from '../views/dashboard/dashboard.component';
 import { UserProfileComponent } from '../views/user-profile/user-profile.component';
-import { NotificationsComponent } from '../notifications/notifications.component';
+import { NotificationsComponent } from '../shared/notifications/notifications.component';
 import { HistoricalComponent } from 'app/views/historical/historical.component';
 import { AngularMaterialModule } from 'app/angular-material.modules';
+import { ProfileComponent } from 'app/views/profile/profile.component';
 
 @NgModule({
   imports: [
@@ -21,7 +22,6 @@ import { AngularMaterialModule } from 'app/angular-material.modules';
     DashboardComponent,
     UserProfileComponent,
     NotificationsComponent,
-    HistoricalComponent
   ],
   exports: [
     AngularMaterialModule
