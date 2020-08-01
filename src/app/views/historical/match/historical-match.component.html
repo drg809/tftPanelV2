@@ -38,9 +38,8 @@
                               <div class="info">
                                 <div>{{item.placement}}º Posicion</div>
                                 <div>
-                                  Lvl.{{item.level}}<br>
-                                  {{item.time_eliminated | date:'mm:ss'}}<br>
-                                  {{entrie.data.info.game_datetime  | date:'dd/MM/yyyy'}}<br>
+                                  {{item.d}}<br>
+                                  {{dif}}<br>
                                 </div>
                                 <div>
                                   <div [ngSwitch]="entrie.data.info.game_variation">
@@ -83,6 +82,9 @@
                                   </div>
                                 </div>
                               </div>
+                              <div>
+                                Lvl.{{item.level}}<br>
+                              </div>
                               <div class="build">
                                 <div class="champions">
                                   <a *ngFor="let unit of item.units" class="tier{{unit.tier}} r{{unit.rarity}}">
@@ -111,7 +113,7 @@
                           </div>
                           <mat-divider></mat-divider>
                           <div class="results matches">
-                            <div class="match" *ngFor="let player of entrie.data.info.participants">
+                            <div class="match" *ngFor="let player of entrie.data.info.participants" [ngClass]="{'player': player.puuid == user.puuid}">
                               <div class="info">
                                 <div>{{player.placement}}</div>
                                 <div>

@@ -14,6 +14,7 @@ export class HistoricalMatchComponent implements OnInit {
   entrieId: string | null;
   entrie: SumMatch;
   user: User;
+  dif: string;
 
 
   constructor(private route: ActivatedRoute,
@@ -23,12 +24,12 @@ export class HistoricalMatchComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('currentUser') || '{}');
     this.entrieId = this.route.snapshot.paramMap.get('id');
     this.summonerService.getMatchInfo(this.entrieId).subscribe(data => {
-      console.log(data);
       this.entrie = data;
       this.entrie.data.info.participants.sort((a, b) => a.placement  - b.placement);
       this.entrie.data.info.participants.forEach(element => {
         element.units.sort((a, b) => a.rarity - b.rarity);
       });
+      this.dif = Utils.getTimeDif(this.entrie.data.info.game_datetime);
       this.entrie.data.info.participants.forEach(element => {
         element.r = Utils.getRound(element.last_round);
         const m: number = Math.trunc(element.time_eliminated / 60);
