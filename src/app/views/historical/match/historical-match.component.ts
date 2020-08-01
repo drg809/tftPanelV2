@@ -9,6 +9,8 @@ import { SummonerService } from '../../../shared/services/summoners.service';
 })
 export class HistoricalMatchComponent implements OnInit {
   entrieId: string | null;
+  tabLoadTimes: Date[] = [];
+
   constructor(private route: ActivatedRoute,
               private summonerService: SummonerService) { }
 
@@ -19,4 +21,11 @@ export class HistoricalMatchComponent implements OnInit {
     });
   }
 
+  getTimeLoaded(index: number) {
+    if (!this.tabLoadTimes[index]) {
+      this.tabLoadTimes[index] = new Date();
+    }
+
+    return this.tabLoadTimes[index];
+  }
 }
