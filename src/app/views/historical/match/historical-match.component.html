@@ -109,8 +109,42 @@
                               </div>
                             </div>
                           </div>
+                          <mat-divider></mat-divider>
                           <div class="results">
-
+                            <div *ngFor="let player of entrie.data.info.participants">
+                              <div class="info">
+                                <div>{{player.placement}}º Posicion</div>
+                                <div>
+                                  Lvl.{{player.level}}
+                                  <img class="gold" src="../../../../assets/icons/icon-gold.svg" alt="icono oro">
+                                  {{player.gold_left}}
+                                </div>
+                              </div>
+                              <div class="build">
+                                <div class="champions">
+                                  <a *ngFor="let unit of player.units" class="tier{{unit.tier}} r{{unit.rarity}}">
+                                    <img src="../../../../assets/img/champions/{{unit.character_id}}.png" class="champion">
+                                    <div class="players">
+                                      <img *ngIf="unit.items[0] && unit.items[0] != 999" class="player" alt="primer player" src="../../../../assets/img/items/set3/{{unit.items[0]}}.png">
+                                      <img *ngIf="unit.items[1] && unit.items[1] != 999" class="item" alt="segundo item" src="../../../../assets/img/items/set3/{{unit.items[1]}}.png">
+                                      <img *ngIf="unit.items[2] && unit.items[2] != 999" class="item" alt="tercer item" src="../../../../assets/img/items/set3/{{unit.items[2]}}.png">
+                                    </div>
+                                  </a>
+                                </div>
+                                <div class="traits">
+                                  <div *ngFor="let trait of player.traits">
+                                    <div *ngIf="trait.tier_current  > 0" class="builder-bonus-item active tier{{trait.style}}">
+                                      <div class="builder-bonus-icon">
+                                        <img src="../../../../assets/img/traits/{{trait.name | lowercase }}.png" alt="{{trait.name}}">
+                                        <div class="builder-bonus-counter">
+                                          <span>{{trait.num_units}}</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
                           </div>
                         </div>
                         <div class="tab-pane" id="messages">
