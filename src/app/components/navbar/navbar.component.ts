@@ -2,6 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
+import { AuthenticationService } from 'app/shared/services/authentication.service';
 
 @Component({
   selector: 'app-navbar',
@@ -16,7 +17,10 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
 
-    constructor(location: Location,  private element: ElementRef, private router: Router) {
+    constructor(location: Location,
+                private element: ElementRef,
+                private router: Router,
+                private authService: AuthenticationService) {
       this.location = location;
           this.sidebarVisible = false;
     }
@@ -115,12 +119,17 @@ export class NavbarComponent implements OnInit {
       if (title.charAt(0) === '#') {
           title = title.slice( 1 );
       }
-
       for (let item = 0; item < this.listTitles.length; item++) {
           if (this.listTitles[item].path === title) {
+              return this.listTitles[item].title;
+          } else if (!this.listTitles[item].show && this.listTitles[item].title) {
               return this.listTitles[item].title;
           }
       }
       return 'Dashboard';
+    }
+
+    logout() {
+      this.authService.logout();
     }
 }

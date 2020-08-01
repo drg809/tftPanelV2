@@ -6,11 +6,14 @@ declare interface RouteInfo {
     title: string;
     icon: string;
     class: string;
+    show: boolean;
 }
 export const ROUTES: RouteInfo[] = [
-    { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
-    { path: '/user-profile', title: 'User Profile',  icon: 'person', class: '' },
-    { path: '/historical', title: 'Historical',  icon: 'notifications', class: '' },
+    { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '', show: true },
+    { path: '/user-profile', title: 'User Profile',  icon: 'person', class: '', show: false },
+    { path: '/profile', title: 'Summoner Profiles',  icon: 'person', class: '', show: true },
+    { path: '/historical', title: 'Historical',  icon: 'notifications', class: '', show: true },
+    { path: '/historical/:id', title: 'Match Info',  icon: 'notifications', class: '', show: false },
 ];
 
 @Component({
