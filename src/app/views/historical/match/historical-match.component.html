@@ -38,9 +38,9 @@
                               <div class="info">
                                 <div>{{item.placement}}º Posicion</div>
                                 <div>
-                                  Lvl.{{item.level}}
-                                  <img class="gold" src="../../../../assets/icons/icon-gold.svg" alt="icono oro">
-                                  {{item.gold_left}}
+                                  Lvl.{{item.level}}<br>
+                                  {{item.time_eliminated | date:'mm:ss'}}<br>
+                                  {{entrie.data.info.game_datetime  | date:'dd/MM/yyyy'}}<br>
                                 </div>
                                 <div>
                                   <div [ngSwitch]="entrie.data.info.game_variation">
@@ -110,27 +110,21 @@
                             </div>
                           </div>
                           <mat-divider></mat-divider>
-                          <div class="results">
-                            <div *ngFor="let player of entrie.data.info.participants">
+                          <div class="results matches">
+                            <div class="match" *ngFor="let player of entrie.data.info.participants">
                               <div class="info">
-                                <div>{{player.placement}}º Posicion</div>
+                                <div>{{player.placement}}</div>
                                 <div>
                                   Lvl.{{player.level}}
-                                  <img class="gold" src="../../../../assets/icons/icon-gold.svg" alt="icono oro">
-                                  {{player.gold_left}}
+                                </div>
+                                <div>
+                                  {{player.last_round}}
+                                </div>
+                                <div>
+                                  {{player.time_eliminated}}
                                 </div>
                               </div>
                               <div class="build">
-                                <div class="champions">
-                                  <a *ngFor="let unit of player.units" class="tier{{unit.tier}} r{{unit.rarity}}">
-                                    <img src="../../../../assets/img/champions/{{unit.character_id}}.png" class="champion">
-                                    <div class="players">
-                                      <img *ngIf="unit.items[0] && unit.items[0] != 999" class="player" alt="primer player" src="../../../../assets/img/items/set3/{{unit.items[0]}}.png">
-                                      <img *ngIf="unit.items[1] && unit.items[1] != 999" class="item" alt="segundo item" src="../../../../assets/img/items/set3/{{unit.items[1]}}.png">
-                                      <img *ngIf="unit.items[2] && unit.items[2] != 999" class="item" alt="tercer item" src="../../../../assets/img/items/set3/{{unit.items[2]}}.png">
-                                    </div>
-                                  </a>
-                                </div>
                                 <div class="traits">
                                   <div *ngFor="let trait of player.traits">
                                     <div *ngIf="trait.tier_current  > 0" class="builder-bonus-item active tier{{trait.style}}">
@@ -143,8 +137,70 @@
                                     </div>
                                   </div>
                                 </div>
+                                <div class="champions">
+                                  <a *ngFor="let unit of player.units" class="tier{{unit.tier}} r{{unit.rarity}} matchInfo">
+                                    <img src="../../../../assets/img/champions/{{unit.character_id}}.png" class="champion">
+                                    <div class="items">
+                                      <img *ngIf="unit.items[0] && unit.items[0] != 999" class="item" alt="primer item" src="../../../../assets/img/items/set3/{{unit.items[0]}}.png">
+                                      <img *ngIf="unit.items[1] && unit.items[1] != 999" class="item" alt="segundo item" src="../../../../assets/img/items/set3/{{unit.items[1]}}.png">
+                                      <img *ngIf="unit.items[2] && unit.items[2] != 999" class="item" alt="tercer item" src="../../../../assets/img/items/set3/{{unit.items[2]}}.png">
+                                    </div>
+                                  </a>
+                                </div>
+                              </div>
+                              <div>
+                                <img class="gold" src="../../../../assets/icons/icon-gold.svg" alt="icono oro">
+                                {{player.gold_left}}
                               </div>
                             </div>
+                            <!-- <table>
+                              <thead>
+                                <tr>
+                                  <th>Rank</th>
+                                  <th>Summoner</th>
+                                  <th>Round</th>
+                                  <th>Alive</th>
+                                  <th>Traits</th>
+                                  <th>Units</th>
+                                  <th>Left Gold</th>
+                              </tr>
+                              </thead>
+                              <tbody>
+                                <tr class="match" *ngFor="let player of entrie.data.info.participants">
+                                  <td>{{player.placement}}</td>
+                                  <td>Paco</td>
+                                  <td>{{player.last_round}}</td>
+                                  <td>{{player.time_eliminated}}</td>
+                                  <td>
+                                    <div class="champions">
+                                      <a *ngFor="let unit of player.units" class="tier{{unit.tier}} r{{unit.rarity}} matchInfo">
+                                        <img src="../../../../assets/img/champions/{{unit.character_id}}.png" class="champion">
+                                        <div class="players">
+                                          <img *ngIf="unit.items[0] && unit.items[0] != 999" class="item" alt="primer item" src="../../../../assets/img/items/set3/{{unit.items[0]}}.png">
+                                          <img *ngIf="unit.items[1] && unit.items[1] != 999" class="item" alt="segundo item" src="../../../../assets/img/items/set3/{{unit.items[1]}}.png">
+                                          <img *ngIf="unit.items[2] && unit.items[2] != 999" class="item" alt="tercer item" src="../../../../assets/img/items/set3/{{unit.items[2]}}.png">
+                                        </div>
+                                      </a>
+                                    </div>
+                                  </td>
+                                  <td class="build">
+                                    <div class="traits">
+                                      <div *ngFor="let trait of player.traits">
+                                        <div *ngIf="trait.tier_current  > 0" class="builder-bonus-item active tier{{trait.style}}">
+                                          <div class="builder-bonus-icon">
+                                            <img src="../../../../assets/img/traits/{{trait.name | lowercase }}.png" alt="{{trait.name}}">
+                                            <div class="builder-bonus-counter">
+                                              <span>{{trait.num_units}}</span>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </td>
+                                  <td>{{player.gold_left}}</td>
+                                </tr>
+                              </tbody>
+                            </table> -->
                           </div>
                         </div>
                         <div class="tab-pane" id="messages">

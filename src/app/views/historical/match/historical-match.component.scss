@@ -20,7 +20,7 @@ $fourth: #284454;
     content: "★★";
     color: #a3d6e4;
     position: absolute;
-    top: -6px;
+    top: -12px;
     left: 50%;
     font-size: 14px;
     transform: translateX(-50%);
@@ -35,7 +35,7 @@ $fourth: #284454;
     content: "★★★";
     color: #e4c157;
     position: absolute;
-    top: -6px;
+    top: -12px;
     left: 50%;
     font-size: 14px;
     transform: translateX(-50%);
@@ -72,6 +72,7 @@ img.item {
     padding: 10px 15px 10px 5px;
     border: 1px solid #17313a;
     border-left-width: 4px;
+    color: white;
 }
 
 .match.p1{
@@ -95,10 +96,16 @@ img.item {
   color: white;
 }
 .build {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    width: calc(100% - 250px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: calc(100% - 250px);
+}
+.results .build {
+  display: flex;
+  flex-direction: row;
+  align-items: initial;
+  width: calc(100% - 250px);
 }
 .champions {
     display: flex;
@@ -110,6 +117,40 @@ img.item {
       width: auto;
       padding: 0;
     }
+    a.matchInfo{
+      max-width: 40px;
+      img{
+        max-width: 40px;
+      }
+      .item{
+        max-width: 12px;
+      }
+    }
+}
+.results {
+  .champions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    flex-grow: 1;
+    a {
+      position: relative;
+      width: auto;
+      padding: 0;
+    }
+    a.matchInfo{
+      max-width: 40px;
+      img{
+        max-width: 40px;
+      }
+      .item{
+        max-width: 12px;
+      }
+    }
+  }
+  .traits {
+    min-width: 550px;
+  }
 }
 .gold{
   width: 0.8vw;
