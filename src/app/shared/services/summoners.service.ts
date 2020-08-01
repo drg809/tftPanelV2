@@ -38,6 +38,7 @@ export class SummonerService {
   }
 
   getMatches(data: any) {
+    console.log(data);
     return this.http.post<Summoner>(this.apiUrl + '/summoners/get_matches_ext', data);
   }
 
