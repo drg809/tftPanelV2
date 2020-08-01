@@ -33,11 +33,23 @@ export class HistoricalMatchComponent implements OnInit {
           const bRarity = b.rarity;
           const aName = a.character_id;
           const bName = b.character_id;
-          console.log(aRarity + ' | ' + bRarity);
           if (aRarity == bRarity) {
             return (aName < bName) ? -1 : (aName > bName) ? 1 : 0;
           } else {
             return (aRarity < bRarity) ? -1 : 1;
+          }
+        });
+      });
+      this.entrie.data.info.participants.forEach(element => {
+        element.traits.sort((a, b) => {
+          const aStyle = a.style;
+          const bStyle = b.style;
+          const aName = a.name;
+          const bName = b.name;
+          if (aStyle == bStyle) {
+            return (aName < bName) ? -1 : (aName > bName) ? 1 : 0;
+          } else {
+            return (aStyle > bStyle) ? -1 : 1;
           }
         });
       });
