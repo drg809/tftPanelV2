@@ -14,12 +14,16 @@ import { ComponentsModule } from './components/components.module';
 import { CommonModule } from '@angular/common';
 import { AngularMaterialModule } from './angular-material.modules';
 import { AccountModule } from './components/account/account.module';
+import { HistoricalComponent } from './views/historical/historical.component';
+import { ProfileComponent } from './views/profile/profile.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent
+    LayoutComponent,
+    HistoricalComponent,
+    ProfileComponent
   ],
   imports: [
     BrowserAnimationsModule,
