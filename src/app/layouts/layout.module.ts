@@ -9,6 +9,7 @@ import { NotificationsComponent } from '../shared/notifications/notifications.co
 import { HistoricalComponent } from 'app/views/historical/historical.component';
 import { AngularMaterialModule } from 'app/angular-material.modules';
 import { ProfileComponent } from 'app/views/profile/profile.component';
+import { HistoricalMatchComponent } from 'app/views/historical/match/historical-match.component';
 
 @NgModule({
   imports: [
@@ -22,6 +23,9 @@ import { ProfileComponent } from 'app/views/profile/profile.component';
     DashboardComponent,
     UserProfileComponent,
     NotificationsComponent,
+    HistoricalComponent,
+    HistoricalMatchComponent,
+    ProfileComponent
   ],
   exports: [
     AngularMaterialModule
