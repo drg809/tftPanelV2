@@ -1,32 +1,240 @@
 <div class="main-content">
     <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-body">
-                        <mat-tab-group headerPosition="below">
-                            <mat-tab label="First"> Content 1 </mat-tab>
-                            <mat-tab label="Second"> Content 2 </mat-tab>
-                            <mat-tab label="Third"> Content 3 </mat-tab>
-                        </mat-tab-group>
+      <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-tabs card-header-primary">
+                    <div class="nav-tabs-navigation">
+                        <div class="nav-tabs-wrapper">
+                            <span class="nav-tabs-title">Tasks:</span>
+                            <ul class="nav nav-tabs" data-tabs="tabs">
+                                <li class="nav-item">
+                                    <a mat-button class="nav-link active" href="#profile" data-toggle="tab">
+                                        <i class="material-icons">bug_report</i> Bugs
+                                        <div class="ripple-container"></div>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a mat-button class="nav-link" href="#messages" data-toggle="tab">
+                                        <i class="material-icons">code</i> Website
+                                        <div class="ripple-container"></div>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a mat-button class="nav-link" href="#settings" data-toggle="tab">
+                                        <i class="material-icons">cloud</i> Server
+                                        <div class="ripple-container"></div>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div *ngIf="entrie" class="tab-pane active" id="profile">
+                          <div class="matches" *ngFor="let item of entrie.data.info.participants">
+                            <div *ngIf="item.puuid == user.puuid" class="match p{{item.placement}}">
+                              <div class="info">
+                                <div>{{item.placement}}º Posicion</div>
+                                <div>
+                                  Lvl.{{item.level}}
+                                  <img class="gold" src="../../../../assets/icons/icon-gold.svg" alt="icono oro">
+                                  {{item.gold_left}}
+                                </div>
+                                <div>
+                                  <div [ngSwitch]="entrie.data.info.game_variation">
+                                    <span *ngSwitchCase="'TFT3_GameVariation_Bonanza'">
+                                      <img class="galaxie" src="../../../../assets/img/galaxies/TFT3_GameVariation_Bonanza.png" alt="icono galaxia">
+                                      Trade Sector
+                                    </span>
+                                    <span *ngSwitchCase="'TFT3_GameVariation_FreeNeekos'">
+                                      <img class="galaxie" src="../../../../assets/img/galaxies/TFT3_GameVariation_FreeNeekos.png" alt="icono galaxia">
+                                      The Neekoverse
+                                    </span>
+                                    <span *ngSwitchCase="'TFT3_GameVariation_FreeRerolls'">
+                                      <img class="galaxie" src="../../../../assets/img/galaxies/TFT3_GameVariation_FreeRerolls.png" alt="icono galaxia">
+                                      Trade Sector
+                                    </span>
+                                    <span *ngSwitchCase="'TFT3_GameVariation_MidGameFoN'">
+                                      <img class="galaxie" src="../../../../assets/img/galaxies/TFT3_GameVariation_MidGameFoN.png" alt="icono galaxia">
+                                      Superdense Galaxy
+                                    </span>
+                                    <span *ngSwitchCase="'TFT3_GameVariation_StartingItems'">
+                                      <img class="galaxie" src="../../../../assets/img/galaxies/TFT3_GameVariation_StartingItems.png" alt="icono galaxia">
+                                      Galactic Armory
+                                    </span>
+                                    <span *ngSwitchCase="'TFT3_GameVariation_TwoItemMax'">
+                                      <img class="galaxie" src="../../../../assets/img/galaxies/TFT3_GameVariation_TwoItemMax.png" alt="icono galaxia">
+                                      Binary Star
+                                    </span>
+                                    <span *ngSwitchCase="'TFT3_GameVariation_TwoStarCarousels'">
+                                      <img class="galaxie" src="../../../../assets/img/galaxies/TFT3_GameVariation_TwoStarCarousels.png" alt="icono galaxia">
+                                      Star Cluster
+                                      <!-- <img class="info-icon" src="https://rerollcdn.com/ui/icon-info.svg" alt="info"> -->
+                                    </span>
+                                    <span *ngSwitchCase="'TFT3_GameVariation_SmallerBoards'">
+                                      <img class="galaxie" src="../../../../assets/img/galaxies/TFT3_GameVariation_SmallerBoards.png" alt="icono galaxia">
+                                      Dwarf Planet
+                                    </span>
+                                    <span *ngSwitchDefault>
+                                      Normal Game
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="build">
+                                <div class="champions">
+                                  <a *ngFor="let unit of item.units" class="tier{{unit.tier}} r{{unit.rarity}}">
+                                    <img src="../../../../assets/img/champions/{{unit.character_id}}.png" class="champion">
+                                    <div class="items">
+                                      <img *ngIf="unit.items[0] && unit.items[0] != 999" class="item" alt="primer item" src="../../../../assets/img/items/set3/{{unit.items[0]}}.png">
+                                      <img *ngIf="unit.items[1] && unit.items[1] != 999" class="item" alt="segundo item" src="../../../../assets/img/items/set3/{{unit.items[1]}}.png">
+                                      <img *ngIf="unit.items[2] && unit.items[2] != 999" class="item" alt="tercer item" src="../../../../assets/img/items/set3/{{unit.items[2]}}.png">
+                                    </div>
+                                  </a>
+                                </div>
+                                <div class="traits">
+                                  <div *ngFor="let trait of item.traits">
+                                    <div *ngIf="trait.tier_current  > 0" class="builder-bonus-item active tier{{trait.style}}">
+                                      <div class="builder-bonus-icon">
+                                        <img src="../../../../assets/img/traits/{{trait.name | lowercase }}.png" alt="{{trait.name}}">
+                                        <div class="builder-bonus-counter">
+                                          <span>{{trait.num_units}}</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="results">
+
+                          </div>
+                        </div>
+                        <div class="tab-pane" id="messages">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" value="" checked>
+                                                    <span class="form-check-sign">
+                                                        <span class="check"></span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
+                                        </td>
+                                        <td class="td-actions text-right">
+                                            <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">edit</i>
+                                            </button>
+                                            <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">close</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                    <span class="form-check-sign">
+                                                        <span class="check"></span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>Sign contract for "What are conference organizers afraid of?"</td>
+                                        <td class="td-actions text-right">
+                                            <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">edit</i>
+                                            </button>
+                                            <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">close</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="tab-pane" id="settings">
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" value="">
+                                                    <span class="form-check-sign">
+                                                        <span class="check"></span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>Lines From Great Russian Literature? Or E-mails From My Boss?</td>
+                                        <td class="td-actions text-right">
+                                            <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">edit</i>
+                                            </button>
+                                            <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">close</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" value="" checked>
+                                                    <span class="form-check-sign">
+                                                        <span class="check"></span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>Flooded: One year later, assessing what was lost and what was found when a ravaging rain swept through metro Detroit
+                                        </td>
+                                        <td class="td-actions text-right">
+                                            <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">edit</i>
+                                            </button>
+                                            <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">close</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div class="form-check">
+                                                <label class="form-check-label">
+                                                    <input class="form-check-input" type="checkbox" value="" checked>
+                                                    <span class="form-check-sign">
+                                                        <span class="check"></span>
+                                                    </span>
+                                                </label>
+                                            </div>
+                                        </td>
+                                        <td>Sign contract for "What are conference organizers afraid of?"</td>
+                                        <td class="td-actions text-right">
+                                            <button mat-raised-button type="button" matTooltip="Edit Task" [matTooltipPosition]="'above'" class="btn btn-primary btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">edit</i>
+                                            </button>
+                                            <button mat-raised-button type="button" matTooltip="Remove" [matTooltipPosition]="'above'" class="btn btn-danger btn-link btn-sm btn-just-icon">
+                                                <i class="material-icons">close</i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
             </div>
-            <mat-divider></mat-divider>
-            <div class="col-md-8">
-              <mat-card class="">
-                  <mat-card-content class="">
-                      <mat-tab-group headerPosition="below">
-                          <mat-tab label="First"> Content 1 </mat-tab>
-                          <mat-tab label="Second"> Content 2 </mat-tab>
-                          <mat-tab label="Third"> Content 3 </mat-tab>
-                      </mat-tab-group>
-                  </mat-card-content>
-              </mat-card>
-          </div>
-          <div class="col-md-8">
-            <mat-slider min="1" max="100" step="1" value="1"></mat-slider>
-          </div>
         </div>
     </div>
 </div>
