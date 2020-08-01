@@ -14,16 +14,13 @@ import { ComponentsModule } from './components/components.module';
 import { CommonModule } from '@angular/common';
 import { AngularMaterialModule } from './angular-material.modules';
 import { AccountModule } from './components/account/account.module';
-import { HistoricalComponent } from './views/historical/historical.component';
-import { ProfileComponent } from './views/profile/profile.component';
+import { BrowserModule } from '@angular/platform-browser';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    LayoutComponent,
-    HistoricalComponent,
-    ProfileComponent
+    LayoutComponent
   ],
   imports: [
     BrowserAnimationsModule,
@@ -37,7 +34,8 @@ import { ProfileComponent } from './views/profile/profile.component';
     FormsModule,
     ReactiveFormsModule,
     CommonModule,
-    AngularMaterialModule
+    AngularMaterialModule,
+    BrowserModule
   ],
   exports: [
     BrowserAnimationsModule,
