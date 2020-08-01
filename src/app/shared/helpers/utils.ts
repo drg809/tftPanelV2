@@ -145,4 +145,17 @@ export class Utils {
     }
     return r;
   }
+  public static getTimeDif(time: any): string {
+    let dif: string;
+    let n: number;
+
+    n =  new Date().valueOf() - time;
+
+    if (Math.trunc(n / (1000 * 3600 * 24)) > 1) {
+      dif = Math.trunc(n / (1000 * 3600 * 24)) + ' dias';
+    } else {
+      dif = Math.trunc(n / (1000 * 3600)) + ' horas';
+    }
+    return dif;
+  }
 }
