@@ -25,8 +25,8 @@ export class ProfileComponent implements OnInit {
     this.summonerName !== undefined ? this.summonerService.create({userId: this.user._id, summonerName: this.summonerName}).subscribe((emitData: any) => { console.log(emitData); }) : console.log('Introduce tu nombre de invocador');
   }
 
-  getMatches(userId: any) {
-    this.summonerService.getMatches(userId).subscribe((emitData: any) => { console.log(emitData); });
+  getMatches(user: any) {
+    this.summonerService.getMatches(user).subscribe((emitData: any) => { console.log(emitData); });
   }
 
   setLastMatch(userId: any) {
