@@ -18,6 +18,7 @@ export class SumMatch {
       total_damage_to_players: number,
       r?: string,
       d?: string,
+      name?: string,
       traits: [{
         name: string,
         num_units: number,
