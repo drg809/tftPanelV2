@@ -6,23 +6,23 @@
                 <div class="card-header card-header-tabs card-header-primary">
                     <div class="nav-tabs-navigation">
                         <div class="nav-tabs-wrapper">
-                            <span class="nav-tabs-title">Tasks:</span>
+                            <!-- <span class="nav-tabs-title">Tasks:</span> -->
                             <ul class="nav nav-tabs" data-tabs="tabs">
                                 <li class="nav-item">
-                                    <a mat-button class="nav-link active" href="#profile" data-toggle="tab">
-                                        <i class="material-icons">bug_report</i> Bugs
+                                    <a mat-button class="nav-link active" href="#results" data-toggle="tab">
+                                        <!-- <i class="material-icons">bug_report</i> Bugs --> Resultados
                                         <div class="ripple-container"></div>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a mat-button class="nav-link" href="#messages" data-toggle="tab">
-                                        <i class="material-icons">code</i> Website
+                                    <a mat-button class="nav-link" href="#analisis" data-toggle="tab">
+                                        <!-- <i class="material-icons">code</i> Website --> Analisis
                                         <div class="ripple-container"></div>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a mat-button class="nav-link" href="#settings" data-toggle="tab">
-                                        <i class="material-icons">cloud</i> Server
+                                    <a mat-button class="nav-link" href="#notes" data-toggle="tab">
+                                        <!-- <i class="material-icons">cloud</i> Server --> Anotaciones
                                         <div class="ripple-container"></div>
                                     </a>
                                 </li>
@@ -32,7 +32,7 @@
                 </div>
                 <div class="card-body">
                     <div class="tab-content">
-                        <div *ngIf="entrie" class="tab-pane active" id="profile">
+                        <div *ngIf="entrie" class="tab-pane active" id="results">
                           <div class="matches" *ngFor="let item of entrie.data.info.participants">
                             <div *ngIf="item.puuid == user.puuid" class="match p{{item.placement}}">
                               <div class="info">
@@ -205,7 +205,7 @@
                             </table> -->
                           </div>
                         </div>
-                        <div class="tab-pane" id="messages">
+                        <div class="tab-pane" id="analisis">
                             <table class="table">
                                 <tbody>
                                     <tr>
@@ -254,7 +254,7 @@
                                 </tbody>
                             </table>
                         </div>
-                        <div class="tab-pane" id="settings">
+                        <div class="tab-pane" id="notes">
                             <table class="table">
                                 <tbody>
                                     <tr>
