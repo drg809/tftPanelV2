@@ -51,8 +51,8 @@
                       Invocardor registrado, pulsa actualizar para actualizar tu historico de partidas y poder anarlizarlo.
                     </p>
                     <div>
-                      <a class="sumMain" (click)="setMain(sum)"><mat-slide-toggle  [(ngModel)]="sum.main"></mat-slide-toggle></a> Main
-                      <a (click)="deleteSummoner()">
+                      <a (click)="setMain(sum)"><mat-slide-toggle  [(ngModel)]="sum.main"></mat-slide-toggle></a> <span class="sumMain">   Main</span>
+                      <a (click)="deleteSummoner(sum.id, sum.summonerName)">
                         <span class="material-icons">
                           delete_forever
                         </span>
