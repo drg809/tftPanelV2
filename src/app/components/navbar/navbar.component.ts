@@ -3,6 +3,7 @@ import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'app/shared/services/authentication.service';
+import { User } from 'app/shared/models/user';
 
 @Component({
   selector: 'app-navbar',
@@ -14,6 +15,7 @@ export class NavbarComponent implements OnInit {
     location: Location;
     layer: any;
     mobile_menu_visible: any = 0;
+    user: User;
     private toggleButton: any;
     private sidebarVisible: boolean;
 
@@ -37,6 +39,7 @@ export class NavbarComponent implements OnInit {
             this.mobile_menu_visible = 0;
           }
      });
+     this.user = JSON.parse(localStorage.getItem('currentUser') || '{}');
     }
 
     sidebarOpen() {
