@@ -51,7 +51,7 @@ export class SummonerService {
   }
 
   setMainSummoner(data: any) {
-    return this.http.put<Summoner>(this.apiUrl + '/summoners/match/', data);
+    return this.http.put<Summoner>(this.apiUrl + '/summoners/main/' + data.id, data);
   }
 
   getMatchesHistoric(id: string) {
