@@ -10,6 +10,8 @@ import { HistoricalComponent } from 'app/views/historical/historical.component';
 import { AngularMaterialModule } from 'app/angular-material.modules';
 import { ProfileComponent } from 'app/views/profile/profile.component';
 import { HistoricalMatchComponent } from 'app/views/historical/match/historical-match.component';
+import { SettingsComponent } from 'app/views/settings/settings.component';
+import { DatabaseComponent } from 'app/views/database/databse.component';
 
 @NgModule({
   imports: [
@@ -25,7 +27,9 @@ import { HistoricalMatchComponent } from 'app/views/historical/match/historical-
     NotificationsComponent,
     HistoricalComponent,
     HistoricalMatchComponent,
-    ProfileComponent
+    ProfileComponent,
+    SettingsComponent,
+    DatabaseComponent
   ],
   exports: [
     AngularMaterialModule
