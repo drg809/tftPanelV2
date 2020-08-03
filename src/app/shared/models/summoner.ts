@@ -7,5 +7,6 @@ export class Summoner {
   public summonerLevel?: number | null;
   public accountId?: string | null;
   public profileIconId?: number | null;
+  public main?: boolean;
   public deletedAt?: Date | null;
 }
