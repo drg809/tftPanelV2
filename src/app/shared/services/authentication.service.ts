@@ -14,7 +14,6 @@ export class AuthenticationService {
   }
 
   private clearAuthData() {
-    // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
     this.currentUser = new User();
   }
@@ -26,9 +25,7 @@ export class AuthenticationService {
   login(email: string, password: string) {
     return this.http.post<any>(this.apiUrl + '/users/login', {email, password})
       .pipe(map(user => {
-        // login successful if there's a jwt token in the response
         if (user && user.token) {
-          // store user details and jwt token in local storage to keep user logged in between page refreshes
           localStorage.setItem('currentUser', JSON.stringify(user));
           this.currentUser = user;
         }
