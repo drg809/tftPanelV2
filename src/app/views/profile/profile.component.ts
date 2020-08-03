@@ -39,8 +39,9 @@ export class ProfileComponent implements OnInit {
     this.summonerService.remove(id).subscribe((emitData: any) => { console.log(emitData); });
   }
 
-  setMain() {
-    this.mainAccount = !this.mainAccount;
-    console.log(this.mainAccount);
+  setMain(sum: Summoner) {
+    sum.main = !sum.main;
+    const x: any = {id: sum.id, main: sum.main};
+    this.summonerService.setMainSummoner(x).subscribe((emitData: any) => { console.log(emitData); });
   }
 }
