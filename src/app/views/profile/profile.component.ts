@@ -50,7 +50,7 @@ export class ProfileComponent implements OnInit {
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
       this.router.onSameUrlNavigation = 'reload';
       this.router.navigate(['/profile']);
-      const t = sum.main ? 'La cuenta ha sido actualizada a la main correctamente, a continuacion aparecera en el dashboard.' : 'La cuenta ha dejado de ser la main correctamente, a continuacion seleccione otra cuenta como main.' ;
+      const t = sum.main ? 'La cuenta ha sido actualizada a la main correctamente, a continuacion aparecera en el dashboard.' : 'La cuenta ha dejado de ser la main correctamente, a continuacion seleccione otra cuenta como main para mostrar en la dashboard.' ;
       Utils.showNotification('top', 'right', 'success', t);
     });
   }
