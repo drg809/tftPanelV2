@@ -58,7 +58,7 @@ export class ProfileComponent implements OnInit {
       data: this.obj,
     }).afterClosed().subscribe((result) => {
       if (result) {
-        this.summonerService.setLastMatchInfo(sum).subscribe(() => { Utils.showNotification('top', 'right', 'success', 'La lista de partidas ha sido actualizada.'); });
+        this.summonerService.setLastMatchInfo(sum).subscribe(() => { Utils.showNotification('success', 'La lista de partidas ha sido actualizada.'); });
       }
     });
   }
@@ -82,7 +82,7 @@ export class ProfileComponent implements OnInit {
       data: this.obj,
     }).afterClosed().subscribe((result) => {
       if (result) {
-        this.summonerService.remove(id).subscribe(() => { Utils.showNotification('top', 'right', 'success', 'El invocador ha sido eliminado.'); });
+        this.summonerService.remove(id).subscribe(() => { Utils.showNotification('success', 'El invocador ha sido eliminado.'); });
       }
     });
   }
