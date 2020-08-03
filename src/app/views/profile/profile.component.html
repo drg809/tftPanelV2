@@ -50,13 +50,16 @@
                     <p class="card-description">
                       Invocardor registrado, pulsa actualizar para actualizar tu historico de partidas y poder anarlizarlo.
                     </p>
-                    <a (click)="deleteSummoner()">
-                      <span class="material-icons">
-                        delete_forever
-                      </span>
-                      Eliminar invocador
-                    </a>
-                    <a (click)="setMain(sum)"><mat-slide-toggle  [(ngModel)]="sum.main"></mat-slide-toggle></a>
+                    <div>
+                      <a class="sumDelete" (click)="deleteSummoner()">
+                        <span class="material-icons">
+                          delete_forever
+                        </span>
+                        Eliminar invocador
+                      </a>
+                      <a (click)="setMain(sum)"><mat-slide-toggle  [(ngModel)]="sum.main"></mat-slide-toggle></a> Main
+                    </div>
+
                 </div>
                 <div class="card-footer">
                   <a (click)="setLastMatch(sum)" class="btn btn-danger btn-round">Actualizar</a>
