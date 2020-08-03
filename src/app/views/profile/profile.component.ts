@@ -12,6 +12,8 @@ export class ProfileComponent implements OnInit {
   newSummoner: Summoner;
   summonerName: string;
   user: any;
+  mainAccount: boolean;
+
   constructor(private summonerService: SummonerService) { }
 
   ngOnInit() {
@@ -35,5 +37,10 @@ export class ProfileComponent implements OnInit {
 
   deleteSummoner(id: string) {
     this.summonerService.remove(id).subscribe((emitData: any) => { console.log(emitData); });
+  }
+
+  setMain() {
+    this.mainAccount = !this.mainAccount;
+    console.log(this.mainAccount);
   }
 }
