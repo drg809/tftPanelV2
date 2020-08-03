@@ -7,7 +7,7 @@ import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
   styleUrls: ['./confirm-dialog.component.scss']
 })
 export class ConfirmDialogsComponent implements OnInit {
-  resources: any;
+  object: any;
   buttons: any;
   texts: any;
   isSuccess = false;
@@ -21,7 +21,7 @@ export class ConfirmDialogsComponent implements OnInit {
               @Inject(MAT_DIALOG_DATA) public data: any,
               private ngZone: NgZone) {
     console.log(data);
-    this.resources = data.resources;
+    this.object = data.object;
     this.buttons = data.buttons;
     this.texts = data.texts;
     this.action = data.action;
