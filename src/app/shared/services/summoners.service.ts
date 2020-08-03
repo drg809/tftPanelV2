@@ -50,6 +50,10 @@ export class SummonerService {
     return this.http.get<SumMatch>(this.apiUrl + '/summoners/match/' + id);
   }
 
+  setMainSummoner(data: any) {
+    return this.http.put<Summoner>(this.apiUrl + '/summoners/match/', data);
+  }
+
   getMatchesHistoric(id: string) {
     return this.http.get<SumMatch[]>(this.apiUrl + '/summoners/match_history/' + id);
   }
