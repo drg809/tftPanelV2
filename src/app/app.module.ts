@@ -15,6 +15,7 @@ import { CommonModule } from '@angular/common';
 import { AngularMaterialModule } from './angular-material.modules';
 import { AccountModule } from './components/account/account.module';
 import { BrowserModule } from '@angular/platform-browser';
+import { SharedModule } from './shared/shared.module';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { BrowserModule } from '@angular/platform-browser';
     ComponentsModule,
     AccountModule,
     RouterModule,
+    SharedModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
