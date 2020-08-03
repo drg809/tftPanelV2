@@ -1,0 +1,17 @@
+<div class="{{ 'dialog-header-'+ this.action}}">
+  <h4 class="header-title">{{this.texts.title}}</h4>
+</div>
+<div class="dialog-content">
+  <p style="margin: 1rem 1rem"> {{this.texts.text1}} <span style="font-weight: bold"> {{this.texts.textBold}}  </span> {{this.texts.text2}} <br> <span
+    style="font-weight: bold">{{this.resources.name}}</span>?</p>
+</div>
+<mat-divider class="dialog-divider"></mat-divider>
+<div class="dialog-footer">
+  <button (click)="accept()" class="{{ 'button-'+ this.action}}" type="submit"
+          mat-raised-button [disabled]="isSuccess">
+    <mat-icon *ngIf="isSuccess" style="color: #ff4444">done</mat-icon>
+    <span *ngIf="isLoading" class="spinner-border spinner-border-sm mr-1"></span>
+    {{this.acceptButtonLabel}}
+  </button>
+  <button style="margin-left: 5rem" mat-button [disabled]="isLoading" (click)="cancel()">Salir</button>
+</div>
