@@ -159,7 +159,7 @@ export class Utils {
     }
     return dif;
   }
-  public static showNotification(from, align, type, msg) {
+  public static showNotification(type, msg, from = 'top', align = 'right') {
     $.notify({
         icon: 'notifications',
         message: msg
