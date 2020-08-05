@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ConfirmDialogsComponent } from './dialogs/confirm-dialog/confirm-dialog.component';
 import { AngularMaterialModule } from 'app/angular-material.modules';
+import { NewSummonerDialogComponent } from './dialogs/new-summoner/new-summoner-dialog.component';
 
 @NgModule({
   imports: [
@@ -12,7 +13,8 @@ import { AngularMaterialModule } from 'app/angular-material.modules';
     AngularMaterialModule
   ],
   declarations: [
-    ConfirmDialogsComponent
+    ConfirmDialogsComponent,
+    NewSummonerDialogComponent
   ],
   exports: [
 
