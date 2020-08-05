@@ -6,6 +6,7 @@ import { NotificationsComponent } from '../shared/notifications/notifications.co
 import { HistoricalComponent } from 'app/views/historical/historical.component';
 import { HistoricalMatchComponent } from 'app/views/historical/match/historical-match.component';
 import { ProfileComponent } from 'app/views/profile/profile.component';
+import { SettingsComponent } from 'app/views/settings/settings.component';
 
 export const LayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -14,4 +15,5 @@ export const LayoutRoutes: Routes = [
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'historical',  component: HistoricalComponent },
     { path: 'historical/:id',  component: HistoricalMatchComponent },
+    { path: 'settings',  component: SettingsComponent },
 ];
