@@ -1,0 +1,58 @@
+.dialog-header-danger {
+  text-align: center;
+  width: 100%;
+  height: 3rem;
+  background-color: #ff4444;
+}
+
+.dialog-header-success {
+  text-align: center;
+  width: 100%;
+  height: 3rem;
+  background-color: #5cb85c;
+}
+
+.dialog-header-info {
+  text-align: center;
+  width: 100%;
+  height: 3rem;
+  background-color: #5bc0de;
+}
+
+.header-title {
+  font-size: 1.5em;
+  font-weight: 500;
+  color: white;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+}
+
+.dialog-content {
+  text-align: center;
+  margin: 1rem auto;
+}
+
+.dialog-footer {
+  text-align: center;
+  margin: 1rem;
+}
+
+/* SUCCESS ---------------------------------------------------------*/
+.button-success {
+  border: #00C851 solid 1px !important;
+  color: #000 !important;
+  background-color: #fff !important;
+}
+
+.button-success:hover {
+  color: #000 !important;
+  background-color: #00C851 !important;
+}
+
+.button-success[disabled] {
+  color: #000 !important;
+  background-color: rgba(0, 200, 81, 0.6) !important;
+}
