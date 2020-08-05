@@ -6,6 +6,7 @@ import { NotificationsComponent } from 'app/shared/notifications/notifications.c
 import { Utils } from 'app/shared/helpers/utils';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogsComponent } from 'app/shared/dialogs/confirm-dialog/confirm-dialog.component';
+import { NewSummonerDialogComponent } from 'app/shared/dialogs/new-summoner/new-summoner-dialog.component';
 
 @Component({
   selector: 'app-profile',
@@ -32,7 +33,26 @@ export class ProfileComponent implements OnInit {
   }
 
   addNewSummoner() {
-    this.summonerName !== undefined ? this.summonerService.create({userId: this.user._id, summonerName: this.summonerName}).subscribe((emitData: any) => { console.log(emitData); }) : console.log('Introduce tu nombre de invocador');
+    this.obj = {
+      buttons: {
+          acceptButtonLabel : 'Actualizar',
+          acceptButtonLabelAccept : 'Actualizando'
+      },
+      texts: {
+          title: 'Actualizar invocador',
+          text1: '¿Está seguro que desea ',
+          textBold: 'actualizar ',
+          text2: 'el invocador '
+      },
+      action: 'danger'
+    };
+    this.dialog.open(NewSummonerDialogComponent, {
+      data: this.obj,
+    }).afterClosed().subscribe((result) => {
+      if (result) {
+        this.summonerName !== undefined ? this.summonerService.create({userId: this.user._id, summonerName: this.summonerName}).subscribe((emitData: any) => { console.log(emitData); }) : console.log('Introduce tu nombre de invocador');
+      }
+    });
   }
 
   getMatches(sum: Summoner) {
