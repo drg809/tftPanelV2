@@ -14,6 +14,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/profile', title: 'Summoner Profiles',  icon: 'person', class: '', show: true },
     { path: '/historical', title: 'Historical',  icon: 'notifications', class: '', show: true },
     { path: '/historical/:id', title: 'Match Info',  icon: 'notifications', class: '', show: false },
+    { path: '/settings', title: 'Settings',  icon: 'settings', class: '', show: false },
 ];
 
 @Component({
