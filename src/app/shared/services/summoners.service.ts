@@ -58,11 +58,11 @@ export class SummonerService {
     return this.http.get<SumMatch[]>(this.apiUrl + '/summoners/match_history/' + id);
   }
 
-  getLeaguesEntries() {
+  getLeaguesEntriesExt() {
     return this.http.post<any>(this.apiUrl + '/summoners/leagueEntries_ext', {});
   }
 
-  getApexLeaguesEntries() {
+  getApexLeaguesEntriesExt() {
     return this.http.post<any>(this.apiUrl + '/summoners/apexLeagues_ext', {});
   }
 }
