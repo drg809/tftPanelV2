@@ -65,4 +65,8 @@ export class SummonerService {
   getApexLeaguesEntriesExt() {
     return this.http.post<any>(this.apiUrl + '/summoners/apexLeagues_ext', {});
   }
+
+  getLeaguesEntries() {
+    return this.http.post<any>(this.apiUrl + '/summoners/stats', {});
+  }
 }
