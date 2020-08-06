@@ -46,7 +46,6 @@ export class ConfirmDialogsComponent implements OnInit {
     this.ngZone.run(() => {
       this.dialogRef.close(false);
       this.loading = false;
-      console.log('primer modal');
     });
   }
 }
