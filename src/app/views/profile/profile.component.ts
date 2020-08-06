@@ -35,23 +35,20 @@ export class ProfileComponent implements OnInit {
   addNewSummoner() {
     this.obj = {
       buttons: {
-          acceptButtonLabel : 'Actualizar',
-          acceptButtonLabelAccept : 'Actualizando'
+          acceptButtonLabel : 'Crear invocador',
+          acceptButtonLabelAccept : 'Creando'
       },
       texts: {
-          title: 'Actualizar invocador',
-          text1: '¿Está seguro que desea ',
-          textBold: 'actualizar ',
-          text2: 'el invocador '
-      },
-      action: 'danger'
+          title: 'Introducir un nuevo invocador',
+          text: 'Va a crear un nuevo invocador para ser trackeado.'
+      }
     };
     this.dialog.open(NewSummonerDialogComponent, {
       data: this.obj,
     }).afterClosed().subscribe((result) => {
-      if (result) {
-        this.summonerName !== undefined ? this.summonerService.create({userId: this.user._id, summonerName: this.summonerName}).subscribe((emitData: any) => { console.log(emitData); }) : console.log('Introduce tu nombre de invocador');
-      }
+      if (result.res) {
+        console.log(result);
+        Utils.showNotification('top', 'right', 'success', 'Nuevo invocador creado con nombre ' + result.name);      }
     });
   }
 
@@ -109,7 +106,7 @@ export class ProfileComponent implements OnInit {
 
   setMain(sum: Summoner) {
     sum.main = !sum.main;
-    const x: any = {id: sum.id, main: sum.main};
+    const x: any = {id: sum.id, userId: sum.userId, main: sum.main};
     this.summonerService.setMainSummoner(x).subscribe(() => {
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
       this.router.onSameUrlNavigation = 'reload';
