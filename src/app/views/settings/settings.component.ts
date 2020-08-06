@@ -19,15 +19,15 @@ export class SettingsComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('currentUser') || '{}');
   }
 
-  getLeagueEntries() {
-    this.summonerService.getLeaguesEntries().subscribe(data => {
+  getLeaguesEntriesExt() {
+    this.summonerService.getLeaguesEntriesExt().subscribe(data => {
       this.leagueEntries = data.sort((a, b) => b.leaguePoints  - a.leaguePoints);
       console.log(this.leagueEntries);
     });
   }
 
-  getApexLeagueEntries() {
-    this.summonerService.getApexLeaguesEntries().subscribe(data => {
+  getApexLeaguesEntriesExt() {
+    this.summonerService.getApexLeaguesEntriesExt().subscribe(data => {
       this.apexLeagueEntries = data.sort((a, b) => b.leaguePoints  - a.leaguePoints);
       console.log(this.apexLeagueEntries);
     });
