@@ -1,17 +1,17 @@
 <div class="{{ 'dialog-header-success'}}">
-  <h4 class="header-title">Introducir un nuevo invocador</h4>
+  <h4 class="header-title">{{this.texts.title}}</h4>
 </div>
 <div class="dialog-content">
-  <form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" [@formState]="formState">
+  <p>{{this.texts.text}}</p>
+  <form>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Nombre de invocador" type="text" formControlName="name">
-      <mat-error *ngIf="!formGroup.controls['name'].valid && formGroup.controls['name'].touched">{{ getErrorEmail() }}</mat-error>
+      <input matInput placeholder="Nombre de invocador" type="text" [(ngModel)]="name" name="name">
     </mat-form-field>
   </form>
 </div>
 <mat-divider class="dialog-divider"></mat-divider>
 <div class="dialog-footer">
-  <button (click)="accept()" class="{{ 'button-'+ this.action}}" type="submit"
+  <button (click)="accept()" class="{{ 'button-success'}}" type="submit"
           mat-raised-button [disabled]="isSuccess">
     <mat-icon *ngIf="isSuccess" style="color: #ff4444">done</mat-icon>
     <span *ngIf="isLoading" class="spinner-border spinner-border-sm mr-1"></span>
