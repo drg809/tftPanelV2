@@ -1,3 +1,5 @@
+import { SummonersStats } from './../../shared/models/summonersStats';
+import { SummonerService } from './../../shared/services/summoners.service';
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
 
@@ -7,8 +9,9 @@ import * as Chartist from 'chartist';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+  summonerStats: SummonersStats;
 
-  constructor() { }
+  constructor(private summonerService: SummonerService) { }
   startAnimationForLineChart(chart) {
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -145,6 +148,11 @@ export class DashboardComponent implements OnInit {
 
       // start animation for the Emails Subscription Chart
       this.startAnimationForBarChart(websiteViewsChart);
+
+      this.summonerService.getLeaguesEntries().subscribe((data: any) => {
+        this.summonerStats = data;
+        console.log(data);
+      });
   }
 
 }
