@@ -2,7 +2,7 @@ import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {Summoner} from '../models/summoner';
-import { SumMatch } from '../models/match';
+import { SumMatch, MatchesPagination } from '../models/match';
 
 
 @Injectable({ providedIn: 'root' })
@@ -54,8 +54,8 @@ export class SummonerService {
     return this.http.put<Summoner>(this.apiUrl + '/summoners/main/' + data.id, data);
   }
 
-  getMatchesHistoric(id: string) {
-    return this.http.get<SumMatch[]>(this.apiUrl + '/summoners/match_history/' + id);
+  getMatchesHistoric(params: any) {
+    return this.http.post<MatchesPagination>(this.apiUrl + '/summoners/match_history/' + params.userId, params);
   }
 
   getLeaguesEntriesExt() {
