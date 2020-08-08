@@ -1,0 +1,30 @@
+$platinum: #AD1457;
+$gold: #bd9a38;
+$silver: #7c8f92;
+$bronze: #A0715E;
+$fourth: #284454;
+
+.card {
+  .card-header-gold .card-icon {
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4);
+    background: linear-gradient(60deg, #ffa726, #fb8c00);
+  }
+  .card-header-silver .card-icon {
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4);
+    background: linear-gradient(60deg,$silver, #657274);
+  }
+  .card-header-bronze .card-icon {
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4);
+    background: linear-gradient(60deg,$bronze, #805949);
+  }
+  .card-header-fourth .card-icon {
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4);
+    background: linear-gradient(60deg,$fourth, #1c313c);
+  }
+  .card-icon{
+    font-size: 2em;
+    font-weight: 900;
+    font-family: revert;
+  }
+}
+
