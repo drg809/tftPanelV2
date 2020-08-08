@@ -1,4 +1,4 @@
-<div class="row mt-5">
+<div class="row historical mt-5">
   <div class="col-md-12">
       <!--Card-->
       <mat-card cascade="true" narrower="true" class="mt-5">
@@ -88,6 +88,7 @@
                   </div>
                 </div>
               </div>
+              <mat-paginator #paginator [length]="length" [pageSize]="pageSize" [pageIndex]="pageIndex" [pageSizeOptions]="[5, 10, 25, 100]" (page)="pageEvent = getServerData($event)"></mat-paginator>
           </mat-card-content>
           <!--/.Card content-->
       </mat-card>
