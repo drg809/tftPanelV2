@@ -62,6 +62,13 @@ img.item {
     width: 1.1vw;
 }
 
+.historicalMatch {
+  .card .card-header-primary:not(.card-header-icon):not(.card-header-text) {
+    background: linear-gradient(60deg, #ec4637, #a03025);
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgb(236 70 55);
+  }
+}
+
 .matches .match {
     display: flex;
     flex-wrap: wrap;
