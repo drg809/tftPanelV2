@@ -15,3 +15,15 @@ export class SummonersStats {
   public inactive?: boolean;
   public miniSeries?: object
 }
+
+export class SummonersStatsDetails {
+    public top1?: number;
+    public top2?: number;
+    public top3?: number;
+    public top4?: number;
+    public top5?: number;
+    public top6?: number;
+    public top7?: number;
+    public top8?: number;
+    public total?: number;
+}
