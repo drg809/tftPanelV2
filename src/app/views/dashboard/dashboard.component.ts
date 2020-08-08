@@ -2,6 +2,7 @@ import { SummonersStats, SummonersStatsDetails } from './../../shared/models/sum
 import { SummonerService } from './../../shared/services/summoners.service';
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
+import { Utils } from 'app/shared/helpers/utils';
 
 @Component({
   selector: 'app-dashboard',
@@ -75,48 +76,71 @@ export class DashboardComponent implements OnInit {
         this.summonerStats = data;
         this.positions = data.positions;
 
-
-
-        setTimeout(() => {
-          const datawebsiteViewsChart = {
-            labels: ['Top1', 'Top2', 'Top3', 'Top4', 'Top5', 'Top6', 'Top7', 'Top8'],
-            series: [
-              [this.positions.top1, this.positions.top2, this.positions.top3, this.positions.top4, this.positions.top5, this.positions.top6, this.positions.top7, this.positions.top8]
-            ]
-          };
-          const optionswebsiteViewsChart = {
-              axisX: {
-                  showGrid: false
-              },
-              low: 0,
-              high: 30,
-              chartPadding: { top: 0, right: 0, bottom: 0, left: 0}
-          };
-          const responsiveOptions: any[] = [
-            ['screen and (max-width: 640px)', {
-              seriesBarDistance: 5,
-              axisX: {
-                labelInterpolationFnc: function (value) {
-                  return value[0];
-                }
-              }
-            }]
-          ];
-          const websiteViewsChart = new Chartist.Bar('#websiteViewsChart',
-                                                        datawebsiteViewsChart, optionswebsiteViewsChart, responsiveOptions);
-          this.startAnimationForBarChart(websiteViewsChart);
-        }, 100);
-
-        const dataDailySalesChart: any = {
-          labels: ['Top 1', 'Top 2', 'Top 3', 'Top 4', 'Top 5', 'Top 6', 'Top 7', 'Top 8'],
+        const dataPositionMatchesChart = {
+          labels: ['Top1', 'Top2', 'Top3', 'Top4', 'Top5', 'Top6', 'Top7', 'Top8'],
           series: [
-              [this.positions.top1, this.positions.top2, this.positions.top3, this.positions.top4, this.positions.top5, this.positions.top6, this.positions.top7, this.positions.top8]
+            [this.positions.top1, this.positions.top2, this.positions.top3, this.positions.top4, this.positions.top5, this.positions.top6, this.positions.top7, this.positions.top8]
           ]
         };
+        const optionsPositionMatchesChart = {
+            axisX: {
+                showGrid: false
+            },
+            low: 0,
+            high: 30,
+            chartPadding: { top: 0, right: 0, bottom: 0, left: 0}
+        };
+        const responsiveOptions: any[] = [
+          ['screen and (max-width: 640px)', {
+            seriesBarDistance: 5,
+            axisX: {
+              labelInterpolationFnc: function (value) {
+                return value[0];
+              }
+            }
+          }]
+        ];
+        const positionsMatchesChart = new Chartist.Bar('#positionsMatchesChart', dataPositionMatchesChart, optionsPositionMatchesChart, responsiveOptions);
+        this.startAnimationForBarChart(positionsMatchesChart);
 
-        const dailySalesChart = new Chartist.Line('#dailySalesChart', dataDailySalesChart, optionsDailySalesChart);
-
-        this.startAnimationForLineChart(dailySalesChart);
+        const datagalaxiesMatchesChart: any = {
+          labels: [
+            Utils.getGalaxie('TFT3_GameVariation_Bonanza'),
+            Utils.getGalaxie('TFT3_GameVariation_FreeNeekos'),
+            Utils.getGalaxie('TFT3_GameVariation_FreeRerolls'),
+            Utils.getGalaxie('TFT3_GameVariation_LittlerLegends'),
+            Utils.getGalaxie('TFT3_GameVariation_MidGameFoN'),
+            Utils.getGalaxie('TFT3_GameVariation_None'),
+            Utils.getGalaxie('TFT3_GameVariation_SmallerBoards'),
+            Utils.getGalaxie('TFT3_GameVariation_StartingItems'),
+            Utils.getGalaxie('TFT3_GameVariation_TwoItemMax'),
+            Utils.getGalaxie('TFT3_GameVariation_TwoStarCarousels'),
+          ],
+          series: [
+              [
+                data.count.TFT3_GameVariation_Bonanza,
+                data.count.TFT3_GameVariation_FreeNeekos,
+                data.count.TFT3_GameVariation_FreeRerolls,
+                data.count.TFT3_GameVariation_LittlerLegends,
+                data.count.TFT3_GameVariation_MidGameFoN,
+                data.count.TFT3_GameVariation_None,
+                data.count.TFT3_GameVariation_SmallerBoards,
+                data.count.TFT3_GameVariation_StartingItems,
+                data.count.TFT3_GameVariation_TwoItemMax,
+                data.count.TFT3_GameVariation_TwoStarCarousels,
+              ]
+          ]
+        };
+        const optionsgalaxiesMatchesChart = {
+            axisX: {
+                showGrid: false
+            },
+            low: 0,
+            high: 30,
+            chartPadding: { top: 0, right: 0, bottom: 0, left: 0}
+        };
+        const galaxiesMatchesChart = new Chartist.Bar('#galaxiesMatchesChart', datagalaxiesMatchesChart, optionsgalaxiesMatchesChart, responsiveOptions);
+        this.startAnimationForBarChart(galaxiesMatchesChart);
 
       });
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
