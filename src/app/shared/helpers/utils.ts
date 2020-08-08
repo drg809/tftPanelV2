@@ -159,6 +159,41 @@ export class Utils {
     }
     return dif;
   }
+  public static getGalaxie(x: string): string {
+    let r: string;
+    switch (x) {
+      case 'TFT3_GameVariation_Bonanza':
+        r = 'Trade Sector';
+        break;
+      case 'TFT3_GameVariation_FreeNeekos':
+        r = 'The Neekoverse';
+        break;
+      case 'TFT3_GameVariation_FreeRerolls':
+        r = 'Trade Sector';
+        break;
+      case 'TFT3_GameVariation_LittlerLegends':
+        r = 'Littler Legends';
+        break;
+      case 'TFT3_GameVariation_MidGameFoN':
+        r = 'Superdense Galaxy';
+        break;
+      case 'TFT3_GameVariation_SmallerBoards':
+        r = 'Dwarf Planet';
+        break;
+      case 'TFT3_GameVariation_StartingItems':
+        r = 'Galactic Armory';
+        break;
+      case 'TFT3_GameVariation_TwoItemMax':
+        r = 'Binary Star';
+        break;
+      case 'TFT3_GameVariation_TwoStarCarousels':
+          r = 'Star Cluster';
+          break;
+      default:
+        r = 'TFT3_GameVariation_None';
+    }
+    return r;
+  }
   public static showNotification(type, msg, from = 'top', align = 'right') {
     $.notify({
         icon: 'notifications',
