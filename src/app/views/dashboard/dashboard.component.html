@@ -5,14 +5,14 @@
               <div class="card card-stats">
                   <div class="card-header card-header-warning card-header-icon">
                       <div class="card-icon">
-                          <i class="material-icons">content_copy</i>
+                          <span class="material-icons">star_rate</span>
                       </div>
                       <p class="card-category">Partidas ganadas</p>
-                      <h3 class="card-title">{{summonerStats.wins}}</h3>
+                      <h3 class="card-title">{{matchWon}}</h3>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
-                          <span>{{summonerStats.wins / (summonerStats.losses + summonerStats.wins)}}</span>
+                          <span>Porcentaje de victorias  {{(matchWon / matchTotal) * 100 | number:'1.0-2'}}%</span>
                       </div>
                   </div>
               </div>
@@ -21,14 +21,14 @@
               <div class="card card-stats">
                   <div class="card-header card-header-success card-header-icon">
                       <div class="card-icon">
-                          <i class="material-icons">store</i>
+                          <span class="material-icons">mood_bad</span>
                       </div>
                       <p class="card-category">Partidas perdidas</p>
-                      <h3 class="card-title">{{summonerStats.losses}}</h3>
+                      <h3 class="card-title">{{matchLosses}}</h3>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
-                          <span>{{summonerStats.losses / (summonerStats.losses + summonerStats.wins)}}</span>
+                          <span>Porcentaje de derrotas  {{(matchLosses / matchTotal) * 100 | number:'1.0-2' }}%</span>
                       </div>
                   </div>
               </div>
@@ -37,7 +37,9 @@
               <div class="card card-stats">
                   <div class="card-header card-header-danger card-header-icon">
                       <div class="card-icon">
-                          <i class="material-icons">info_outline</i>
+                        <span class="material-icons">
+                          star_half
+                          </span>
                       </div>
                       <p class="card-category">4o puesto</p>
                       <h3 class="card-title">75</h3>
@@ -53,10 +55,10 @@
               <div class="card card-stats">
                   <div class="card-header card-header-info card-header-icon">
                       <div class="card-icon">
-                          <i class="fa fa-twitter"></i>
+                          <span class="material-icons">sports_esports</span>
                       </div>
                       <p class="card-category">Partidas totales</p>
-                      <h3 class="card-title">{{summonerStats.losses + summonerStats.wins}}</h3>
+                      <h3 class="card-title">{{matchTotal}}</h3>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
@@ -117,7 +119,7 @@
               </div>
           </div>
       </div>
-      <div class="row">
+      <!-- <div class="row">
           <div class="col-lg-6 col-md-12">
               <div class="card">
                   <div class="card-header card-header-tabs card-header-primary">
@@ -362,8 +364,8 @@
                       </div>
                   </div>
               </div>
-          </div>
-          <div class="col-lg-6 col-md-12">
+          </div> -->
+          <!-- <div class="col-lg-6 col-md-12">
               <div class="card">
                   <div class="card-header card-header-warning">
                       <h4 class="card-title">Employees Stats</h4>
@@ -407,6 +409,6 @@
                   </div>
               </div>
           </div>
-      </div>
+      </div> -->
   </div>
 </div>

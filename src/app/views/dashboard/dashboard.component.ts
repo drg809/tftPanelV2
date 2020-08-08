@@ -10,6 +10,10 @@ import * as Chartist from 'chartist';
 })
 export class DashboardComponent implements OnInit {
   summonerStats: SummonersStats;
+  matchWon: number;
+  matchLosses: number;
+  matchTotal: number;
+  top4: number;
 
   constructor(private summonerService: SummonerService) { }
   startAnimationForLineChart(chart) {
@@ -68,7 +72,15 @@ export class DashboardComponent implements OnInit {
 
       seq2 = 0;
   };
+
   ngOnInit() {
+      this.summonerService.getLeaguesEntries().subscribe((data: any) => {
+        this.summonerStats = data;
+        this.matchWon = data.wins;
+        this.matchLosses = data.losses;
+        this.matchTotal = data.wins + data.losses;
+        console.log(data);
+      });
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
       const dataDailySalesChart: any = {
@@ -149,10 +161,7 @@ export class DashboardComponent implements OnInit {
       // start animation for the Emails Subscription Chart
       this.startAnimationForBarChart(websiteViewsChart);
 
-      this.summonerService.getLeaguesEntries().subscribe((data: any) => {
-        this.summonerStats = data;
-        console.log(data);
-      });
+
   }
 
 }
