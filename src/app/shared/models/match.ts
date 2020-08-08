@@ -38,3 +38,11 @@ export class SumMatch {
     tft_set_number: number
   } };
 }
+
+export class MatchesPagination {
+  public data?: [SumMatch];
+  public pageIndex?: number;
+  public pages?: number;
+  public numResult?: number;
+  public pageSize?: number;
+}
