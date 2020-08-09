@@ -660,3 +660,10 @@
     color: #e91e63;
   }
 }
+
+.settings {
+  .card-icon,
+  .card-text{
+    float: right !important;
+  }
+}
