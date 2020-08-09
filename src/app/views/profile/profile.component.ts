@@ -48,6 +48,8 @@ export class ProfileComponent implements OnInit {
     }).afterClosed().subscribe((result) => {
       if (result.res) {
         console.log(result);
+        const sum: Summoner = {userId: this.user._id, summonerName: result.name};
+        this.summonerService.create(sum).subscribe((emitData: any) => { console.log(emitData); });
         Utils.showNotification('top', 'right', 'success', 'Nuevo invocador creado con nombre ' + result.name);      }
     });
   }
