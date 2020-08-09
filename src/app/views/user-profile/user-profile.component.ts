@@ -8,6 +8,7 @@ import { User } from 'app/shared/models/user';
 })
 export class UserProfileComponent implements OnInit {
   user: User;
+  name: string; lastname: string; phone: string; country: string; about: string;
 
   constructor() { }
 
