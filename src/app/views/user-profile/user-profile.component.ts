@@ -4,7 +4,6 @@ import { Component, OnInit } from '@angular/core';
 import { User } from 'app/shared/models/user';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogsComponent } from 'app/shared/dialogs/confirm-dialog/confirm-dialog.component';
-import { sum } from 'chartist';
 import { Utils } from 'app/shared/helpers/utils';
 
 @Component({
@@ -43,6 +42,7 @@ export class UserProfileComponent implements OnInit {
         this.userProfile = {name: this.name, lastname: this.lastname, phone: this.phone, country: this.country, about: this.about};
         this.userProfileService.create(this.userProfile).subscribe((x) => {
           console.log(x);
+          Utils.showNotification('top', 'right', 'success', 'Perfil guardado correctamente.');
         });
       }
     });
