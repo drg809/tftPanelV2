@@ -1,3 +1,5 @@
+import { Pipe, PipeTransform } from '@angular/core';
+
 declare var $: any;
 export class Utils {
   public static getRound(x: number): string {
@@ -163,7 +165,7 @@ export class Utils {
     let r: string;
     switch (x) {
       case 'TFT3_GameVariation_Bonanza':
-        r = 'Trade Sector';
+        r = 'Treasure Trove';
         break;
       case 'TFT3_GameVariation_FreeNeekos':
         r = 'The Neekoverse';
@@ -190,7 +192,7 @@ export class Utils {
           r = 'Star Cluster';
           break;
       default:
-        r = 'TFT3_GameVariation_None';
+        r = 'Normal';
     }
     return r;
   }
@@ -217,5 +219,18 @@ export class Utils {
           '<a href="{3}" target="{4}" data-notify="url"></a>' +
         '</div>'
     });
+  }
 }
+@Pipe({name: 'GalaxieNamePipe'})
+export class GalaxieNamePipe implements PipeTransform {
+  static forRoot() {
+    return {
+        ngModule: GalaxieNamePipe,
+        providers: [],
+    };
+  };
+  transform(value: string): string {
+    const newStr = Utils.getGalaxie(value);
+    return newStr;
+  };
 }
