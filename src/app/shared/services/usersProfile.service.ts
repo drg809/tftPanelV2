@@ -19,6 +19,10 @@ export class UserProfileService {
     return this.http.get<UserProfile>(this.apiUrl + '/profile/' + id);
   }
 
+  getByUserId(userId: any) {
+    return this.http.get<UserProfile>(this.apiUrl + '/profile/user/' + userId);
+  }
+
   create(data: UserProfile) {
     return this.http.post<UserProfile>(this.apiUrl + '/profile/', data);
   }
