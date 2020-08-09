@@ -19,6 +19,13 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    this.userProfileService.getByUserId(this.user._id).subscribe((x) => {
+      this.name = x.name;
+      this.lastname = x.lastname;
+      this.phone = x.phone;
+      this.country = x.country;
+      this.about = x.about;
+    });
   }
 
   onSaveProfile() {
@@ -39,7 +46,7 @@ export class UserProfileComponent implements OnInit {
       data: this.obj,
     }).afterClosed().subscribe((result) => {
       if (result) {
-        this.userProfile = {name: this.name, lastname: this.lastname, phone: this.phone, country: this.country, about: this.about};
+        this.userProfile = {userId: this.user._id, name: this.name, lastname: this.lastname, phone: this.phone, country: this.country, about: this.about};
         this.userProfileService.create(this.userProfile).subscribe((x) => {
           console.log(x);
           Utils.showNotification('top', 'right', 'success', 'Perfil guardado correctamente.');
