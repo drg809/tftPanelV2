@@ -1,11 +1,12 @@
-<form [formGroup]="formGroup" (ngSubmit)="onSubmit(formGroup.value)" [@formState]="formState">
+
+<form #f="ngForm" (ngSubmit)="f.form.valid && accept()">
   <div class="{{ 'dialog-header-success'}}">
     <h4 class="header-title">{{this.texts.title}}</h4>
   </div>
   <div class="dialog-content">
     <p>{{this.texts.text}}</p>
     <mat-form-field class="example-full-width">
-      <input matInput placeholder="Nombre de invocador" type="text" formControlName="name">
+      <input matInput placeholder="Nombre de invocador" type="text" [(ngModel)]="name" name="name">
     </mat-form-field>
   </div>
   <mat-divider class="dialog-divider"></mat-divider>
