@@ -1,3 +1,4 @@
+import { GalaxieNamePipe } from './shared/helpers/utils';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -16,7 +17,6 @@ import { AngularMaterialModule } from './angular-material.modules';
 import { AccountModule } from './components/account/account.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from './shared/shared.module';
-
 
 @NgModule({
   declarations: [
