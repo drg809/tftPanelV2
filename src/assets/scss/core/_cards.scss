@@ -532,7 +532,7 @@
             color: rgba($white-color, .7);
         }
         .ct-grid{
-            stroke: rgba(255, 255, 255, 0.2);
+            stroke: rgba(255, 255, 255);
         }
         .ct-series-a .ct-point,
         .ct-series-a .ct-line,
@@ -556,6 +556,10 @@
           stroke-width: 4px;
         }
       }
+  }
+
+  #positionsMatchesChart .ct-series-a .ct-bar{
+    stroke-width: 25px;
   }
 
   [data-header-animation="true"] {
