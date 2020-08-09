@@ -15,4 +15,8 @@ export class UserProfileComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('currentUser') || '{}');
   }
 
+  onSaveProfile() {
+    console.log(1);
+  }
+
 }
