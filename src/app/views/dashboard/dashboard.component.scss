@@ -31,3 +31,13 @@ $fourth: #284454;
 .card [class*=card-header-] .ct-chart .ct-series-a .ct-bar {
   stroke-width: 25px !important;
 }
+
+.card [class*=card-header-] .ct-chart .ct-grid {
+  stroke: rgb(255 255 255);
+}
+.ct-chart .ct-label.ct-vertical.ct-start {
+  font-size: 10px !important;
+}
+.ct-chart .ct-series-b .ct-bar{
+  stroke: #284454;
+}

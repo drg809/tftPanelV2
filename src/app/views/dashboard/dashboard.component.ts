@@ -12,6 +12,7 @@ import { Utils } from 'app/shared/helpers/utils';
 export class DashboardComponent implements OnInit {
   summonerStats: SummonersStats;
   positions: SummonersStatsDetails;
+  counts: any;
 
   constructor(private summonerService: SummonerService) { }
   startAnimationForLineChart(chart) {
@@ -75,6 +76,8 @@ export class DashboardComponent implements OnInit {
       this.summonerService.getLeaguesEntries().subscribe((data: any) => {
         this.summonerStats = data;
         this.positions = data.positions;
+        this.counts = data.count;
+        console.log(data.count);
 
         const dataPositionMatchesChart = {
           labels: ['Top1', 'Top2', 'Top3', 'Top4', 'Top5', 'Top6', 'Top7', 'Top8'],
@@ -88,11 +91,12 @@ export class DashboardComponent implements OnInit {
             },
             low: 0,
             high: 30,
-            chartPadding: { top: 0, right: 0, bottom: 0, left: 0}
+            height: '250px',
+            chartPadding: { top: 0, right: 2, bottom: 0, left: 0}
         };
         const responsiveOptions: any[] = [
           ['screen and (max-width: 640px)', {
-            seriesBarDistance: 5,
+            seriesBarDistance: 3,
             axisX: {
               labelInterpolationFnc: function (value) {
                 return value[0];
@@ -118,23 +122,43 @@ export class DashboardComponent implements OnInit {
           ],
           series: [
               [
-                data.count.TFT3_GameVariation_Bonanza,
-                data.count.TFT3_GameVariation_FreeNeekos,
-                data.count.TFT3_GameVariation_FreeRerolls,
-                data.count.TFT3_GameVariation_LittlerLegends,
-                data.count.TFT3_GameVariation_MidGameFoN,
-                data.count.TFT3_GameVariation_None,
-                data.count.TFT3_GameVariation_SmallerBoards,
-                data.count.TFT3_GameVariation_StartingItems,
-                data.count.TFT3_GameVariation_TwoItemMax,
-                data.count.TFT3_GameVariation_TwoStarCarousels,
+                this.counts.top4.TFT3_GameVariation_Bonanza,
+                this.counts.top4.TFT3_GameVariation_FreeNeekos,
+                this.counts.top4.TFT3_GameVariation_FreeRerolls,
+                this.counts.top4.TFT3_GameVariation_LittlerLegends,
+                this.counts.top4.TFT3_GameVariation_MidGameFoN,
+                this.counts.top4.TFT3_GameVariation_None,
+                this.counts.top4.TFT3_GameVariation_SmallerBoards,
+                this.counts.top4.TFT3_GameVariation_StartingItems,
+                this.counts.top4.TFT3_GameVariation_TwoItemMax,
+                this.counts.top4.TFT3_GameVariation_TwoStarCarousels,
+              ],
+              [
+                this.counts.total.TFT3_GameVariation_Bonanza,
+                this.counts.total.TFT3_GameVariation_FreeNeekos,
+                this.counts.total.TFT3_GameVariation_FreeRerolls,
+                this.counts.total.TFT3_GameVariation_LittlerLegends,
+                this.counts.total.TFT3_GameVariation_MidGameFoN,
+                this.counts.total.TFT3_GameVariation_None,
+                this.counts.total.TFT3_GameVariation_SmallerBoards,
+                this.counts.total.TFT3_GameVariation_StartingItems,
+                this.counts.total.TFT3_GameVariation_TwoItemMax,
+                this.counts.total.TFT3_GameVariation_TwoStarCarousels,
               ]
           ]
         };
         const optionsgalaxiesMatchesChart = {
             axisX: {
-                showGrid: false
+                scaleMinSpace: 50,
+                offset: 30
             },
+            axisY: {
+                offset: 120,
+            },
+            height: '250px',
+            seriesBarDistance: 10,
+            reverseData: true,
+            horizontalBars: true,
             low: 0,
             high: 30,
             chartPadding: { top: 0, right: 0, bottom: 0, left: 0}
