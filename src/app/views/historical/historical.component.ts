@@ -32,7 +32,7 @@ export class HistoricalComponent implements OnInit {
     const params = {userId: this.user._id, page: pageI + 1}
     this.summonerService.getMatchesHistoric(params).subscribe(data => {
       this.matchs = data.data;
-      this.matchs.sort((a, b) => b.data?.info.game_datetime  - a.data?.info.game_datetime);
+      //this.matchs.sort((a, b) => b.data?.info.game_datetime  - a.data?.info.game_datetime);
       this.length = data.numResult;
       this.pageIndex = data.pageIndex - 1;
       this.pageSize = data.pageSize;
