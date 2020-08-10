@@ -54,8 +54,12 @@ export class SummonerService {
     return this.http.put<Summoner>(this.apiUrl + '/summoners/main/' + data.id, data);
   }
 
-  getMatchesHistoric(params: any) {
-    return this.http.post<MatchesPagination>(this.apiUrl + '/summoners/match_history/' + params.userId, params);
+  getMatchesHistoricPaginate(params: any) {
+    return this.http.post<MatchesPagination>(this.apiUrl + '/summoners/match_history_paginate/' + params.userId, params);
+  }
+
+  getMatchesHistoric(userId: any) {
+    return this.http.get<MatchesPagination>(this.apiUrl + '/summoners/match_history/' + userId);
   }
 
   getLeaguesEntriesExt() {
