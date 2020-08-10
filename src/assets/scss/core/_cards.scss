@@ -167,7 +167,7 @@
     &.bg-primary,
     &.card-rotate.bg-primary .front,
     &.card-rotate.bg-primary .back{
-      background: linear-gradient(60deg, $purple-400, $purple-600);
+      background: linear-gradient(60deg, $red-400, $red-600);
     }
     .card-header-info .card-icon,
     .card-header-info .card-text,
@@ -214,7 +214,7 @@
     .card-header-primary .card-icon,
     .card-header-primary:not(.card-header-icon):not(.card-header-text),
     .card-header-primary .card-text{
-        @include shadow-big-color($brand-primary);
+        @include shadow-big-color($brand-danger);
 
         //@include shadow-8dp-color($brand-primary);
         //@include shadow-16dp-color($brand-primary);
