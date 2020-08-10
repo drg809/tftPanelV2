@@ -29,7 +29,7 @@ export class HistoricalComponent implements OnInit {
   public getServerData(event?: PageEvent) {
     const pageI = event ? event.pageIndex : 0;
     const params = {userId: this.user._id, page: pageI + 1}
-    this.summonerService.getMatchesHistoric(params).subscribe(data => {
+    this.summonerService.getMatchesHistoricPaginate(params).subscribe(data => {
       this.matchs = data.data;
       // this.matchs.sort((a, b) => b.data?.info.game_datetime  - a.data?.info.game_datetime);
       this.length = data.numResult;
