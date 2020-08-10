@@ -192,7 +192,7 @@ export class Utils {
           r = 'Star Cluster';
           break;
       default:
-        r = 'Normal';
+        r = 'Normal Galaxie';
     }
     return r;
   }
