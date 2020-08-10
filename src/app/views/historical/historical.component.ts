@@ -11,6 +11,7 @@ import { PageEvent } from '@angular/material/paginator';
   styleUrls: ['./historical.component.scss']
 })
 export class HistoricalComponent implements OnInit {
+  matchsPaginated: SumMatch[];
   matchs: SumMatch[];
   user: User;
   pageEvent: PageEvent;
@@ -24,13 +25,16 @@ export class HistoricalComponent implements OnInit {
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('currentUser') || '{}');
     this.getServerData(null);
+    this.summonerService.getMatchesHistoric(this.user._id).subscribe(data => {
+      this.matchs = data;
+    });
   }
 
   public getServerData(event?: PageEvent) {
     const pageI = event ? event.pageIndex : 0;
     const params = {userId: this.user._id, page: pageI + 1}
     this.summonerService.getMatchesHistoricPaginate(params).subscribe(data => {
-      this.matchs = data.data;
+      this.matchsPaginated = data.data;
       // this.matchs.sort((a, b) => b.data?.info.game_datetime  - a.data?.info.game_datetime);
       this.length = data.numResult;
       this.pageIndex = data.pageIndex - 1;
@@ -45,6 +49,6 @@ export class HistoricalComponent implements OnInit {
   }
 
   reloadData() {
-    this.getServerData(null);
+    this.getServerData();
   }
 }

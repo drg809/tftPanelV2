@@ -15,19 +15,19 @@
                                   </a>
                               </li>
                               <li class="nav-item">
-                                  <a mat-button class="nav-link" (click)="reloadData()" href="#top1" data-toggle="tab">
+                                  <a mat-button class="nav-link" href="#top1" data-toggle="tab">
                                       <!-- <i class="material-icons">code</i> Website --> Top 1
                                       <div class="ripple-container"></div>
                                   </a>
                               </li>
                               <li class="nav-item">
-                                  <a mat-button class="nav-link" (click)="reloadData()" href="#top4" data-toggle="tab">
+                                  <a mat-button class="nav-link" href="#top4" data-toggle="tab">
                                       <!-- <i class="material-icons">cloud</i> Server --> Top 4
                                       <div class="ripple-container"></div>
                                   </a>
                               </li>
                               <li class="nav-item">
-                                <a mat-button class="nav-link" (click)="reloadData()" href="#topGG" data-toggle="tab">
+                                <a mat-button class="nav-link" href="#topGG" data-toggle="tab">
                                     <!-- <i class="material-icons">cloud</i> Server --> Top 7 y 8
                                     <div class="ripple-container"></div>
                                 </a>
@@ -39,7 +39,7 @@
               <div class="card-body">
                   <div class="tab-content">
                       <div class="tab-pane active" id="general">
-                        <div *ngFor="let match of matchs">
+                        <div *ngFor="let match of matchsPaginated">
                           <div class="matches" *ngFor="let item of match.data.info.participants">
                             <div (click)="navigateToMatch(match.entrie)" *ngIf="item.puuid == user.puuid" class="match p{{item.placement}}">
                               <div class="info">
@@ -198,7 +198,6 @@
                             </div>
                           </div>
                         </div>
-                        <mat-paginator #paginator [length]="length" [pageSize]="pageSize" [pageIndex]="pageIndex" [pageSizeOptions]="[5, 10, 25, 100]" (page)="pageEvent = getServerData($event)"></mat-paginator>
                       </div>
                       <div class="tab-pane" id="top4">
                         <div *ngFor="let match of matchs">
@@ -279,9 +278,8 @@
                             </div>
                           </div>
                         </div>
-                        <mat-paginator #paginator [length]="length" [pageSize]="pageSize" [pageIndex]="pageIndex" [pageSizeOptions]="[5, 10, 25, 100]" (page)="pageEvent = getServerData($event)"></mat-paginator>
                       </div>
-                      <div class="tab-pane" id="TopGG">
+                      <div class="tab-pane" id="topGG">
                         <div *ngFor="let match of matchs">
                           <div class="matches" *ngFor="let item of match.data.info.participants">
                             <div (click)="navigateToMatch(match.entrie)" *ngIf="item.puuid == user.puuid && item.placement > 6" class="match p{{item.placement}}">
@@ -360,7 +358,6 @@
                             </div>
                           </div>
                         </div>
-                        <mat-paginator #paginator [length]="length" [pageSize]="pageSize" [pageIndex]="pageIndex" [pageSizeOptions]="[5, 10, 25, 100]" (page)="pageEvent = getServerData($event)"></mat-paginator>
                       </div>
                   </div>
               </div>
