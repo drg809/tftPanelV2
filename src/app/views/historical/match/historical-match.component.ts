@@ -61,4 +61,8 @@ export class HistoricalMatchComponent implements OnInit {
       console.log(this.entrie);
     });
   }
+
+  analitics() {
+
+  }
 }
