@@ -148,6 +148,7 @@ export class Utils {
     }
     return r;
   }
+
   public static getTimeDif(time: any): string {
     let dif: string;
     let n: number;
@@ -161,6 +162,7 @@ export class Utils {
     }
     return dif;
   }
+
   public static getGalaxie(x: string): string {
     let r: string;
     switch (x) {
@@ -196,6 +198,114 @@ export class Utils {
     }
     return r;
   }
+
+  // public static getChamps(x: string): string {
+  //   let r: string;
+  //   switch (x) {
+  //     case 'TFT3_Ziggs':
+
+  //       break;
+  //     case 'TFT3_Malphite':
+
+  //       break;
+  //     case 'TFT3_Zed':
+
+  //       break;
+  //     case 'TFT3_Ezreal':
+
+  //       break;
+  //     case 'TFT3_MasterYi':
+
+  //       break;
+  //     case 'TFT3_Rumble':
+
+  //       break;
+  //     case 'TFT3_Jinx':
+
+  //       break;
+  //     case 'TFT3_AurelionSol':
+
+  //       break;
+  //     case 'TFT3_Thresh':
+
+  //       break;
+  //     case 'TFT3_Yasuo':
+
+  //       break;
+  //     case 'TFT3_Shen':
+
+  //       break;
+  //     case 'TFT3_Irelia':
+
+  //       break;
+  //     case 'TFT3_Riven':
+
+  //       break;
+  //     case 'TFT3_Rakan':
+
+  //       break;
+  //     case 'TFT3_XinZhao':
+
+  //       break;
+  //     case 'TFT3_Cassiopeia':
+
+  //       break;
+  //     case 'TFT3_Karma':
+
+  //       break;
+  //     case 'TFT3_Soraka':
+
+  //       break;
+  //     case 'TFT3_Lulu':
+
+  //       break;
+  //     case 'TFT3_Urgot':
+
+  //       break;
+  //     case 'TFT3_Janna':
+
+  //       break;
+  //     case 'TFT3_Gangplank':
+
+  //       break;
+  //     case 'TFT3_Fizz':
+  //     case 'TFT3_TwistedFate':
+  //     case 'TFT3_Zoe':
+  //     case 'TFT3_Ahri':
+  //     case 'TFT3_Syndra':
+  //     case 'TFT3_Viktor':
+  //     case 'TFT3_Xerath':
+  //     case 'TFT3_Ekko':
+  //     case 'TFT3_Blitzcrank':
+  //     case 'TFT3_Gnar':
+  //     case 'TFT3_Fiora':
+  //     case 'TFT3_Caitlyn':
+  //     case 'TFT3_Leona':
+  //     case 'TFT3_Lucian':
+  //     case 'TFT3_Vi':
+  //     case 'TFT3_Vayne':
+  //     case 'TFT3_Ashe':
+  //     case 'TFT3_WuKong':
+  //     case 'TFT3_Neeko':
+  //     case 'TFT3_Annie':
+  //     case 'TFT3_Illaoi':
+  //     case 'TFT3_Nocturne':
+  //     case 'TFT3_KogMaw':
+  //     case 'TFT3_JarvanIV':
+  //     case 'TFT3_Xayah':
+  //     case 'TFT3_Mordekaiser':
+  //     case 'TFT3_Nautilus':
+  //     case 'TFT3_Shaco':
+  //     case 'TFT3_Jayce':
+  //     case 'TFT3_Bard':
+  //     case 'TFT3_Jhin':
+  //     case 'TFT3_Teemo':
+  //     case 'TFT3_Poppy':
+  //     case 'TFT3_Graves':
+  //   }
+  //   return r;
+  // }
+
   public static showNotification(type, msg, from = 'top', align = 'right') {
     $.notify({
         icon: 'notifications',
@@ -221,6 +331,7 @@ export class Utils {
     });
   }
 }
+
 @Pipe({name: 'GalaxieNamePipe'})
 export class GalaxieNamePipe implements PipeTransform {
   static forRoot() {
