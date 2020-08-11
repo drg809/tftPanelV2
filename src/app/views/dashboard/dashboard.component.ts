@@ -166,50 +166,41 @@ export class DashboardComponent implements OnInit {
         const galaxiesMatchesChart = new Chartist.Bar('#galaxiesMatchesChart', datagalaxiesMatchesChart, optionsgalaxiesMatchesChart, responsiveOptions);
         this.startAnimationForBarChart(galaxiesMatchesChart);
 
-      });
-      /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
-
-
-
-     const optionsDailySalesChart: any = {
+        const optionsDailySalesChart: any = {
           lineSmooth: Chartist.Interpolation.cardinal({
               tension: 0
           }),
           low: 0,
           high: 30, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
           chartPadding: { top: 0, right: 0, bottom: 0, left: 0},
-      }
+        }
 
-      /* ----------==========     Completed Tasks Chart initialization    ==========---------- */
+        /* ----------==========     Completed Tasks Chart initialization    ==========---------- */
 
-      const dataCompletedTasksChart: any = {
-          labels: ['12p', '3p', '6p', '9p', '12p', '3a', '6a', '9a'],
-          series: [
-              [20, 22, 25, 30, 24, 31, 18, 24]
-          ]
-      };
+        const dataCompletedTasksChart: any = {
+            labels: [this.counts.champs[0].x.split('TFT3_')[1], this.counts.champs[1].x.split('TFT3_')[1], this.counts.champs[2].x.split('TFT3_')[1], this.counts.champs[3].x.split('TFT3_')[1], this.counts.champs[4].x.split('TFT3_')[1], this.counts.champs[5].x.split('TFT3_')[1], this.counts.champs[6].x.split('TFT3_')[1], this.counts.champs[7].x.split('TFT3_')[1]],
+            series: [
+                [this.counts.champs[0].y, this.counts.champs[1].y, this.counts.champs[2].y, this.counts.champs[3].y, this.counts.champs[4].y, this.counts.champs[5].y, this.counts.champs[6].y, this.counts.champs[7].y]
+            ]
+        };
 
-     const optionsCompletedTasksChart: any = {
-          lineSmooth: Chartist.Interpolation.cardinal({
-              tension: 0
-          }),
-          low: 0,
-          high: 40, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
-          chartPadding: { top: 0, right: 0, bottom: 0, left: 0}
-      }
+        const optionsCompletedTasksChart: any = {
+            lineSmooth: Chartist.Interpolation.cardinal({
+                tension: 0
+            }),
+            low: 0,
+            reverseData: true,
+            horizontalBars: true,
+            height: '250px',
+            high: 60,
+            chartPadding: { top: 0, right: 0, bottom: 0, left: 0}
+        }
 
-      const completedTasksChart = new Chartist.Line('#completedTasksChart', dataCompletedTasksChart, optionsCompletedTasksChart);
+        const completedTasksChart = new Chartist.Line('#completedTasksChart', dataCompletedTasksChart, optionsCompletedTasksChart);
 
-      // start animation for the Completed Tasks Chart - Line Chart
-      this.startAnimationForLineChart(completedTasksChart);
-
-
-
-      /* ----------==========     Emails Subscription Chart initialization    ==========---------- */
-
-
-
-
+        // start animation for the Completed Tasks Chart - Line Chart
+        this.startAnimationForLineChart(completedTasksChart);
+      });
   }
 
 }
