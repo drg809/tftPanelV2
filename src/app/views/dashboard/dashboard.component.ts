@@ -177,14 +177,14 @@ export class DashboardComponent implements OnInit {
 
         /* ----------==========     Completed Tasks Chart initialization    ==========---------- */
 
-        const dataCompletedTasksChart: any = {
+        const dataChampsChart: any = {
             labels: [this.counts.champs[0].x.split('TFT3_')[1], this.counts.champs[1].x.split('TFT3_')[1], this.counts.champs[2].x.split('TFT3_')[1], this.counts.champs[3].x.split('TFT3_')[1], this.counts.champs[4].x.split('TFT3_')[1], this.counts.champs[5].x.split('TFT3_')[1], this.counts.champs[6].x.split('TFT3_')[1], this.counts.champs[7].x.split('TFT3_')[1]],
             series: [
                 [this.counts.champs[0].y, this.counts.champs[1].y, this.counts.champs[2].y, this.counts.champs[3].y, this.counts.champs[4].y, this.counts.champs[5].y, this.counts.champs[6].y, this.counts.champs[7].y]
             ]
         };
 
-        const optionsCompletedTasksChart: any = {
+        const optionsChampsChart: any = {
             lineSmooth: Chartist.Interpolation.cardinal({
                 tension: 0
             }),
@@ -196,7 +196,7 @@ export class DashboardComponent implements OnInit {
             chartPadding: { top: 0, right: 0, bottom: 0, left: 0}
         }
 
-        const completedTasksChart = new Chartist.Line('#completedTasksChart', dataCompletedTasksChart, optionsCompletedTasksChart);
+        const completedTasksChart = new Chartist.Line('#champsChart', dataChampsChart, optionsChampsChart);
 
         // start animation for the Completed Tasks Chart - Line Chart
         this.startAnimationForLineChart(completedTasksChart);
