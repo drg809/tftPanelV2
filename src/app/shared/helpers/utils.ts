@@ -431,8 +431,8 @@ export class TransformNamePipe implements PipeTransform {
         providers: [],
     };
   };
-  transform(value: string, mode: boolean): string {
-    const newStr = mode ? Utils.getGalaxie(value) : Utils.getChamps(value) ;
+  transform(value: string, mode: number): string {
+    const newStr = mode === 1 ? Utils.getGalaxie(value) : ( mode === 2 ? Utils.getChamps(value) : Utils.getTraits(value)) ;
     return newStr;
   };
 }
