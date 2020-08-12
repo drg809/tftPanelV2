@@ -200,180 +200,180 @@ export class Utils {
   }
 
   public static getChamps(x: string): string {
-    let r: string;
+    let c: string;
     switch (x) {
       case 'TFT3_Ziggs':
-        r = 'Ziggs';
+        c = 'Ziggs';
         break;
       case 'TFT3_Malphite':
-        r = 'Malphite';
+        c = 'Malphite';
         break;
       case 'TFT3_Zed':
-        r = 'Zed';
+        c = 'Zed';
         break;
       case 'TFT3_Ezreal':
-        r = 'Ezreal';
+        c = 'Ezreal';
         break;
       case 'TFT3_MasterYi':
-        r = 'MasterYi';
+        c = 'MasterYi';
         break;
       case 'TFT3_Rumble':
-        r = 'Rumble';
+        c = 'Rumble';
         break;
       case 'TFT3_Jinx':
-        r = 'Jinx';
+        c = 'Jinx';
         break;
       case 'TFT3_AurelionSol':
-        r = 'Aurelion Sol';
+        c = 'Aurelion Sol';
         break;
       case 'TFT3_Thresh':
-        r = 'Thresh';
+        c = 'Thresh';
         break;
       case 'TFT3_Yasuo':
-        r = 'Yasuo';
+        c = 'Yasuo';
         break;
       case 'TFT3_Shen':
-        r = 'Shen';
+        c = 'Shen';
         break;
       case 'TFT3_Irelia':
-        r = 'Irelia';
+        c = 'Irelia';
         break;
       case 'TFT3_Riven':
-        r = 'Riven';
+        c = 'Riven';
         break;
       case 'TFT3_Rakan':
-        r = 'Rakan';
+        c = 'Rakan';
         break;
       case 'TFT3_XinZhao':
-        r = 'XinZhao';
+        c = 'XinZhao';
         break;
       case 'TFT3_Cassiopeia':
-        r = 'Cassiopeia';
+        c = 'Cassiopeia';
         break;
       case 'TFT3_Karma':
-        r = 'Karma';
+        c = 'Karma';
         break;
       case 'TFT3_Soraka':
-        r = 'Soraka';
+        c = 'Soraka';
         break;
       case 'TFT3_Lulu':
-        r = 'Lulu';
+        c = 'Lulu';
         break;
       case 'TFT3_Urgot':
-        r = 'Urgot';
+        c = 'Urgot';
         break;
       case 'TFT3_Janna':
-        r = 'Janna';
+        c = 'Janna';
         break;
       case 'TFT3_Gangplank':
-        r = 'Gangplank';
+        c = 'Gangplank';
         break;
       case 'TFT3_Fizz':
-        r = 'Fizz';
+        c = 'Fizz';
         break;
       case 'TFT3_TwistedFate':
-        r = 'TwistedFate';
+        c = 'TwistedFate';
         break;
       case 'TFT3_Zoe':
-        r = 'Zoe';
+        c = 'Zoe';
         break;
       case 'TFT3_Ahri':
-        r = 'Ahri';
+        c = 'Ahri';
         break;
       case 'TFT3_Syndra':
-        r = 'Syndra';
+        c = 'Syndra';
         break;
       case 'TFT3_Viktor':
-        r = 'Viktor';
+        c = 'Viktor';
         break;
       case 'TFT3_Xerath':
-        r = 'Xerath';
+        c = 'Xerath';
         break;
       case 'TFT3_Ekko':
-        r = 'Ekko';
+        c = 'Ekko';
         break;
       case 'TFT3_Blitzcrank':
-        r = 'Blitzcrank';
+        c = 'Blitzcrank';
         break;
       case 'TFT3_Gnar':
-        r = 'Gnar';
+        c = 'Gnar';
         break;
       case 'TFT3_Fiora':
-        r = 'Fiora';
+        c = 'Fiora';
         break;
       case 'TFT3_Caitlyn':
-        r = 'Caitlyn';
+        c = 'Caitlyn';
         break;
       case 'TFT3_Leona':
-        r = 'Leona';
+        c = 'Leona';
         break;
       case 'TFT3_Lucian':
-        r = 'Lucian';
+        c = 'Lucian';
         break;
       case 'TFT3_Vi':
-        r = 'Vi';
+        c = 'Vi';
         break;
       case 'TFT3_Vayne':
-        r = 'Vayne';
+        c = 'Vayne';
         break;
       case 'TFT3_Ashe':
-        r = 'Ashe';
+        c = 'Ashe';
         break;
       case 'TFT3_WuKong':
-        r = 'WuKong';
+        c = 'WuKong';
         break;
       case 'TFT3_Neeko':
-        r = 'Neeko';
+        c = 'Neeko';
         break;
       case 'TFT3_Annie':
-        r = 'Annie';
+        c = 'Annie';
         break;
       case 'TFT3_Illaoi':
-        r = 'Illaoi';
+        c = 'Illaoi';
         break;
       case 'TFT3_Nocturne':
-        r = 'Nocturne';
+        c = 'Nocturne';
         break;
       case 'TFT3_KogMaw':
-        r = 'KogMaw';
+        c = 'KogMaw';
         break;
       case 'TFT3_JarvanIV':
-        r = 'JarvanIV';
+        c = 'JarvanIV';
         break;
       case 'TFT3_Xayah':
-        r = 'Xayah';
+        c = 'Xayah';
         break;
       case 'TFT3_Mordekaiser':
-        r = 'Mordekaiser';
+        c = 'Mordekaiser';
         break;
       case 'TFT3_Nautilus':
-        r = 'Nautilus';
+        c = 'Nautilus';
         break;
       case 'TFT3_Shaco':
-        r = 'Shaco';
+        c = 'Shaco';
         break;
       case 'TFT3_Jayce':
-        r = 'Jayce';
+        c = 'Jayce';
         break;
       case 'TFT3_Bard':
-        r = 'Bard';
+        c = 'Bard';
         break;
       case 'TFT3_Jhin':
-        r = 'Jhin';
+        c = 'Jhin';
         break;
       case 'TFT3_Teemo':
-        r = 'Teemo';
+        c = 'Teemo';
         break;
       case 'TFT3_Poppy':
-        r = 'Poppy';
+        c = 'Poppy';
         break;
       case 'TFT3_Graves':
-        r = 'Graves';
+        c = 'Graves';
         break;
       default:
-        r = 'Not found champ.';
+        c = 'Not found champ.';
     }
-    return r;
+    return c;
   }
 
   public static showNotification(type, msg, from = 'top', align = 'right') {
@@ -411,7 +411,6 @@ export class TransformNamePipe implements PipeTransform {
     };
   };
   transform(value: string, mode: boolean): string {
-    console.log('this mode ' + mode + ' return this ' + value);
     const newStr = mode ? Utils.getGalaxie(value) : Utils.getChamps(value) ;
     return newStr;
   };
