@@ -50,10 +50,13 @@ export class ProfileComponent implements OnInit {
         console.log(result);
         const sum: Summoner = {userId: this.user._id, summonerName: result.name};
         this.summonerService.create(sum).subscribe((emitData: any) => { console.log(emitData); });
+        // this.summonerService.create(sum).subscribe((emitData: any) => { console.log(emitData); });
         Utils.showNotification('top', 'right', 'success', 'Nuevo invocador creado con nombre ' + result.name);
-        this.summonerService.getByUserId(this.user._id).subscribe(data => {
-          this.summoners = data;
-        });
+        setTimeout(() => {
+          this.summonerService.getByUserId(this.user._id).subscribe(data => {
+            this.summoners = data;
+          });
+      }, 500);
       }
     });
   }
