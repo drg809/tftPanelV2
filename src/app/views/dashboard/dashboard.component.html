@@ -153,7 +153,7 @@
           </div>
       </div>
       <div class="row">
-        <div class="col-md-4">
+        <div class="col-md-6">
           <div class="card card-chart">
               <div class="card-header card-header-danger">
                   <div class="ct-chart">Winrate por galaxias</div>
@@ -171,7 +171,7 @@
                   <tbody>
                     <tr *ngFor="let g of counts.perGalaxie.top">
                         <td *ngIf="g.key != 'TFT3_GameVariation_Dreadnova'">
-                          {{g.key | TransformNamePipe}}
+                          {{g.key | TransformNamePipe:true}}
                         </td>
                         <td *ngIf="g.key != 'TFT3_GameVariation_Dreadnova'">
                           {{counts.perGalaxie.top1[g.key] || 0}}
@@ -199,7 +199,7 @@
               </div>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
           <div class="card card-chart">
               <div class="card-header card-header-danger">
                   <div class="ct-chart">Winrate por campeones</div>
@@ -217,13 +217,13 @@
                   <tbody>
                     <tr *ngFor="let g of counts.champs.top1">
                         <td>
-                          {{g.key | TransformNamePipe}}
+                          {{ g.x | TransformNamePipe:false }}
                         </td>
                         <td>
-                          {{counts.perGalaxie.top1[g.key] || 0}}
+                          {{ g.y }}
                         </td>
                         <td>
-                          {{g.value || 0}}
+                          {{ counts.champs.top4C[g.x] || 0 }}
                         </td>
                         <td>
                           {{(counts.perGalaxie.top1[g.key] / counts.total[g.key]) * 100 || 0 | number:'1.0-2'}}%
