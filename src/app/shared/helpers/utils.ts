@@ -199,6 +199,183 @@ export class Utils {
     return r;
   }
 
+  public static getChamps(x: string): string {
+    let r: string;
+    switch (x) {
+      case 'TFT3_Ziggs':
+        r = 'Ziggs';
+        break;
+      case 'TFT3_Malphite':
+        r = 'Malphite';
+        break;
+      case 'TFT3_Zed':
+        r = 'Zed';
+        break;
+      case 'TFT3_Ezreal':
+        r = 'Ezreal';
+        break;
+      case 'TFT3_MasterYi':
+        r = 'MasterYi';
+        break;
+      case 'TFT3_Rumble':
+        r = 'Rumble';
+        break;
+      case 'TFT3_Jinx':
+        r = 'Jinx';
+        break;
+      case 'TFT3_AurelionSol':
+        r = 'Aurelion Sol';
+        break;
+      case 'TFT3_Thresh':
+        r = 'Thresh';
+        break;
+      case 'TFT3_Yasuo':
+        r = 'Yasuo';
+        break;
+      case 'TFT3_Shen':
+        r = 'Shen';
+        break;
+      case 'TFT3_Irelia':
+        r = 'Irelia';
+        break;
+      case 'TFT3_Riven':
+        r = 'Riven';
+        break;
+      case 'TFT3_Rakan':
+        r = 'Rakan';
+        break;
+      case 'TFT3_XinZhao':
+        r = 'XinZhao';
+        break;
+      case 'TFT3_Cassiopeia':
+        r = 'Cassiopeia';
+        break;
+      case 'TFT3_Karma':
+        r = 'Karma';
+        break;
+      case 'TFT3_Soraka':
+        r = 'Soraka';
+        break;
+      case 'TFT3_Lulu':
+        r = 'Lulu';
+        break;
+      case 'TFT3_Urgot':
+        r = 'Urgot';
+        break;
+      case 'TFT3_Janna':
+        r = 'Janna';
+        break;
+      case 'TFT3_Gangplank':
+        r = 'Gangplank';
+        break;
+      case 'TFT3_Fizz':
+        r = 'Fizz';
+        break;
+      case 'TFT3_TwistedFate':
+        r = 'TwistedFate';
+        break;
+      case 'TFT3_Zoe':
+        r = 'Zoe';
+        break;
+      case 'TFT3_Ahri':
+        r = 'Ahri';
+        break;
+      case 'TFT3_Syndra':
+        r = 'Syndra';
+        break;
+      case 'TFT3_Viktor':
+        r = 'Viktor';
+        break;
+      case 'TFT3_Xerath':
+        r = 'Xerath';
+        break;
+      case 'TFT3_Ekko':
+        r = 'Ekko';
+        break;
+      case 'TFT3_Blitzcrank':
+        r = 'Blitzcrank';
+        break;
+      case 'TFT3_Gnar':
+        r = 'Gnar';
+        break;
+      case 'TFT3_Fiora':
+        r = 'Fiora';
+        break;
+      case 'TFT3_Caitlyn':
+        r = 'Caitlyn';
+        break;
+      case 'TFT3_Leona':
+        r = 'Leona';
+        break;
+      case 'TFT3_Lucian':
+        r = 'Lucian';
+        break;
+      case 'TFT3_Vi':
+        r = 'Vi';
+        break;
+      case 'TFT3_Vayne':
+        r = 'Vayne';
+        break;
+      case 'TFT3_Ashe':
+        r = 'Ashe';
+        break;
+      case 'TFT3_WuKong':
+        r = 'WuKong';
+        break;
+      case 'TFT3_Neeko':
+        r = 'Neeko';
+        break;
+      case 'TFT3_Annie':
+        r = 'Annie';
+        break;
+      case 'TFT3_Illaoi':
+        r = 'Illaoi';
+        break;
+      case 'TFT3_Nocturne':
+        r = 'Nocturne';
+        break;
+      case 'TFT3_KogMaw':
+        r = 'KogMaw';
+        break;
+      case 'TFT3_JarvanIV':
+        r = 'JarvanIV';
+        break;
+      case 'TFT3_Xayah':
+        r = 'Xayah';
+        break;
+      case 'TFT3_Mordekaiser':
+        r = 'Mordekaiser';
+        break;
+      case 'TFT3_Nautilus':
+        r = 'Nautilus';
+        break;
+      case 'TFT3_Shaco':
+        r = 'Shaco';
+        break;
+      case 'TFT3_Jayce':
+        r = 'Jayce';
+        break;
+      case 'TFT3_Bard':
+        r = 'Bard';
+        break;
+      case 'TFT3_Jhin':
+        r = 'Jhin';
+        break;
+      case 'TFT3_Teemo':
+        r = 'Teemo';
+        break;
+      case 'TFT3_Poppy':
+        r = 'Poppy';
+        break;
+      case 'TFT3_Graves':
+        r = 'Graves';
+        break;
+      default:
+        r = 'Not found champ.';
+    }
+    return r;
+  }
+
   public static showNotification(type, msg, from = 'top', align = 'right') {
     $.notify({
         icon: 'notifications',
@@ -233,8 +410,9 @@ export class TransformNamePipe implements PipeTransform {
         providers: [],
     };
   };
-  transform(value: string): string {
-    const newStr = Utils.getGalaxie(value);
+  transform(value: string, mode: boolean): string {
+    console.log('this mode ' + mode + ' return this ' + value);
+    const newStr = mode ? Utils.getGalaxie(value) : Utils.getChamps(value) ;
     return newStr;
   };
 }
