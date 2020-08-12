@@ -48,4 +48,24 @@ $fourth: #284454;
     width: 30px;
     margin-right: 10px;
   }
+  .tableTraits {
+    width: 30px;
+    margin-right: 10px;
+    background: black;
+  }
+  .tableTraits:after, .tableTraits:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+  }
+  .tableTraits:after {
+    top: 100%;
+    border-bottom: 5.77px solid #383838;
+  }
+  .tableTraits:before {
+    bottom: 100%;
+    border-bottom: 5.77px solid #383838;
+  }
 }

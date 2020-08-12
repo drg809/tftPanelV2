@@ -171,7 +171,7 @@
                   <tbody>
                     <tr *ngFor="let g of counts.perGalaxie.top">
                         <td *ngIf="g.key != 'TFT3_GameVariation_Dreadnova'">
-                          <img *ngIf="g.key != 'TFT3_GameVariation_None'" class="tableGalaxies" src="../../../../assets/img/galaxies/{{g.key}}.png">{{g.key | TransformNamePipe:true}}
+                          <img *ngIf="g.key != 'TFT3_GameVariation_None'" class="tableGalaxies" src="../../../../assets/img/galaxies/{{g.key}}.png">{{g.key | TransformNamePipe:1}}
                         </td>
                         <td *ngIf="g.key != 'TFT3_GameVariation_Dreadnova'">
                           {{counts.perGalaxie.top1[g.key] || 0}}
@@ -217,7 +217,7 @@
                   <tbody>
                     <tr *ngFor="let g of counts.traits.top1">
                         <td>
-                          <img class="tableChamps" src="../../../../assets/img/traits/{{g.x}}.png">{{ g.x }}
+                          <img class="tableTraits" src="../../../../assets/img/traits/{{ g.x | lowercase }}.png">{{ g.x | TransformNamePipe:3 }}
                         </td>
                         <td>
                           {{ g.y }}
@@ -263,7 +263,7 @@
                   <tbody>
                     <tr *ngFor="let g of counts.champs.top1">
                         <td>
-                          <img class="tableChamps" src="../../../../assets/img/champions/{{g.x}}.png">{{ g.x | TransformNamePipe:false }}
+                          <img class="tableChamps" src="../../../../assets/img/champions/{{g.x}}.png">{{ g.x | TransformNamePipe:2 }}
                         </td>
                         <td>
                           {{ g.y }}
