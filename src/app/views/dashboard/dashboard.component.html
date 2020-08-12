@@ -1,4 +1,4 @@
-<div class="main-content">
+<div class="main-content dashboard">
   <div class="container-fluid">
       <div class="row">
           <div class="col-lg-2 col-md-4 col-sm-4">
@@ -171,7 +171,7 @@
                   <tbody>
                     <tr *ngFor="let g of counts.perGalaxie.top">
                         <td *ngIf="g.key != 'TFT3_GameVariation_Dreadnova'">
-                          {{g.key | TransformNamePipe:true}}
+                          <img *ngIf="g.key != 'TFT3_GameVariation_None'" class="tableGalaxies" src="../../../../assets/img/galaxies/{{g.key}}.png">{{g.key | TransformNamePipe:true}}
                         </td>
                         <td *ngIf="g.key != 'TFT3_GameVariation_Dreadnova'">
                           {{counts.perGalaxie.top1[g.key] || 0}}
@@ -217,7 +217,7 @@
                   <tbody>
                     <tr *ngFor="let g of counts.champs.top1">
                         <td>
-                          {{ g.x | TransformNamePipe:false }}
+                          <img class="tableChamps" src="../../../../assets/img/champions/{{g.x}}.png">{{ g.x | TransformNamePipe:false }}
                         </td>
                         <td>
                           {{ g.y }}
@@ -226,13 +226,13 @@
                           {{ counts.champs.top4C[g.x] || 0 }}
                         </td>
                         <td>
-                          {{(counts.perGalaxie.top1[g.key] / counts.total[g.key]) * 100 || 0 | number:'1.0-2'}}%
+                          {{( g.y / counts.champs.totalC[g.x] ) * 100 || 0 | number:'1.0-2'}}%
                         </td>
                         <td>
-                          {{(g.value / counts.total[g.key]) * 100 || 0 | number:'1.0-2'}}%
+                          {{( counts.champs.top4C[g.x] / counts.champs.totalC[g.x] ) * 100 || 0 | number:'1.0-2'}}%
                         </td>
                         <td>
-                          {{counts.total[g.key] || 0}}
+                          {{ counts.champs.totalC[g.x] || 0 }}
                         </td>
                     </tr>
                   </tbody>
