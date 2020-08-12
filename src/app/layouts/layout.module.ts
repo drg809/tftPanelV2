@@ -1,4 +1,4 @@
-import { GalaxieNamePipe } from 'app/shared/helpers/utils';
+import { TransformNamePipe } from 'app/shared/helpers/utils';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -31,11 +31,11 @@ import { DatabaseComponent } from 'app/views/database/databse.component';
     ProfileComponent,
     SettingsComponent,
     DatabaseComponent,
-    GalaxieNamePipe
+    TransformNamePipe
   ],
   exports: [
     AngularMaterialModule,
-    GalaxieNamePipe
+    TransformNamePipe
   ]
 })
 

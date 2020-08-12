@@ -1,4 +1,4 @@
-import { GalaxieNamePipe } from './shared/helpers/utils';
+import { TransformNamePipe } from './shared/helpers/utils';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
