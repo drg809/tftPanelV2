@@ -178,9 +178,10 @@ export class DashboardComponent implements OnInit {
         /* ----------==========     Completed Tasks Chart initialization    ==========---------- */
 
         const dataChampsChart: any = {
-            labels: [this.counts.champs[0].x.split('TFT3_')[1], this.counts.champs[1].x.split('TFT3_')[1], this.counts.champs[2].x.split('TFT3_')[1], this.counts.champs[3].x.split('TFT3_')[1], this.counts.champs[4].x.split('TFT3_')[1], this.counts.champs[5].x.split('TFT3_')[1], this.counts.champs[6].x.split('TFT3_')[1], this.counts.champs[7].x.split('TFT3_')[1]],
+            labels: [this.counts.champs.top4[0].x.split('TFT3_')[1], this.counts.champs.top4[1].x.split('TFT3_')[1], this.counts.champs.top4[2].x.split('TFT3_')[1], this.counts.champs.top4[3].x.split('TFT3_')[1], this.counts.champs.top4[4].x.split('TFT3_')[1], this.counts.champs.top4[5].x.split('TFT3_')[1], this.counts.champs.top4[6].x.split('TFT3_')[1], this.counts.champs.top4[7].x.split('TFT3_')[1]],
             series: [
-                [this.counts.champs[0].y, this.counts.champs[1].y, this.counts.champs[2].y, this.counts.champs[3].y, this.counts.champs[4].y, this.counts.champs[5].y, this.counts.champs[6].y, this.counts.champs[7].y]
+                [this.counts.champs.top1[0].y, this.counts.champs.top1[1].y, this.counts.champs.top1[2].y, this.counts.champs.top1[3].y, this.counts.champs.top1[4].y, this.counts.champs.top1[5].y, this.counts.champs.top1[6].y, this.counts.champs.top1[7].y],
+                [this.counts.champs.top4[0].y, this.counts.champs.top4[1].y, this.counts.champs.top4[2].y, this.counts.champs.top4[3].y, this.counts.champs.top4[4].y, this.counts.champs.top4[5].y, this.counts.champs.top4[6].y, this.counts.champs.top4[7].y]
             ]
         };
 

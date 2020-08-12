@@ -171,7 +171,7 @@
                   <tbody>
                     <tr *ngFor="let g of counts.perGalaxie.top">
                         <td *ngIf="g.key != 'TFT3_GameVariation_Dreadnova'">
-                          {{g.key | GalaxieNamePipe}}
+                          {{g.key | TransformNamePipe}}
                         </td>
                         <td *ngIf="g.key != 'TFT3_GameVariation_Dreadnova'">
                           {{counts.perGalaxie.top1[g.key] || 0}}
@@ -186,6 +186,52 @@
                           {{(g.value / counts.total[g.key]) * 100 || 0 | number:'1.0-2'}}%
                         </td>
                         <td *ngIf="g.key != 'TFT3_GameVariation_Dreadnova'">
+                          {{counts.total[g.key] || 0}}
+                        </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="material-icons">access_time</i> updated 4 minutes ago
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card card-chart">
+              <div class="card-header card-header-danger">
+                  <div class="ct-chart">Winrate por campeones</div>
+              </div>
+              <div class="card-body">
+                <table class="table">
+                  <thead>
+                    <th>Galaxia</th>
+                    <th>Top1</th>
+                    <th>Top4</th>
+                    <th>Winrate</th>
+                    <th>Winrate T4</th>
+                    <th>Totales</th>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let g of counts.champs.top1">
+                        <td>
+                          {{g.key | TransformNamePipe}}
+                        </td>
+                        <td>
+                          {{counts.perGalaxie.top1[g.key] || 0}}
+                        </td>
+                        <td>
+                          {{g.value || 0}}
+                        </td>
+                        <td>
+                          {{(counts.perGalaxie.top1[g.key] / counts.total[g.key]) * 100 || 0 | number:'1.0-2'}}%
+                        </td>
+                        <td>
+                          {{(g.value / counts.total[g.key]) * 100 || 0 | number:'1.0-2'}}%
+                        </td>
+                        <td>
                           {{counts.total[g.key] || 0}}
                         </td>
                     </tr>
