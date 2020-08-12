@@ -202,12 +202,58 @@
         <div class="col-md-6">
           <div class="card card-chart">
               <div class="card-header card-header-danger">
+                  <div class="ct-chart">Winrate por sinergias</div>
+              </div>
+              <div class="card-body">
+                <table class="table">
+                  <thead>
+                    <th>Sinergia</th>
+                    <th>Top1</th>
+                    <th>Top4</th>
+                    <th>Winrate</th>
+                    <th>Winrate T4</th>
+                    <th>Totales</th>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let g of counts.traits.top1">
+                        <td>
+                          <img class="tableChamps" src="../../../../assets/img/traits/{{g.x}}.png">{{ g.x }}
+                        </td>
+                        <td>
+                          {{ g.y }}
+                        </td>
+                        <td>
+                          {{ counts.traits.top4C[g.x] || 0 }}
+                        </td>
+                        <td>
+                          {{( g.y / counts.traits.totalC[g.x] ) * 100 || 0 | number:'1.0-2'}}%
+                        </td>
+                        <td>
+                          {{( counts.traits.top4C[g.x] / counts.traits.totalC[g.x] ) * 100 || 0 | number:'1.0-2'}}%
+                        </td>
+                        <td>
+                          {{ counts.traits.totalC[g.x] || 0 }}
+                        </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="card-footer">
+                <div class="stats">
+                  <i class="material-icons">access_time</i> updated 4 minutes ago
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="card card-chart">
+              <div class="card-header card-header-danger">
                   <div class="ct-chart">Winrate por campeones</div>
               </div>
               <div class="card-body">
                 <table class="table">
                   <thead>
-                    <th>Galaxia</th>
+                    <th>Campe&oacute;n</th>
                     <th>Top1</th>
                     <th>Top4</th>
                     <th>Winrate</th>
@@ -245,6 +291,7 @@
               </div>
           </div>
         </div>
+
       </div>
       <!-- <div class="row">
           <div class="col-lg-6 col-md-12">
