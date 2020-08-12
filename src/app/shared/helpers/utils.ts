@@ -376,6 +376,27 @@ export class Utils {
     return c;
   }
 
+  public static getTraits(x: string): string {
+    let c: string;
+    switch (x) {
+      case 'Set3_Blademaster':
+        c = 'Blademaster';
+        break;
+      case 'Set3_Brawler':
+        c = 'Brawler';
+        break;
+      case 'Set3_Mystic':
+        c = 'Mystic';
+        break;
+      case 'Set3_Sorcerer':
+        c = 'Sorcerer';
+        break;
+      default:
+        c = x;
+    }
+    return c;
+  }
+
   public static showNotification(type, msg, from = 'top', align = 'right') {
     $.notify({
         icon: 'notifications',
