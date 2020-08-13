@@ -15,6 +15,7 @@ export class HistoricalMatchComponent implements OnInit {
   entrie: SumMatch;
   user: User;
   dif: string;
+  text: string;
 
 
   constructor(private route: ActivatedRoute,
