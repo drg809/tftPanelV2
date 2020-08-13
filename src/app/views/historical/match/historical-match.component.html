@@ -165,7 +165,22 @@
                                       <h3 class="card-title">Tu juego</h3>
                                   </div>
                                   <div class="card-body">
-                                    Premo has perdio.
+                                    <div *ngFor="let x of entrie.data.info.participants">
+                                      <div *ngIf="x.puuid === user.puuid">
+                                        <span [ngSwitch]="x.placement">
+                                          <p *ngSwitchCase="1">Felicidades, has ganado! A&uacute;n as&iacute; puedes aprender de tu juego.</p>
+                                          <p *ngSwitchCase="2">Felicidades, has quedado segundo! Tienes que aprender sobre tu juego y porque no quedaste primero.</p>
+                                          <p *ngSwitchCase="3">Felicidades, has quedado tercero! Tienes que aprender sobre tu juego y porque no quedaste primero.</p>
+                                          <p *ngSwitchCase="4">Has quedado cuarto! Tienes que aprender sobre tu juego y porque no quedaste primero. Estos son los detalles:</p>
+                                          <p *ngSwitchCase="5">Has perdido! Tu puesto ha sido el quinto, tienes que aprender sobre tu juego y porque no quedaste primero.. Estos son los detalles:</p>
+                                          <p *ngSwitchCase="6">Has perdido! Tu puesto ha sido el sexto, tienes que aprender sobre tu juego y porque no quedaste primero.. Estos son los detalles:</p>
+                                          <p *ngSwitchCase="7">Has perdido! Tu puesto ha sido el septimo, tienes que aprender sobre tu juego y porque no quedaste primero.. Estos son los detalles:</p>
+                                          <p *ngSwitchCase="8">Has perdido! Tu puesto ha sido el octabo, tienes que aprender sobre tu juego y porque no quedaste primero.. Estos son los detalles:</p>
+
+                                        </span>
+
+                                      </div>
+                                    </div>
                                   </div>
                                   <div class="card-footer">
                                       <div class="stats">
