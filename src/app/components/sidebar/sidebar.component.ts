@@ -15,6 +15,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/historical', title: 'Historical',  icon: 'notifications', class: '', show: true },
     { path: '/historical/:id', title: 'Match Info',  icon: 'notifications', class: '', show: false },
     { path: '/settings', title: 'Settings',  icon: 'settings', class: '', show: false },
+    { path: '/statics/:option', title: 'Info',  icon: 'info', class: '', show: false },
 ];
 
 @Component({
