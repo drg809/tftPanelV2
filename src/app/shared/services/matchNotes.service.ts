@@ -5,13 +5,13 @@ import {MatchNotes} from '../models/matchNotes';
 
 
 @Injectable({providedIn: 'root'})
-export class UserService {
+export class MatchNotesServices {
   private apiUrl: string = environment.API_URL;
 
   constructor(private http: HttpClient) {
   }
 
-  getById(entrieId: string) {
+  getAll(entrieId: string) {
     return this.http.get<MatchNotes[]>(this.apiUrl + '/match_notes/' + entrieId);
   }
 
