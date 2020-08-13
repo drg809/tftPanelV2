@@ -1,9 +1,13 @@
+import { MatchNotes } from './../../../shared/models/matchNotes';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { SummonerService } from '../../../shared/services/summoners.service';
 import { SumMatch } from 'app/shared/models/match';
 import { User } from 'app/shared/models/user';
 import { Utils } from 'app/shared/helpers/utils';
+import { MatchNotesServices } from 'app/shared/services/matchNotes.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ConfirmDialogsComponent } from 'app/shared/dialogs/confirm-dialog/confirm-dialog.component';
 
 @Component({
   selector: 'app-historical-match',
@@ -16,10 +20,15 @@ export class HistoricalMatchComponent implements OnInit {
   user: User;
   dif: string;
   text: string;
+  obj: any;
+  matchNote: MatchNotes;
+  matchNotes: MatchNotes[];
 
 
   constructor(private route: ActivatedRoute,
-              private summonerService: SummonerService) { }
+              private summonerService: SummonerService,
+              private matchNotesServices: MatchNotesServices,
+              public dialog: MatDialog) { }
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('currentUser') || '{}');
@@ -59,11 +68,42 @@ export class HistoricalMatchComponent implements OnInit {
           }
         });
       });
-      console.log(this.entrie);
+    });
+    this.matchNotesServices.getAll(this.entrieId).subscribe((x) => {
+      console.log(x);
+      this.matchNotes = x;
     });
   }
 
   analitics() {
 
+  }
+
+  onSaveNote() {
+    this.obj = {
+      buttons: {
+          acceptButtonLabel : 'Guardar',
+          acceptButtonLabelAccept : 'Guardando'
+      },
+      texts: {
+          title: 'Guardar nota',
+          text1: '¿Está seguro que desea ',
+          textBold: 'guardar ',
+          text2: 'la nota'
+      },
+      action: 'danger'
+    };
+    this.dialog.open(ConfirmDialogsComponent, {
+      data: this.obj,
+    }).afterClosed().subscribe((result) => {
+      if (result) {
+        this.matchNote = {userId: this.user._id, entrieId: this.entrieId, text: this.text};
+        this.matchNotesServices.create(this.matchNote).subscribe((x) => {
+          console.log(x);
+          this.text = '';
+          Utils.showNotification('top', 'right', 'success', 'Nota guardada correctamente.');
+        });
+      }
+    });
   }
 }

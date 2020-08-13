@@ -229,15 +229,17 @@
                         <div class="tab-pane" id="notes">
                           <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="card card-stats">
-                                <div class="card-header card-header-danger card-header-icon">
-                                    <h3 class="card-title">Escribe una nota:</h3>
-                                </div>
-                                <div class="card-body">
-                                  Tus oponentes son mejores.
-                                </div>
-                                <div class="card-footer">
-
-                                </div>
+                                <form #f="ngForm" (ngSubmit)="f.form.valid && onSaveNote()">
+                                    <div class="card-header card-header-danger card-header-icon">
+                                        <h3 class="card-title">Escribe una nota:</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <textarea  [(ngModel)]='text' name="text" rows="30" cols="120"></textarea>
+                                    </div>
+                                    <div class="card-footer">
+                                      <button mat-raised-button type="submit" class="btn btn-danger pull-right">Guarda la nota</button>
+                                    </div>
+                                </form>
                             </div>
                           </div>
                           <div class="col-lg-12 col-md-12 col-sm-12">
@@ -246,7 +248,9 @@
                                     <h3 class="card-title">Notas de esta partida:</h3>
                                 </div>
                                 <div class="card-body">
-                                  Tus oponentes son mejores.
+                                  <div *ngFor="let x of matchNotes">
+                                    {{x.text}}
+                                  </div>
                                 </div>
                                 <div class="card-footer">
 
