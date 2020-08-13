@@ -1,3 +1,20 @@
-<div>
-  Static views {{ option }}
+<div class="main-content dashboard">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <div *ngIf="option === ':follow'">
+                  Sigue al cabesa de MrMugui en twitch. {{option}}
+                </div>
+                <div *ngIf="option === ':about'">
+                  Una aplicaci&oacute;n para que los chavales mejoren su juego o por lo menos se echen unas risas. {{option}}
+                </div>
+                <div *ngIf="option === ':rules'">
+                  Hay que cumplir las reglas de rito. {{option}}
+                </div>
+                <div *ngIf="option === ':privacy'">
+                  Un texto un mu grande. {{option}}
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
