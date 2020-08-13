@@ -7,12 +7,12 @@
                       <div class="card-icon">
                         1º
                       </div>
-                      <p class="card-category">Partidas ganadas</p>
+                      <p class="card-category">Ganadas</p>
                       <h3 class="card-title">{{positions.top1}}</h3>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
-                          <span>Porcentaje de victorias  {{(positions.top1 / positions.total) * 100 | number:'1.0-2'}}%</span>
+                          <span>{{(positions.top1 / positions.total) * 100 | number:'1.0-2'}}%</span>
                       </div>
                   </div>
               </div>
@@ -28,7 +28,7 @@
                   </div>
                   <div class="card-footer">
                       <div class="stats">
-                        <span>Porcentaje de 2º p. {{(positions.top2 / positions.total) * 100 | number:'1.0-2' }}%</span>
+                        <span>{{(positions.top2 / positions.total) * 100 | number:'1.0-2' }}%</span>
                       </div>
                   </div>
               </div>
@@ -44,7 +44,7 @@
                   </div>
                   <div class="card-footer">
                       <div class="stats">
-                        <span>Porcentaje de 3er p.  {{(positions.top3 / positions.total) * 100 | number:'1.0-2' }}%</span>
+                        <span>{{(positions.top3 / positions.total) * 100 | number:'1.0-2' }}%</span>
                       </div>
                   </div>
               </div>
@@ -60,7 +60,7 @@
                   </div>
                   <div class="card-footer">
                       <div class="stats">
-                        <span>Porcentaje de 4º p. {{(positions.top4 / positions.total) * 100 | number:'1.0-2' }}%</span>
+                        <span>{{(positions.top4 / positions.total) * 100 | number:'1.0-2' }}%</span>
                       </div>
                   </div>
               </div>
@@ -71,12 +71,12 @@
                       <div class="card-icon">
                           <span class="material-icons">mood_bad</span>
                       </div>
-                      <p class="card-category">Partidas perdidas</p>
+                      <p class="card-category">Perdidas</p>
                       <h3 class="card-title">{{(positions.top5 + positions.top6 + positions.top7 + positions.top8)}}</h3>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
-                          <span>Porcentaje de derrotas  {{((positions.top5 + positions.top6 + positions.top7 + positions.top8) / positions.total) * 100 | number:'1.0-2' }}%</span>
+                          <span>{{((positions.top5 + positions.top6 + positions.top7 + positions.top8) / positions.total) * 100 | number:'1.0-2' }}%</span>
                       </div>
                   </div>
               </div>
@@ -87,12 +87,12 @@
                       <div class="card-icon">
                           <span class="material-icons">sports_esports</span>
                       </div>
-                      <p class="card-category">Partidas totales</p>
+                      <p class="card-category">Totales</p>
                       <h3 class="card-title">{{positions.total}}</h3>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
-                        <span>Actualiza tu cuenta pulsando <a class="pointer" [routerLink]="['/profile']">aqui</a>.</span>
+                        <span>Actualiza pulsando <a class="pointer" [routerLink]="['/profile']">aqui</a>.</span>
                       </div>
                   </div>
               </div>
@@ -218,22 +218,22 @@
                           {{ g.x | TransformNamePipe:3 }}
                         </td>
                         <td>
-                          <div class="hex tier1">
+                          <div class="hex tier1" *ngIf="counts.traits.top4S1[g.x] > 0">
                             <img class="tableTraits" src="../../../../assets/img/traits/{{ g.x | lowercase }}.png">
                           </div>
-                          {{ counts.traits.top4S1[g.x] || 0 }}
+                          {{ counts.traits.top4S1[g.x] }}
                         </td>
                         <td>
-                          <div class="hex tier2">
+                          <div class="hex tier2" *ngIf="counts.traits.top4S2[g.x] > 0">
                             <img class="tableTraits" src="../../../../assets/img/traits/{{ g.x | lowercase }}.png">
                           </div>
-                          {{ counts.traits.top4S2[g.x] || 0 }}
+                          {{ counts.traits.top4S2[g.x] }}
                         </td>
                         <td>
-                          <div class="hex tier3">
+                          <div class="hex tier3" *ngIf="counts.traits.top4S3[g.x] > 0">
                             <img class="tableTraits" src="../../../../assets/img/traits/{{ g.x | lowercase }}.png">
                           </div>
-                          {{ counts.traits.top4S3[g.x] || 0 }}
+                          {{ counts.traits.top4S3[g.x] }}
                         </td>
                         <td>
                           {{( g.y / counts.traits.totalC[g.x] ) * 100 || 0 | number:'1.0-2'}}%
