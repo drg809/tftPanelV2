@@ -1,5 +1,6 @@
 import { Routes } from '@angular/router';
 
+import { StaticsComponent } from './../views/statics/statics.component';
 import { DashboardComponent } from '../views/dashboard/dashboard.component';
 import { UserProfileComponent } from '../views/user-profile/user-profile.component';
 import { NotificationsComponent } from '../shared/notifications/notifications.component';
@@ -16,4 +17,5 @@ export const LayoutRoutes: Routes = [
     { path: 'historical',  component: HistoricalComponent },
     { path: 'historical/:id',  component: HistoricalMatchComponent },
     { path: 'settings',  component: SettingsComponent },
+    { path: 'statics/:option',  component: StaticsComponent },
 ];
