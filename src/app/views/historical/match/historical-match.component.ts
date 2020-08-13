@@ -40,7 +40,7 @@ export class HistoricalMatchComponent implements OnInit {
           const bRarity = b.rarity;
           const aName = a.character_id;
           const bName = b.character_id;
-          if (aRarity == bRarity) {
+          if (aRarity === bRarity) {
             return (aName < bName) ? -1 : (aName > bName) ? 1 : 0;
           } else {
             return (aRarity < bRarity) ? -1 : 1;
@@ -51,7 +51,7 @@ export class HistoricalMatchComponent implements OnInit {
           const bStyle = b.style;
           const aName = a.name;
           const bName = b.name;
-          if (aStyle == bStyle) {
+          if (aStyle === bStyle) {
             return (aName < bName) ? -1 : (aName > bName) ? 1 : 0;
           } else {
             return (aStyle > bStyle) ? -1 : 1;
