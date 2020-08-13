@@ -13,6 +13,7 @@ import { ProfileComponent } from 'app/views/profile/profile.component';
 import { HistoricalMatchComponent } from 'app/views/historical/match/historical-match.component';
 import { SettingsComponent } from 'app/views/settings/settings.component';
 import { DatabaseComponent } from 'app/views/database/databse.component';
+import { StaticsComponent } from 'app/views/statics/statics.component';
 
 @NgModule({
   imports: [
@@ -31,7 +32,8 @@ import { DatabaseComponent } from 'app/views/database/databse.component';
     ProfileComponent,
     SettingsComponent,
     DatabaseComponent,
-    TransformNamePipe
+    TransformNamePipe,
+    StaticsComponent
   ],
   exports: [
     AngularMaterialModule,
