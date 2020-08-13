@@ -157,28 +157,48 @@
                             </div>
                           </div>
                         </div>
-                        <div class="tab-pane" id="analisis">
+                        <div class="tab-pane analisis" id="analisis">
                           <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-12">
                               <div class="card card-stats">
-                                  <div class="card-header card-header-gold card-header-icon">
+                                  <div class="card-header card-header-success card-header-icon">
                                       <h3 class="card-title">Tu juego</h3>
                                   </div>
                                   <div class="card-body">
                                     <div *ngFor="let x of entrie.data.info.participants">
                                       <div *ngIf="x.puuid === user.puuid">
                                         <span [ngSwitch]="x.placement">
-                                          <p *ngSwitchCase="1">Felicidades, has ganado! A&uacute;n as&iacute; puedes aprender de tu juego.</p>
-                                          <p *ngSwitchCase="2">Felicidades, has quedado segundo! Tienes que aprender sobre tu juego y porque no quedaste primero.</p>
-                                          <p *ngSwitchCase="3">Felicidades, has quedado tercero! Tienes que aprender sobre tu juego y porque no quedaste primero.</p>
-                                          <p *ngSwitchCase="4">Has quedado cuarto! Tienes que aprender sobre tu juego y porque no quedaste primero. Estos son los detalles:</p>
-                                          <p *ngSwitchCase="5">Has perdido! Tu puesto ha sido el quinto, tienes que aprender sobre tu juego y porque no quedaste primero.. Estos son los detalles:</p>
-                                          <p *ngSwitchCase="6">Has perdido! Tu puesto ha sido el sexto, tienes que aprender sobre tu juego y porque no quedaste primero.. Estos son los detalles:</p>
-                                          <p *ngSwitchCase="7">Has perdido! Tu puesto ha sido el septimo, tienes que aprender sobre tu juego y porque no quedaste primero.. Estos son los detalles:</p>
-                                          <p *ngSwitchCase="8">Has perdido! Tu puesto ha sido el octabo, tienes que aprender sobre tu juego y porque no quedaste primero.. Estos son los detalles:</p>
-
+                                          <h5 *ngSwitchCase="1">Felicidades, has ganado! A&uacute;n as&iacute; puedes aprender de tu juego.</h5>
+                                          <h5 *ngSwitchCase="2">Felicidades, has quedado segundo! Tienes que aprender sobre tu juego y porque no quedaste primero.</h5>
+                                          <h5 *ngSwitchCase="3">Felicidades, has quedado tercero! Tienes que aprender sobre tu juego y porque no quedaste primero.</h5>
+                                          <h5 *ngSwitchCase="4">Has quedado cuarto! Tienes que aprender sobre tu juego y porque no quedaste primero. Estos son los detalles:</h5>
+                                          <h5 *ngSwitchCase="5">Has perdido! Tu puesto ha sido el quinto, tienes que aprender sobre tu juego y porque no quedaste primero. Estos son los detalles:</h5>
+                                          <h5 *ngSwitchCase="6">Has perdido! Tu puesto ha sido el sexto, tienes que aprender sobre tu juego y porque no quedaste primero. Estos son los detalles:</h5>
+                                          <h5 *ngSwitchCase="7">Has perdido! Tu puesto ha sido el septimo, tienes que aprender sobre tu juego y porque no quedaste primero. Estos son los detalles:</h5>
+                                          <h5 *ngSwitchCase="8">Has perdido! Tu puesto ha sido el octabo, tienes que aprender sobre tu juego y porque no quedaste primero. Estos son los detalles:</h5>
                                         </span>
-
+                                        <span [ngSwitch]="x.gold_left">
+                                          <p *ngSwitchCase="0"> - Has gastado todo tu oro, lo que esta perfecto. <span *ngIf="x.placement > 4">No hiciste top, no ha sido por esto.</span> </p>
+                                          <p *ngSwitchCase="1 || 2"> - No te ha sobrado oro para rollear, lo que esta perfecto. <span *ngIf="x.placement > 4">No hiciste top, no ha sido por esto.</span> </p>
+                                          <p *ngSwitchCase="3 || 4"> - Te ha sobrado oro para rolear, si tenias unidades en banca podrias haber subido de nivel alguna. <span *ngIf="x.placement > 4">Podrias haber hecho top si tu oponente quedo con poca vida.</span> </p>
+                                          <p *ngSwitchCase="5 || 6"> - Te ha sobrado oro para rolear y subir de nivel tus unidades. <span *ngIf="x.placement > 4">Podrias haber hecho top si tu oponente quedo con poca vida.</span> </p>
+                                          <p *ngSwitchDefault> - Te ha sobrado oro para rolear y subir de nivel tus unidades. <span *ngIf="x.placement > 4">Has podido perder por este motivo.</span> </p>
+                                        </span>
+                                        <span [ngSwitch]="x.players_eliminated">
+                                          <p *ngSwitchCase="0"> - No has eliminado a ning&uacute;n jugador del lobby. Esto posiblemente se deba a que hiciste poco da&ntilde;o y/o ganaste pocas rondas. <span *ngIf="x.placement > 4">Para hacer Top hay que ganar las rondas y eliminar a los otros jugadores.</span> </p>
+                                          <p *ngSwitchCase="1"> - Has eliminado 1 jugador del lobby. Esto posiblemente se deba a que hiciste poco da&ntilde;o y/o ganaste pocas rondas. <span *ngIf="x.placement > 4">Para ganar hay que ganar las rondas y eliminar a los otros jugadores.</span> </p>
+                                          <p *ngSwitchCase="2"> - Has eliminado 2 jugadores del lobby. Has hecho un da&ntilde;o medio o no has dado los last hit. <span *ngIf="x.placement > 4">Tienes que hacer mas da&ntilde;.</span> </p>
+                                          <p *ngSwitchCase="3"> - Has eliminado 3 jugadores del lobby. Has hecho un da&ntilde;o considerable o has dado los last hit. <span *ngIf="x.placement > 2">Posiblemente no hayas tenido un buen early, si no ha sido por RNG tienes que jugar con lo m&aacute;s fuerte que tengas.</span> </p>
+                                          <p *ngSwitchDefault> - Has eliminado 4 jugadores del lobby. Eres el rematador. <span *ngIf="x.placement > 1">Le has hecho el carrito al ganador de la partida.</span> </p>
+                                        </span>
+                                        <span [ngSwitch]="x.last_round">
+                                          <p *ngSwitchCase="x.last_round < 20"> - Te han eliminado en la ronda {{x.r}}. Has tenido que jugar una compo muy repetida, forzada o debil, intenta jugar compos metas y que no se repitan mucho, no te cierres pronto a una en concreto si no tienes las unidades de coste 4 e intenta controlar varias que puedan pivotar entre ellas. <span *ngIf="x.placement < 4">El lobby estaba lleno de trolazos y has hecho Top por eso.</span> </p>
+                                          <p *ngSwitchCase="x.last_round < 30 && x.last_round > 19"> - Te han eliminado en la ronda {{x.r}}. Has tenido que jugar una compo repetida o debil, intenta jugar compos metas y que no se repitan mucho e intenta controlar varias que puedan pivotar entre ellas. <span *ngIf="x.placement < 4">Es raro que hayas ganado en esta situaci&oacute;n.</span> </p>
+                                          <p *ngSwitchCase="x.last_round < 35 && x.last_round > 29"> - Te han eliminado en la ronda {{x.r}}. No has forzado pero has jugado una compo repetida. <span *ngIf="x.placement > 4 && x.players_eliminated < 7">Has tenido mala suerte o tuviste un early flojo, recuerda jugar con lo mas fuerte que tengas durante el early.</span> <span *ngIf="x.placement > 7">Has tenido mala suerte o no hiciste objetos core, es importante construir los objetos core de cada compo para hacer Top.</span> </p>
+                                          <p *ngSwitchCase="x.last_round < 40 && x.last_round > 34"> - Te han eliminado en la ronda {{x.r}}. Has jugado una buena compo. <span *ngIf="x.placement > 4">Has tenido mala suerte o no has hecho objetos core.</span></p>
+                                          <p *ngSwitchCase="x.last_round < 45 && x.last_round > 40"> - Te han eliminado en la ronda {{x.r}}. Has jugado una buena compo y con buenos objetos. <span *ngIf="x.placement > 2">A pesar de completar la compo o estar cerca, no has tenido todos los objetos core o has fallado posicionando la fichas.</span> <span *ngIf="x.placement > 4">Has tenido que tener mucha mala suerte para no hacer Top en esta ronda, estarias jugando un lobby muy dificil.</span> </p>
+                                          <p *ngSwitchDefault> - Has terminado en la ronda {{x.r}}. Has jugado una buena compo y con buenos objetos. <span *ngIf="x.placement > 2">A pesar de completar la compo, no has tenido los objetos core o has fallado posicionando la fichas.</span> <span *ngIf="x.placement > 4">Has tenido que tener mucha mala suerte para no hacer Top en esta ronda, estarias jugando un lobby muy dificil.</span> </p>
+                                        </span>
                                       </div>
                                     </div>
                                   </div>
@@ -191,7 +211,7 @@
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-12">
                                 <div class="card card-stats">
-                                    <div class="card-header card-header-silver card-header-icon">
+                                    <div class="card-header card-header-danger card-header-icon">
                                         <h3 class="card-title">Tus oponentes</h3>
                                     </div>
                                     <div class="card-body">
