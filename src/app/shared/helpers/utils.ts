@@ -391,6 +391,9 @@ export class Utils {
       case 'Set3_Sorcerer':
         c = 'Sorcerer';
         break;
+      case 'Set3_Celestial':
+        c = 'Celestial';
+        break;
       default:
         c = x;
     }
