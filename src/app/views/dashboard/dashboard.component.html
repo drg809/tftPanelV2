@@ -164,8 +164,8 @@
                     <th>Galaxia</th>
                     <th>Top1</th>
                     <th>Top4</th>
-                    <th>Winrate</th>
-                    <th>Winrate T4</th>
+                    <th>Win%</th>
+                    <th>Top%</th>
                     <th>Totales</th>
                   </thead>
                   <tbody>
@@ -207,23 +207,33 @@
               <div class="card-body">
                 <table class="table">
                   <thead>
-                    <th>Sinergia</th>
-                    <th>Top1</th>
-                    <th>Top4</th>
-                    <th>Winrate</th>
-                    <th>Winrate T4</th>
+                    <th colspan="4">Sinergia</th>
+                    <th>Win%</th>
+                    <th>Top%</th>
                     <th>Totales</th>
                   </thead>
                   <tbody>
                     <tr *ngFor="let g of counts.traits.top1">
                         <td>
-                          <img class="tableTraits" src="../../../../assets/img/traits/{{ g.x | lowercase }}.png">{{ g.x | TransformNamePipe:3 }}
+                          {{ g.x | TransformNamePipe:3 }}
                         </td>
                         <td>
-                          {{ g.y }}
+                          <div class="hex tier1">
+                            <img class="tableTraits" src="../../../../assets/img/traits/{{ g.x | lowercase }}.png">
+                          </div>
+                          {{ counts.traits.top4S1[g.x] || 0 }}
                         </td>
                         <td>
-                          {{ counts.traits.top4C[g.x] || 0 }}
+                          <div class="hex tier2">
+                            <img class="tableTraits" src="../../../../assets/img/traits/{{ g.x | lowercase }}.png">
+                          </div>
+                          {{ counts.traits.top4S2[g.x] || 0 }}
+                        </td>
+                        <td>
+                          <div class="hex tier3">
+                            <img class="tableTraits" src="../../../../assets/img/traits/{{ g.x | lowercase }}.png">
+                          </div>
+                          {{ counts.traits.top4S3[g.x] || 0 }}
                         </td>
                         <td>
                           {{( g.y / counts.traits.totalC[g.x] ) * 100 || 0 | number:'1.0-2'}}%
@@ -256,8 +266,8 @@
                     <th>Campe&oacute;n</th>
                     <th>Top1</th>
                     <th>Top4</th>
-                    <th>Winrate</th>
-                    <th>Winrate T4</th>
+                    <th>Win%</th>
+                    <th>Top%</th>
                     <th>Totales</th>
                   </thead>
                   <tbody>
