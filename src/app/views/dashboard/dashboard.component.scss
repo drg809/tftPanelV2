@@ -77,28 +77,38 @@ $fourth: #284454;
       top: 100%;
       width: 0;
       border-top: 5.77px solid #383838;
+
     }
     &:before {
       bottom: 100%;
       border-bottom: 5.77px solid #383838;
-      &.tier1 {
-        border-bottom-color: $bronze;
-      }
-      &.tier2 {
-        border-bottom-color: $silver;
-      }
-      &.tier3 {
-        border-bottom-color: $gold;
-      }
     }
     &.tier1 {
       background-color: $bronze;
+      &:before {
+        border-bottom-color: $bronze;
+      }
+      &:after {
+        border-top-color: $bronze;
+      }
     }
     &.tier2 {
       background-color: $silver;
+      &:before {
+        border-bottom-color: $silver;
+      }
+      &:after {
+        border-top-color: $silver;
+      }
     }
     &.tier3 {
       background-color: $gold;
+      &:before {
+        border-bottom-color: $gold;
+      }
+      &:after {
+        border-top-color: $gold;
+      }
     }
   }
 }
