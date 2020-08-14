@@ -201,6 +201,8 @@ export class Utils {
 
   public static getChamps(x: string, i?: any): any {
     let c: any = {};
+    console.log('This items: ');
+    console.log(i.find(x => x === 14 || x === 33 || x === 44));
     switch (x) {
       case 'TFT3_Ziggs':
         c.n = 'Ziggs';
@@ -210,18 +212,22 @@ export class Utils {
         break;
       case 'TFT3_Zed':
         c.n = 'Zed';
+        c.i = {0: i.find(o => o === 18 || o === 19), 1: i.find(o => o === 18 || o === 19), 2: i.find(o => o === 18 || o === 19)};
         break;
       case 'TFT3_Ezreal':
         c.n = 'Ezreal';
         break;
       case 'TFT3_MasterYi':
         c.n = 'MasterYi';
+        c.i = {0: i.find(o => o === 22 || o === 26 || o === 39), 1: i.find(o => o === 22 || o === 26 || o === 39), 2: i.find(o => o === 22 || o === 26 || o === 39)};
         break;
       case 'TFT3_Rumble':
         c.n = 'Rumble';
+        c.i = {0: i.find(o => o === 25 || o === 49 || o === 69), 1: i.find(o => o === 25 || o === 49 || o === 69), 2: i.find(o => o === 25 || o === 49 || o === 69)};
         break;
       case 'TFT3_Jinx':
         c.n = 'Jinx';
+        c.i = {0: i.find(o => o === 12 || o === 22 || o === 57), 1: i.find(o => o === 12 || o === 22 || o === 57), 2: i.find(o => o === 12 || o === 22 || o === 57)};
         break;
       case 'TFT3_AurelionSol':
         c.n = 'Aurelion Sol';
@@ -234,15 +240,18 @@ export class Utils {
         break;
       case 'TFT3_Shen':
         c.n = 'Shen';
+        c.i = {0: i.find(o => o === 55 || o === 77), 1: i.find(o => o === 55 || o === 77), 2: i.find(o => o === 55 || o === 77)};
         break;
       case 'TFT3_Irelia':
         c.n = 'Irelia';
+        c.i = {0: i.find(o => o === 15 || o === 19 || o === 29), 1: i.find(o => o === 15 || o === 19 || o === 29), 2: i.find(o => o === 15 || o === 19 || o === 29)};
         break;
       case 'TFT3_Riven':
         c.n = 'Riven';
         break;
       case 'TFT3_Rakan':
         c.n = 'Rakan';
+        c.i = {0: i.find(o => o === 37), 1: i.find(o => o === 37), 2: i.find(o => o === 37)};
         break;
       case 'TFT3_XinZhao':
         c.n = 'XinZhao';
@@ -264,12 +273,15 @@ export class Utils {
         break;
       case 'TFT3_Janna':
         c.n = 'Janna';
+        c.i = {0: i.find(o => o === 14), 1: i.find(o => o === 14), 2: i.find(o => o === 14)};
         break;
       case 'TFT3_Gangplank':
         c.n = 'Gangplank';
+        c.i = {0: i.find(o => o === 15 || o === 33 || o === 36), 1: i.find(o => o === 15 || o === 33 || o === 36), 2: i.find(o => o === 15 || o === 33 || o === 36)};
         break;
       case 'TFT3_Fizz':
         c.n = 'Fizz';
+        c.i = {0: i.find(o => o === 45 || o === 37), 1: i.find(o => o === 45 || o === 37), 2: i.find(o => o === 45 || o === 37)};
         break;
       case 'TFT3_TwistedFate':
         c.n = 'TwistedFate';
@@ -282,48 +294,59 @@ export class Utils {
         break;
       case 'TFT3_Syndra':
         c.n = 'Syndra';
+        c.i = {0: i.find(o => o === 15 || o === 33 || o === 44), 1: i.find(o => o === 15 || o === 33 || o === 44), 2: i.find(o => o === 15 || o === 33 || o === 44)};
         break;
       case 'TFT3_Viktor':
         c.n = 'Viktor';
+        c.i = {0: i.find(o => o === 14 || o === 37 || o === 44), 1: i.find(o => o === 14 || o === 37 || o === 44), 2: i.find(o => o === 14 || o === 37 || o === 44)};
         break;
       case 'TFT3_Xerath':
         c.n = 'Xerath';
+        c.i = {0: i.find(o => o === 23), 1: i.find(o => o === 23), 2: i.find(o => o === 23)};
         break;
       case 'TFT3_Ekko':
         c.n = 'Ekko';
+        c.i = {0: i.find(o => o === 45 || o === 57), 1: i.find(o => o === 45 || o === 57), 2: i.find(o => o === 45 || o === 57)};
         break;
       case 'TFT3_Blitzcrank':
         c.n = 'Blitzcrank';
         break;
       case 'TFT3_Gnar':
         c.n = 'Gnar';
+        c.i = {0: i.find(o => o === 36 || o === 55 || o === 77), 1: i.find(o => o === 36 || o === 55 || o === 77), 2: i.find(o => o === 36 || o === 55 || o === 77)};
         break;
       case 'TFT3_Fiora':
         c.n = 'Fiora';
+        c.i = {0: i.find(o => o === 47), 1: i.find(o => o === 47), 2: i.find(o => o === 47)};
         break;
       case 'TFT3_Caitlyn':
         c.n = 'Caitlyn';
         break;
       case 'TFT3_Leona':
         c.n = 'Leona';
+        c.i = {0: i.find(o => o === 36), 1: i.find(o => o === 36), 2: i.find(o => o === 36)};
         break;
       case 'TFT3_Lucian':
         c.n = 'Lucian';
         break;
       case 'TFT3_Vi':
         c.n = 'Vi';
+        c.i = {0: i.find(o => o === 36), 1: i.find(o => o === 36), 2: i.find(o => o === 36)};
         break;
       case 'TFT3_Vayne':
         c.n = 'Vayne';
+        c.i = {0: i.find(o => o === 19 || o === 29), 1: i.find(o => o === 19 || o === 29), 2: i.find(o => o === 19 || o === 29)};
         break;
       case 'TFT3_Ashe':
         c.n = 'Ashe';
         break;
       case 'TFT3_WuKong':
         c.n = 'WuKong';
+        c.i = {0: i.find(o => o === 36), 1: i.find(o => o === 36), 2: i.find(o => o === 36)};
         break;
       case 'TFT3_Neeko':
         c.n = 'Neeko';
+        c.i = {0: i.find(o => o === 15 || o === 36 || o === 77), 1: i.find(o => o === 15 || o === 36 || o === 77), 2: i.find(o => o === 15 || o === 36 || o === 77)};
         break;
       case 'TFT3_Annie':
         c.n = 'Annie';
@@ -339,9 +362,11 @@ export class Utils {
         break;
       case 'TFT3_JarvanIV':
         c.n = 'JarvanIV';
+        c.i = {0: i.find(o => o === 77 || o === 36 || o === 55), 1: i.find(o => o === 77 || o === 36 || o === 55), 2: i.find(o => o === 77 || o === 36 || o === 55)};
         break;
       case 'TFT3_Xayah':
         c.n = 'Xayah';
+        c.i = {0: i.find(o => o === 12 || o === 19 || o === 29), 1: i.find(o => o === 12 || o === 19 || o === 29), 2: i.find(o => o === 12 || o === 19 || o === 29)};
         break;
       case 'TFT3_Mordekaiser':
         c.n = 'Mordekaiser';
@@ -351,18 +376,22 @@ export class Utils {
         break;
       case 'TFT3_Shaco':
         c.n = 'Shaco';
+        c.i = {0: i.find(o => o === 15 || o === 16 || o === 22), 1: i.find(o => o === 15 || o === 16 || o === 22), 2: i.find(o => o === 15 || o === 16 || o === 22)};
         break;
       case 'TFT3_Jayce':
         c.n = 'Jayce';
+        c.i = {0: i.find(o => o === 46), 1: i.find(o => o === 46), 2: i.find(o => o === 46)};
         break;
       case 'TFT3_Bard':
         c.n = 'Bard';
         break;
       case 'TFT3_Jhin':
         c.n = 'Jhin';
+        c.i = {0: i.find(o => o === 15 || o === 19 || o === 29), 1: i.find(o => o === 15 || o === 19 || o === 29), 2: i.find(o => o === 15 || o === 19 || o === 29)};
         break;
       case 'TFT3_Teemo':
         c.n = 'Teemo';
+        c.i = {0: i.find(o => o === 33 || o === 37 || o === 44), 1: i.find(o => o === 33 || o === 37 || o === 44), 2: i.find(o => o === 33 || o === 37 || o === 44)};
         break;
       case 'TFT3_Poppy':
         c.n = 'Poppy';
@@ -448,8 +477,10 @@ export class ItemCoreChampsPipe implements PipeTransform {
         providers: [],
     };
   };
-  transform(value: string, mode: number): any {
-    const newStr = Utils.getChamps(value) ;
+  transform(value: string, items: any): any {
+    console.log('this value ' + value + ' return this item ' + items);
+    const newStr = Utils.getChamps(value, items) ;
+    console.log(newStr);
     return newStr;
   };
 }
