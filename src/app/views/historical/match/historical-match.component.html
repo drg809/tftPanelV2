@@ -177,6 +177,15 @@
                                           <h5 *ngSwitchCase="7">Has perdido! Tu puesto ha sido el septimo, tienes que aprender sobre tu juego y porque no quedaste primero. Estos son los detalles:</h5>
                                           <h5 *ngSwitchCase="8">Has perdido! Tu puesto ha sido el octabo, tienes que aprender sobre tu juego y porque no quedaste primero. Estos son los detalles:</h5>
                                         </span>
+                                        <h6><u>Nivel</u></h6>
+                                        <span [ngSwitch]="x.level">
+                                          <p *ngSwitchCase="5"> - Nivel 5, llevabas muy pocas unidades y has perdido por esto.</p>
+                                          <p *ngSwitchCase="6"> - Nivel 6, al llevar muy pocas unidades has tenido pocas posibilidades de ganar. Debes subir de nivel si quieres hacer ganar. </p>
+                                          <p *ngSwitchCase="7"> - Nivel 7, pudiste completar la compo si era peque&ntilde;a pero te han faltado unidades epicas de apoyo  <span *ngIf="x.placement > 1"> y con ello quedar posiblemente en mejor posicion, adem&aacute;s has tenido un % muy bajo de highrollear epicas</span>. </p>
+                                          <p *ngSwitchCase="8"> - Nivel 8, has completado la compo pero no has llegado al m&aacute;ximo. <span *ngIf="x.placement > 1"> Si hubieras subido para meter tresh con un buen pull hubieras ganado, adem&aacute;s has tenido un % medio-bajo de highrollear epicas.</span> </p>
+                                          <p *ngSwitchCase="9"> - Nivel 9, nivel m&aacute;ximo. <span *ngIf="x.placement > 1"> No has ganado por no tener un tresh con buen pull o llegar tarde a este level.</span> </p>
+                                          <p *ngSwitchDefault> - Nivel {{x.level}}, has tenido muy mala partida, en estos casos es mejor descansar. </p>
+                                        </span>
                                         <h6><u>Oro</u></h6>
                                         <span [ngSwitch]="x.gold_left">
                                           <p *ngSwitchCase="0"> - Has gastado todo tu oro, lo que esta perfecto. <span *ngIf="x.placement > 4">No hiciste top, no ha sido por esto.</span> </p>
@@ -231,6 +240,14 @@
                                             <h5 *ngSwitchCase="2">Invocador: {{x.name}} - 2do puesto.</h5>
                                             <h5 *ngSwitchCase="3">Invocador: {{x.name}} - 3er puesto.</h5>
                                             <h5 *ngSwitchCase="4">Invocador: {{x.name}} - 4to puesto</h5>
+                                          </span>
+                                          <h6><u>Nivel</u></h6>
+                                          <span [ngSwitch]="x.level">
+                                            <p *ngSwitchCase="6"> - Nivel 6, al llevar muy pocas unidades tuvo pocas posibilidades de ganar. </p>
+                                            <p *ngSwitchCase="7"> - Nivel 7, pudo completar la compo si era peque&ntilde;a pero le faltaron epicas de apoyo  <span *ngIf="x.placement > 1"> y con ello quedar posiblemente en mejor posicion</span>. </p>
+                                            <p *ngSwitchCase="8"> - Nivel 8, ha completado la compo pero no ha llegado al m&aacute;ximo. <span *ngIf="x.placement > 1"> Si hubiera subido para meter tresh con un buen pull hubiera ganado</span>. </p>
+                                            <p *ngSwitchCase="9"> - Nivel 9, nivel m&aacute;ximo. <span *ngIf="x.placement > 1"> No ha ganado por no tener un tresh con buen pull</span>. </p>
+                                            <p *ngSwitchDefault> - Nivel {{x.level}}, no se explica como ha acabado aqu&iacute; y no estamp&oacute;. </p>
                                           </span>
                                           <h6><u>Oro</u></h6>
                                           <span [ngSwitch]="x.gold_left">
