@@ -1,3 +1,4 @@
+import { UserProfile } from './../../../shared/models/userProfile';
 import { MatchNotes } from './../../../shared/models/matchNotes';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -8,6 +9,7 @@ import { Utils } from 'app/shared/helpers/utils';
 import { MatchNotesServices } from 'app/shared/services/matchNotes.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogsComponent } from 'app/shared/dialogs/confirm-dialog/confirm-dialog.component';
+import { UserProfileService } from 'app/shared/services/usersProfile.service';
 
 @Component({
   selector: 'app-historical-match',
@@ -23,10 +25,12 @@ export class HistoricalMatchComponent implements OnInit {
   obj: any;
   matchNote: MatchNotes;
   matchNotes: MatchNotes[];
+  userProfile: UserProfile;
 
 
   constructor(private route: ActivatedRoute,
               private summonerService: SummonerService,
+              private userProfileService: UserProfileService,
               private matchNotesServices: MatchNotesServices,
               public dialog: MatDialog) { }
 
@@ -72,6 +76,9 @@ export class HistoricalMatchComponent implements OnInit {
     this.matchNotesServices.getAll(this.entrieId).subscribe((x) => {
       console.log(x);
       this.matchNotes = x;
+    });
+    this.userProfileService.getByUserId(this.user._id).subscribe((x) => {
+      this.userProfile = x;
     });
   }
 
