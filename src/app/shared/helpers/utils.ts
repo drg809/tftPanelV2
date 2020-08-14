@@ -201,8 +201,6 @@ export class Utils {
 
   public static getChamps(x: string, i?: any): any {
     let c: any = {};
-    console.log('This items: ');
-    console.log(i.find(x => x === 14 || x === 33 || x === 44));
     switch (x) {
       case 'TFT3_Ziggs':
         c.n = 'Ziggs';
@@ -402,6 +400,8 @@ export class Utils {
       default:
         c.n = 'Not found champ.';
     }
+    console.log('This items: ');
+    console.log(c);
     return c;
   }
 
@@ -478,9 +478,7 @@ export class ItemCoreChampsPipe implements PipeTransform {
     };
   };
   transform(value: string, items: any): any {
-    console.log('this value ' + value + ' return this item ' + items);
     const newStr = Utils.getChamps(value, items) ;
-    console.log(newStr);
     return newStr;
   };
 }
