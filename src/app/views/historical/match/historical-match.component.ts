@@ -74,7 +74,6 @@ export class HistoricalMatchComponent implements OnInit {
       });
     });
     this.matchNotesServices.getAll(this.entrieId).subscribe((x) => {
-      console.log(x);
       this.matchNotes = x;
     });
     this.userProfileService.getByUserId(this.user._id).subscribe((x) => {
@@ -106,7 +105,6 @@ export class HistoricalMatchComponent implements OnInit {
       if (result) {
         this.matchNote = {userId: this.user._id, entrieId: this.entrieId, text: this.text};
         this.matchNotesServices.create(this.matchNote).subscribe((x) => {
-          console.log(x);
           this.text = '';
           Utils.showNotification('top', 'right', 'success', 'Nota guardada correctamente.');
         });
