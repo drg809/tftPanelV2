@@ -224,7 +224,7 @@
                                         <h3 class="card-title">TUS OPONENTES</h3>
                                     </div>
                                     <div class="card-body">
-                                      <div *ngFor="let x of entrie.data.info.participants">
+                                      <div class="opponentsDetails" *ngFor="let x of entrie.data.info.participants">
                                         <div *ngIf="x.placement < 5 && x.puuid !== user.puuid">
                                           <span [ngSwitch]="x.placement">
                                             <h5 *ngSwitchCase="1">Invocador: {{x.name}} - 1er puesto.</h5>
@@ -263,6 +263,8 @@
                                               {{ y.character_id | ItemCoreChampsPipe:y.items:false }}
                                             </span>
                                           </div>
+                                          <br>
+                                          <mat-divider></mat-divider>
                                         </div>
                                       </div>
                                     </div>
