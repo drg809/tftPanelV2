@@ -199,179 +199,179 @@ export class Utils {
     return r;
   }
 
-  public static getChamps(x: string): string {
-    let c: string;
+  public static getChamps(x: string, i?: any): any {
+    let c: any = {};
     switch (x) {
       case 'TFT3_Ziggs':
-        c = 'Ziggs';
+        c.n = 'Ziggs';
         break;
       case 'TFT3_Malphite':
-        c = 'Malphite';
+        c.n = 'Malphite';
         break;
       case 'TFT3_Zed':
-        c = 'Zed';
+        c.n = 'Zed';
         break;
       case 'TFT3_Ezreal':
-        c = 'Ezreal';
+        c.n = 'Ezreal';
         break;
       case 'TFT3_MasterYi':
-        c = 'MasterYi';
+        c.n = 'MasterYi';
         break;
       case 'TFT3_Rumble':
-        c = 'Rumble';
+        c.n = 'Rumble';
         break;
       case 'TFT3_Jinx':
-        c = 'Jinx';
+        c.n = 'Jinx';
         break;
       case 'TFT3_AurelionSol':
-        c = 'Aurelion Sol';
+        c.n = 'Aurelion Sol';
         break;
       case 'TFT3_Thresh':
-        c = 'Thresh';
+        c.n = 'Thresh';
         break;
       case 'TFT3_Yasuo':
-        c = 'Yasuo';
+        c.n = 'Yasuo';
         break;
       case 'TFT3_Shen':
-        c = 'Shen';
+        c.n = 'Shen';
         break;
       case 'TFT3_Irelia':
-        c = 'Irelia';
+        c.n = 'Irelia';
         break;
       case 'TFT3_Riven':
-        c = 'Riven';
+        c.n = 'Riven';
         break;
       case 'TFT3_Rakan':
-        c = 'Rakan';
+        c.n = 'Rakan';
         break;
       case 'TFT3_XinZhao':
-        c = 'XinZhao';
+        c.n = 'XinZhao';
         break;
       case 'TFT3_Cassiopeia':
-        c = 'Cassiopeia';
+        c.n = 'Cassiopeia';
         break;
       case 'TFT3_Karma':
-        c = 'Karma';
+        c.n = 'Karma';
         break;
       case 'TFT3_Soraka':
-        c = 'Soraka';
+        c.n = 'Soraka';
         break;
       case 'TFT3_Lulu':
-        c = 'Lulu';
+        c.n = 'Lulu';
         break;
       case 'TFT3_Urgot':
-        c = 'Urgot';
+        c.n = 'Urgot';
         break;
       case 'TFT3_Janna':
-        c = 'Janna';
+        c.n = 'Janna';
         break;
       case 'TFT3_Gangplank':
-        c = 'Gangplank';
+        c.n = 'Gangplank';
         break;
       case 'TFT3_Fizz':
-        c = 'Fizz';
+        c.n = 'Fizz';
         break;
       case 'TFT3_TwistedFate':
-        c = 'TwistedFate';
+        c.n = 'TwistedFate';
         break;
       case 'TFT3_Zoe':
-        c = 'Zoe';
+        c.n = 'Zoe';
         break;
       case 'TFT3_Ahri':
-        c = 'Ahri';
+        c.n = 'Ahri';
         break;
       case 'TFT3_Syndra':
-        c = 'Syndra';
+        c.n = 'Syndra';
         break;
       case 'TFT3_Viktor':
-        c = 'Viktor';
+        c.n = 'Viktor';
         break;
       case 'TFT3_Xerath':
-        c = 'Xerath';
+        c.n = 'Xerath';
         break;
       case 'TFT3_Ekko':
-        c = 'Ekko';
+        c.n = 'Ekko';
         break;
       case 'TFT3_Blitzcrank':
-        c = 'Blitzcrank';
+        c.n = 'Blitzcrank';
         break;
       case 'TFT3_Gnar':
-        c = 'Gnar';
+        c.n = 'Gnar';
         break;
       case 'TFT3_Fiora':
-        c = 'Fiora';
+        c.n = 'Fiora';
         break;
       case 'TFT3_Caitlyn':
-        c = 'Caitlyn';
+        c.n = 'Caitlyn';
         break;
       case 'TFT3_Leona':
-        c = 'Leona';
+        c.n = 'Leona';
         break;
       case 'TFT3_Lucian':
-        c = 'Lucian';
+        c.n = 'Lucian';
         break;
       case 'TFT3_Vi':
-        c = 'Vi';
+        c.n = 'Vi';
         break;
       case 'TFT3_Vayne':
-        c = 'Vayne';
+        c.n = 'Vayne';
         break;
       case 'TFT3_Ashe':
-        c = 'Ashe';
+        c.n = 'Ashe';
         break;
       case 'TFT3_WuKong':
-        c = 'WuKong';
+        c.n = 'WuKong';
         break;
       case 'TFT3_Neeko':
-        c = 'Neeko';
+        c.n = 'Neeko';
         break;
       case 'TFT3_Annie':
-        c = 'Annie';
+        c.n = 'Annie';
         break;
       case 'TFT3_Illaoi':
-        c = 'Illaoi';
+        c.n = 'Illaoi';
         break;
       case 'TFT3_Nocturne':
-        c = 'Nocturne';
+        c.n = 'Nocturne';
         break;
       case 'TFT3_KogMaw':
-        c = 'KogMaw';
+        c.n = 'KogMaw';
         break;
       case 'TFT3_JarvanIV':
-        c = 'JarvanIV';
+        c.n = 'JarvanIV';
         break;
       case 'TFT3_Xayah':
-        c = 'Xayah';
+        c.n = 'Xayah';
         break;
       case 'TFT3_Mordekaiser':
-        c = 'Mordekaiser';
+        c.n = 'Mordekaiser';
         break;
       case 'TFT3_Nautilus':
-        c = 'Nautilus';
+        c.n = 'Nautilus';
         break;
       case 'TFT3_Shaco':
-        c = 'Shaco';
+        c.n = 'Shaco';
         break;
       case 'TFT3_Jayce':
-        c = 'Jayce';
+        c.n = 'Jayce';
         break;
       case 'TFT3_Bard':
-        c = 'Bard';
+        c.n = 'Bard';
         break;
       case 'TFT3_Jhin':
-        c = 'Jhin';
+        c.n = 'Jhin';
         break;
       case 'TFT3_Teemo':
-        c = 'Teemo';
+        c.n = 'Teemo';
         break;
       case 'TFT3_Poppy':
-        c = 'Poppy';
+        c.n = 'Poppy';
         break;
       case 'TFT3_Graves':
-        c = 'Graves';
+        c.n = 'Graves';
         break;
       default:
-        c = 'Not found champ.';
+        c.n = 'Not found champ.';
     }
     return c;
   }
@@ -434,8 +434,22 @@ export class TransformNamePipe implements PipeTransform {
         providers: [],
     };
   };
-  transform(value: string, mode: number): string {
-    const newStr = mode === 1 ? Utils.getGalaxie(value) : ( mode === 2 ? Utils.getChamps(value) : Utils.getTraits(value)) ;
+  transform(value: string, mode: number): any {
+    const newStr = mode === 1 ? Utils.getGalaxie(value) : ( mode === 2 ? Utils.getChamps(value).n : Utils.getTraits(value)) ;
+    return newStr;
+  };
+}
+
+@Pipe({name: 'ItemCoreChampsPipe'})
+export class ItemCoreChampsPipe implements PipeTransform {
+  static forRoot() {
+    return {
+        ngModule: ItemCoreChampsPipe,
+        providers: [],
+    };
+  };
+  transform(value: string, mode: number): any {
+    const newStr = Utils.getChamps(value) ;
     return newStr;
   };
 }
