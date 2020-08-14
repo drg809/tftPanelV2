@@ -16,9 +16,7 @@ export class StaticsComponent implements OnInit {
               private router: Router) { }
 
   ngOnInit() {
-    this.router.routeReuseStrategy.shouldReuseRoute = function () {
-      return false;
-    };
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
     this.user = JSON.parse(localStorage.getItem('currentUser') || '{}');
     this.option = this.route.snapshot.paramMap.get('option');
     this.rrss = [
