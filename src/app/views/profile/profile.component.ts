@@ -109,6 +109,7 @@ export class ProfileComponent implements OnInit {
     }).afterClosed().subscribe((result) => {
       if (result) {
         this.summonerService.remove(id).subscribe(() => { Utils.showNotification('success', 'El invocador ha sido eliminado.'); });
+        this.router.routeReuseStrategy.shouldReuseRoute = () => false;
       }
     });
   }
@@ -117,6 +118,9 @@ export class ProfileComponent implements OnInit {
     sum.main = !sum.main;
     const x: any = {id: sum.id, userId: sum.userId, main: sum.main};
     this.summonerService.setMainSummoner(x).subscribe(() => {
+      localStorage.removeItem('currentUser');
+      this.user.main = sum.main;
+      localStorage.setItem('currentUser', JSON.stringify(this.user));
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
       this.router.onSameUrlNavigation = 'reload';
       this.router.navigate(['/profile']);
