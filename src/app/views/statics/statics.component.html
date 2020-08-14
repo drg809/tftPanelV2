@@ -3,13 +3,14 @@
         <div class="row">
             <div class="col-lg-12 col-md-12 col-sm-12">
                 <div class="card card-stats">
-                    <div class="card-header card-header-danger card-header-icon">
-                        <h3 *ngIf="option === ':follow'" class="card-title">Apoya este proyecto</h3>
-                    </div>
+                    <div class="card-header card-header-danger card-header-icon"></div>
                     <div class="card-body">
                         <div class="col-sm-12">
                             <div *ngIf="option === ':follow'">
-                                Apoyar este proyecto es muy f&aacute;cil y no te costar&aacute; dinero, accede a las redes sociales de MrMugui y siguel&oacute;, si tienes twitch prime se agradece la subscripci&oacute;n a su canal. Muchas gracias.
+                                <h2>Apoya este proyecto</h2>
+                                <p>
+                                  Apoyar este proyecto es muy f&aacute;cil y no te costar&aacute; dinero, accede a las redes sociales de MrMugui y siguel&oacute;, si tienes twitch prime se agradece la subscripci&oacute;n a su canal. Muchas gracias.
+                                </p>
                                 <div *ngFor="let r of rrss">
                                     <div class="rrss-name">
                                         <img class="rrss-image" src="{{r.res}}" alt="{{r.name}}">{{r.name}}
@@ -20,12 +21,19 @@
                                 </div>
                             </div>
                             <div *ngIf="option === ':about'">
-                                Una aplicaci&oacute;n para que los chavales mejoren su juego o por lo menos se echen unas risas. {{option}}
+                                <h2>Sobre Nosotros</h2>
+                                <p>
+                                  Una aplicaci&oacute;n para que los chavales mejoren su juego o por lo menos se echen unas risas.
+                                </p>
                             </div>
                             <div *ngIf="option === ':rules'">
-                              <p>
-                                Se pide discrepci&oacute;n a la hora de hacer publica la informaci&oacute;n aqu&iacute; contenida, ya que Riot tiene unas politicas muy estrictas de no difusi&oacute;n de datos de los jugadores as&iacute; c&oacute;mo humillaci&oacute;n o cualquier otro tipo de desprestigio de los jugadores.
-                              </p>
+                                <h2>Reglas del Sitio</h2>
+                                <p>
+                                  Queda prohibido trackear cuentas de invocador que no te pertenezcan bajo expulsi&oacute;n de la plataforma.
+                                </p>
+                                <p>
+                                  Se pide discrepci&oacute;n a la hora de hacer publica la informaci&oacute;n aqu&iacute; contenida, ya que Riot tiene unas politicas muy estrictas de no difusi&oacute;n de datos de los jugadores as&iacute; c&oacute;mo humillaci&oacute;n o cualquier otro tipo de desprestigio de los jugadores.
+                                </p>
                             </div>
                             <div *ngIf="option === ':privacy'">
                               <h2>Política de Privacidad</h2>
