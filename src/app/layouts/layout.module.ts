@@ -1,4 +1,4 @@
-import { TransformNamePipe } from 'app/shared/helpers/utils';
+import { TransformNamePipe, ItemCoreChampsPipe } from 'app/shared/helpers/utils';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -33,11 +33,13 @@ import { StaticsComponent } from 'app/views/statics/statics.component';
     SettingsComponent,
     DatabaseComponent,
     TransformNamePipe,
-    StaticsComponent
+    StaticsComponent,
+    ItemCoreChampsPipe
   ],
   exports: [
     AngularMaterialModule,
-    TransformNamePipe
+    TransformNamePipe,
+    ItemCoreChampsPipe
   ]
 })
 
