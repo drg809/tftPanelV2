@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { User } from 'app/shared/models/user';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-statics',
@@ -12,9 +12,13 @@ export class StaticsComponent implements OnInit {
   option: any;
   rrss: any[];
 
-  constructor(private route: ActivatedRoute) { }
+  constructor(private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit() {
+    this.router.routeReuseStrategy.shouldReuseRoute = function () {
+      return false;
+    };
     this.user = JSON.parse(localStorage.getItem('currentUser') || '{}');
     this.option = this.route.snapshot.paramMap.get('option');
     this.rrss = [
