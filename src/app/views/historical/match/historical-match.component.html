@@ -180,7 +180,7 @@
                                         <h6><u>Oro</u></h6>
                                         <span [ngSwitch]="x.gold_left">
                                           <p *ngSwitchCase="0"> - Has gastado todo tu oro, lo que esta perfecto. <span *ngIf="x.placement > 4">No hiciste top, no ha sido por esto.</span> </p>
-                                          <p *ngSwitchCase="1 || 2"> - No te ha sobrado oro para rollear, lo que esta perfecto. <span *ngIf="x.placement > 4">No hiciste top, no ha sido por esto.</span> </p>
+                                          <p *ngSwitchCase="1 || 2"> - No te ha sobrado oro para rollear. <span *ngIf="x.placement > 4">No hiciste top, no ha sido por esto.</span> </p>
                                           <p *ngSwitchCase="3 || 4"> - Te ha sobrado oro para rolear, si tenias unidades en banca podrias haber subido de nivel alguna. <span *ngIf="x.placement > 4">Podrias haber hecho top si tu oponente quedo con poca vida.</span> </p>
                                           <p *ngSwitchCase="5 || 6"> - Te ha sobrado oro para rolear y subir de nivel tus unidades. <span *ngIf="x.placement > 4">Podrias haber hecho top si tu oponente quedo con poca vida.</span> </p>
                                           <p *ngSwitchDefault> - Te ha sobrado oro para rolear y subir de nivel tus unidades. <span *ngIf="x.placement > 4">Has podido perder por este motivo.</span> </p>
@@ -205,7 +205,7 @@
                                         <h6><u>Objetos en unidades</u></h6>
                                         <div *ngFor="let y of x.units">
                                           <span *ngIf="y.items[0] && y.items[0] != 999">
-                                            - {{ y.character_id | ItemCoreChampsPipe:y.items }}
+                                            {{ y.character_id | ItemCoreChampsPipe:y.items:true }}
                                           </span>
                                         </div>
                                       </div>
@@ -235,7 +235,7 @@
                                           <h6><u>Oro</u></h6>
                                           <span [ngSwitch]="x.gold_left">
                                             <p *ngSwitchCase="0"> - Ha gastado todo su oro, lo que esta perfecto.</p>
-                                            <p *ngSwitchCase="1 || 2"> - No le ha sobrado oro para rollear, lo que esta perfecto. </p>
+                                            <p *ngSwitchCase="1 || 2"> - No le ha sobrado oro para rollear. </p>
                                             <p *ngSwitchCase="3 || 4"> - Le ha sobrado oro para rolear, si tenia unidades en banca podria haber subido de nivel alguna  <span *ngIf="x.placement > 1"> y con ello quedar posiblemente en mejor posicion</span>. </p>
                                             <p *ngSwitchCase="5 || 6"> - Le ha sobrado oro para rolear y subir de nivel sus unidades <span *ngIf="x.placement > 1"> y con ello quedar en mejor posicion</span>. </p>
                                             <p *ngSwitchDefault> - Le ha sobrado oro para rolear y subir de nivel sus unidades. <span *ngIf="x.placement > 1">Hubiera podido ganar por este motivo.</span> </p>
@@ -260,7 +260,7 @@
                                           <h6><u>Objetos en unidades</u></h6>
                                           <div *ngFor="let y of x.units">
                                             <span *ngIf="y.items[0] && y.items[0] != 999">
-                                              - {{ y.character_id | ItemCoreChampsPipe:y.items }}
+                                              {{ y.character_id | ItemCoreChampsPipe:y.items:false }}
                                             </span>
                                           </div>
                                         </div>
