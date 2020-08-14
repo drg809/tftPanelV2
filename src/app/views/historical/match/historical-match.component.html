@@ -226,7 +226,7 @@
                             </div>
                           </div>
                         </div>
-                        <div class="tab-pane" id="notes">
+                        <div class="tab-pane notes" id="notes">
                           <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="card card-stats">
                                 <form #f="ngForm" (ngSubmit)="f.form.valid && onSaveNote()">
@@ -234,10 +234,13 @@
                                         <h3 class="card-title">Escribe una nota:</h3>
                                     </div>
                                     <div class="card-body">
-                                        <textarea  [(ngModel)]='text' name="text" rows="30" cols="120"></textarea>
+                                        <textarea class="matchNotes" [(ngModel)]='text' name="text" rows="15" cols="60"></textarea>
                                     </div>
                                     <div class="card-footer">
                                       <button mat-raised-button type="submit" class="btn btn-danger pull-right">Guarda la nota</button>
+                                      <div>
+                                          <i class="material-icons">person</i> <span class="text-top"> {{ userProfile.name | titlecase }} {{ userProfile.lastname | titlecase }} </span>
+                                      </div>
                                     </div>
                                 </form>
                             </div>
@@ -245,11 +248,16 @@
                           <div class="col-lg-12 col-md-12 col-sm-12">
                             <div class="card card-stats">
                                 <div class="card-header card-header-danger card-header-icon">
-                                    <h3 class="card-title">Notas de esta partida:</h3>
+                                    <h3 class="card-title">Notas de esta partida</h3>
                                 </div>
                                 <div class="card-body">
-                                  <div *ngFor="let x of matchNotes">
-                                    {{x.text}}
+                                  <div class="row msg" *ngFor="let x of matchNotes">
+                                    <div class="col-md-2 col-xs-4 person">
+                                      <i class="material-icons">person</i> <span class="text-top"> {{ userProfile.name | titlecase }} {{ userProfile.lastname | titlecase }} </span>
+                                    </div>
+                                    <div class="col-md-10 col-xs-8">
+                                      {{x.text}}
+                                    </div>
                                   </div>
                                 </div>
                                 <div class="card-footer">
