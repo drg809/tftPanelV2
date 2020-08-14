@@ -199,6 +199,11 @@
                                           <p *ngSwitchCase="x.last_round < 45 && x.last_round > 40"> - Te han eliminado en la ronda {{x.r}}. Has jugado una buena compo y con buenos objetos. <span *ngIf="x.placement > 2">A pesar de completar la compo o estar cerca, no has tenido todos los objetos core o has fallado posicionando la fichas.</span> <span *ngIf="x.placement > 4">Has tenido que tener mucha mala suerte para no hacer Top en esta ronda, estarias jugando un lobby muy dificil.</span> </p>
                                           <p *ngSwitchDefault> - Has terminado en la ronda {{x.r}}. Has jugado una buena compo y con buenos objetos. <span *ngIf="x.placement > 2">A pesar de completar la compo, no has tenido los objetos core o has fallado posicionando la fichas.</span> <span *ngIf="x.placement > 4">Has tenido que tener mucha mala suerte para no hacer Top en esta ronda, estarias jugando un lobby muy dificil.</span> </p>
                                         </span>
+                                        <div *ngFor="let y of x.units">
+                                          <span *ngIf="y.items[0] && y.items[0] != 999">
+                                            <img class="item" alt="primer item" src="../../../../assets/img/items/set3/{{y.items[0]}}.png">
+                                          </span>
+                                        </div>
                                       </div>
                                     </div>
                                   </div>
