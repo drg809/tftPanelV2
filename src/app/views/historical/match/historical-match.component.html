@@ -201,7 +201,7 @@
                                         </span>
                                         <div *ngFor="let y of x.units">
                                           <span *ngIf="y.items[0] && y.items[0] != 999">
-                                            <img class="item" alt="primer item" src="../../../../assets/img/items/set3/{{y.items[0]}}.png">
+                                            {{ y.character_id | ItemCoreChampsPipe:y.items }}
                                           </span>
                                         </div>
                                       </div>
