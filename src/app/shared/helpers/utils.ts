@@ -475,18 +475,18 @@ export class ItemCoreChampsPipe implements PipeTransform {
         providers: [],
     };
   };
-  transform(value: string, items: any): any {
+  transform(value: string, items: any, mode: boolean): any {
     const i: any[] = Utils.getChamps(value, items).i || [];
     let it: string;
     if (i[0] && i[1] && i[2]) {
-      it = 'La ficha de ' + Utils.getChamps(value).n + ' tiene tres objetos core.';
+      it = '- La ficha de ' + Utils.getChamps(value).n + ' tiene tres objetos core.';
     } else if ((!i[0] && i[1] && i[2]) || (i[0] && !i[1] && i[2]) || (i[0] && i[1] && !i[2])) {
-      it = 'La ficha de ' + Utils.getChamps(value).n + ' tiene dos objetos core.';
+      it = '- La ficha de ' + Utils.getChamps(value).n + ' tiene dos objetos core.';
     } else if ((!i[0] && !i[1] && i[2]) || (i[0] && !i[1] && !i[2]) || (!i[0] && i[1] && !i[2])) {
-      it = 'La ficha de ' + Utils.getChamps(value).n + ' tiene un objeto core.';
-    } else {
+      it = '- La ficha de ' + Utils.getChamps(value).n + ' tiene un objeto core.';
+    } else if (mode) {
       const iN: string = items.lenght > 1 ? items.lenght + ' objetos que no son core.' : 'un objeto que no es core.';
-      it = 'La ficha de ' + Utils.getChamps(value).n + ' tiene ' + iN;
+      it = '- La ficha de ' + Utils.getChamps(value).n + ' tiene ' + iN;
     }
     console.log(it);
     return it;
