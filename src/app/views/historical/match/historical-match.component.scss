@@ -12,6 +12,9 @@ $fourth: #284454;
 
 
 .historicalMatch {
+  .card-title {
+    padding-top: 10px;
+  }
   .champions{
     position: relative;
     width: auto;
@@ -347,6 +350,35 @@ $fourth: #284454;
   .analisis {
     .card-stats .card-body {
       text-align: left;
+    }
+  }
+  .notes {
+    .matchNotes{
+      width: 100%;
+    }
+    .card-footer {
+      .text-top{
+        top: -5px;
+        position: relative;
+      }
+    }
+    .card-body {
+      .text-top{
+        top: -5px;
+        position: relative;
+      }
+      .person {
+        text-align: center;
+      }
+    }
+    .card-stats .card-body {
+      text-align: left;
+    }
+    .msg {
+      border: 1px solid black;
+      padding: 10px;
+      align-items: center;
+      margin-top: 5px;
     }
   }
 }
