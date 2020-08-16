@@ -25,8 +25,9 @@ export class HistoricalMatchComponent implements OnInit {
   obj: any;
   matchNote: MatchNotes;
   matchNotes: MatchNotes[];
+  matchNotesh: MatchNotes[];
   userProfile: UserProfile;
-  visible: boolean;
+  visible = true;
 
 
   constructor(private route: ActivatedRoute,
@@ -75,7 +76,7 @@ export class HistoricalMatchComponent implements OnInit {
         });
       });
     });
-    this.setMatchNotes(this.entrieId);
+    this.setMatchNotes(this.entrieId, this.user._id);
     this.userProfileService.getByUserId(this.user._id).subscribe((x) => {
       this.userProfile = x;
     });
@@ -85,9 +86,12 @@ export class HistoricalMatchComponent implements OnInit {
 
   }
 
-  setMatchNotes(entrieId: string) {
+  setMatchNotes(entrieId: string, userId: string) {
     this.matchNotesServices.getAll(entrieId).subscribe((x) => {
       this.matchNotes = x;
+    });
+    this.matchNotesServices.getMyNotes(entrieId, userId).subscribe((x) => {
+      this.matchNotesh = x;
     });
   }
 
@@ -110,10 +114,11 @@ export class HistoricalMatchComponent implements OnInit {
     }).afterClosed().subscribe((result) => {
       if (result) {
         this.matchNote = {userId: this.user._id, entrieId: this.entrieId, text: this.text, visible: this.visible};
+        console.log(this.matchNote);
         this.matchNotesServices.create(this.matchNote).subscribe((x) => {
           this.text = '';
           Utils.showNotification('top', 'right', 'success', 'Nota guardada correctamente.');
-          this.setMatchNotes(this.entrieId);
+          this.setMatchNotes(this.entrieId, this.user._id);
           this.router.routeReuseStrategy.shouldReuseRoute = () => false;
         });
       }

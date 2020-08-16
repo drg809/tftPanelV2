@@ -306,7 +306,9 @@
                                     </div>
                                     <div class="card-footer">
                                       <button mat-raised-button type="submit" class="btn btn-danger pull-right">Guarda la nota</button>
-                                      <mat-slide-toggle  [(ngModel)]="visible"></mat-slide-toggle> Visible
+                                      <div>
+                                        <mat-slide-toggle  [(ngModel)]="visible" name="visible"></mat-slide-toggle> Visible
+                                      </div>
                                       <div>
                                           <i class="material-icons">person</i> <span class="text-top"> {{ userProfile.name | titlecase }} {{ userProfile.lastname | titlecase }} </span>
                                       </div>
@@ -328,6 +330,28 @@
                                       {{x.text}}
                                     </div>
                                   </div>
+                                  <p *ngIf="matchNotes.length == 0">No hay notas que mostrar para esta partida. Escribe una nota para mostrarla aqu&iacute;.</p>
+                                </div>
+                                <div class="card-footer">
+
+                                </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="card card-stats">
+                                <div class="card-header card-header-danger card-header-icon">
+                                    <h3 class="card-title">Tus notas de esta partida</h3>
+                                </div>
+                                <div class="card-body">
+                                  <div class="row msg" *ngFor="let x of matchNotesh">
+                                    <div class="col-md-2 col-xs-4 person">
+                                      <i class="material-icons">person</i> <span class="text-top"> {{ userProfile.name | titlecase }} {{ userProfile.lastname | titlecase }} </span>
+                                    </div>
+                                    <div class="col-md-10 col-xs-8">
+                                      {{x.text}}
+                                    </div>
+                                  </div>
+                                  <p *ngIf="matchNotes.length == 0">No tienes notas que mostrar para esta partida. Escribe una nota oculta para mostrarla aqu&iacute;.</p>
                                 </div>
                                 <div class="card-footer">
 
