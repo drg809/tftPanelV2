@@ -15,6 +15,10 @@ export class MatchNotesServices {
     return this.http.get<MatchNotes[]>(this.apiUrl + '/match_notes/' + entrieId);
   }
 
+  getMyNotes(entrieId: string, userId: string) {
+    return this.http.get<MatchNotes[]>(this.apiUrl + '/match_notesh/' + entrieId + '/' + userId);
+  }
+
   create(data: MatchNotes) {
     return this.http.post<MatchNotes>(this.apiUrl + '/match_notes/', data);
   }
