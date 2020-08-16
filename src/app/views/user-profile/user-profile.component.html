@@ -58,12 +58,16 @@
             <div class="card card-profile">
                 <div class="card-avatar">
                     <a>
-                        <img class="img" src="./assets/img/faces/marc.jpg" />
+                      <div class="image-upload">
+                        <img (click)="file.click()" [src]="imageSrc" style="max-width:300px;max-height:300px"/>
+                        <input #file name="imageUrl" type="file" accept="image/*" (change)="handleInputChange($event)" />
+                      </div>
                     </a>
                 </div>
                 <div class="card-body">
                     <h6 class="card-category text-gray">{{user.role}}</h6>
                     <h4 class="card-title">{{user.name}}</h4>
+
                     <p class="card-description">
                       {{about}}
                     </p>
