@@ -119,7 +119,7 @@ export class ProfileComponent implements OnInit {
     const x: any = {id: sum.id, userId: sum.userId, main: sum.main};
     this.summonerService.setMainSummoner(x).subscribe(() => {
       localStorage.removeItem('currentUser');
-      this.user.main = sum.main;
+      this.user.main = sum.id;
       localStorage.setItem('currentUser', JSON.stringify(this.user));
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
       this.router.onSameUrlNavigation = 'reload';
