@@ -56,7 +56,7 @@
   </div>
     <div class="rankFrame">
       <img src="../../../assets/img/rankFrame/{{summonersStats.tier | lowercase}}_{{summonersStats.rank}}.png" alt="rankFrame">
-      <p>{{summonersStats.summonerName}}</p>
+      <p>{{summonersStats.summonerName}} - {{summonersStats.leaguePoints || 0}} LP</p>
     </div>
     <ul class="nav">
         <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
