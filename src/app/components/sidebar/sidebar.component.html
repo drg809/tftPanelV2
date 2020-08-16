@@ -54,6 +54,10 @@
         </li> -->
     </ul>
   </div>
+    <div class="rankFrame">
+      <img src="../../../assets/img/rankFrame/{{summonersStats.tier | lowercase}}_{{summonersStats.rank}}.png" alt="rankFrame">
+      <p>{{summonersStats.summonerName}}</p>
+    </div>
     <ul class="nav">
         <li routerLinkActive="active" *ngFor="let menuItem of menuItems" class="{{menuItem.class}} nav-item">
             <a *ngIf="menuItem.show" class="nav-link" [routerLink]="[menuItem.path]">

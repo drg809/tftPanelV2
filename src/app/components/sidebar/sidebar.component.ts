@@ -1,4 +1,7 @@
+import { SummonersStats } from './../../shared/models/summonersStats';
+import { SummonerStatsService } from './../../shared/services/summonersStats.service';
 import { Component, OnInit } from '@angular/core';
+import { User } from 'app/shared/models/user';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -21,15 +24,21 @@ export const ROUTES: RouteInfo[] = [
 @Component({
   selector: 'app-sidebar',
   templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css']
+  styleUrls: ['./sidebar.component.scss']
 })
 export class SidebarComponent implements OnInit {
   menuItems: any[];
+  user: User;
+  summonersStats: SummonersStats;
 
-  constructor() { }
+  constructor(private summonerStatsService: SummonerStatsService) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);
+    this.user = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    this.summonerStatsService.getOne(this.user.main).subscribe((x) => {
+      this.summonersStats = x;
+    })
   }
   isMobileMenu() {
       if ($(window).width() > 991) {
