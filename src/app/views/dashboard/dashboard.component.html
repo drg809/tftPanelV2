@@ -1,5 +1,8 @@
 <div class="main-content dashboard">
   <div class="container-fluid">
+      <div class="hideDashboard" *ngIf="!summonerStats">
+        Cuenta main no sincronizada. Sincroniza tu cuenta pulsando "actualizar" sobre tu cuenta de invocador <a [routerLink]="['/profile']">aqu&iacute;</a>.
+      </div>
       <div class="row" *ngIf="summonerStats">
           <div class="col-lg-2 col-md-4 col-sm-4">
               <div class="card card-stats">
@@ -98,7 +101,7 @@
               </div>
           </div>
       </div>
-      <div *ngIf="summonerStats" class="row">
+      <div class="row">
           <div class="col-md-4">
               <div class="card card-chart">
                   <div class="card-header card-header-danger">
@@ -107,7 +110,7 @@
                   <div class="card-body">
                       <h4 class="card-title">Posiciones en todas las partidas</h4>
                       <p class="card-category">
-                        El porcentaje de partidas con resultados mayor o igual a top 4 es  <span class="text-success"> <i class="fa fa-long-arrow-up"></i> {{((positions.top1 + positions.top2 + positions.top3 + positions.top4) / positions.total) * 100 | number:'1.0-2' }}% </span> .
+                        El porcentaje de partidas con resultados mayor o igual a top 4 es  <span *ngIf="summonerStats" class="text-success"> <i class="fa fa-long-arrow-up"></i> {{((positions.top1 + positions.top2 + positions.top3 + positions.top4) / positions.total) * 100 | number:'1.0-2' }}% </span> .
                       </p>
                   </div>
                   <div class="card-footer">
@@ -302,10 +305,6 @@
           </div>
         </div>
 
-      </div>
-
-      <div *ngIf="!summonerStats">
-        Cuenta main no sincronizada.
       </div>
   </div>
 </div>
