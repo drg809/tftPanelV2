@@ -43,6 +43,13 @@ $fourth: #284454;
 }
 
 .dashboard {
+  .hideDashboard {
+    min-height: calc(100vh - 210px);
+    min-width: calc(100vw - 300px);
+    position: absolute;
+    background-color: #eeeeee;
+    z-index: 99;
+  }
   .tableChamps,
   .tableGalaxies {
     width: 25px;
