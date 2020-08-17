@@ -54,7 +54,7 @@
         </li> -->
     </ul>
   </div>
-    <div class="rankFrame">
+    <div *ngIf="summonersStats" class="rankFrame">
       <img src="../../../assets/img/rankFrame/{{summonersStats.tier | lowercase}}_{{summonersStats.rank}}.png" alt="rankFrame">
       <p>{{summonersStats.summonerName}} - {{summonersStats.leaguePoints || 0}} LP</p>
     </div>
