@@ -74,11 +74,10 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
       this.summonerService.getLeaguesEntries().subscribe((data: any) => {
+        console.log(data);
         this.summonerStats = data;
         this.positions = data.positions;
         this.counts = data.count;
-        console.log(data.count);
-
         const dataPositionMatchesChart = {
           labels: ['Top1', 'Top2', 'Top3', 'Top4', 'Top5', 'Top6', 'Top7', 'Top8'],
           series: [
