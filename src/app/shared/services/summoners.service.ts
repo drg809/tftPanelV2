@@ -3,6 +3,7 @@ import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
 import {Summoner} from '../models/summoner';
 import { SumMatch, MatchesPagination } from '../models/match';
+import { User } from '../models/user';
 
 
 @Injectable({ providedIn: 'root' })
@@ -58,8 +59,8 @@ export class SummonerService {
     return this.http.post<MatchesPagination>(this.apiUrl + '/summoners/match_history_paginate/' + params.userId, params);
   }
 
-  getMatchesHistoric(userId: any) {
-    return this.http.get<any>(this.apiUrl + '/summoners/match_history/' + userId);
+  getMatchesHistoric(sumId: any, userId: any) {
+    return this.http.get<any>(this.apiUrl + '/summoners/match_history/' + sumId + '/' + userId);
   }
 
   getLeaguesEntriesExt() {
@@ -70,7 +71,8 @@ export class SummonerService {
     return this.http.post<any>(this.apiUrl + '/summoners/apexLeagues_ext', {});
   }
 
-  getLeaguesEntries() {
-    return this.http.post<any>(this.apiUrl + '/summoners/stats', {});
+  getLeaguesEntries(data: User) {
+    data.token = '';
+    return this.http.post<any>(this.apiUrl + '/summoners/stats', data);
   }
 }
