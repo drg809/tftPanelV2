@@ -74,7 +74,6 @@ export class DashboardComponent implements OnInit {
 
   ngOnInit() {
       this.summonerService.getLeaguesEntries().subscribe((data: any) => {
-        console.log(data);
         this.summonerStats = data;
         this.positions = data.positions;
         this.counts = data.count;
@@ -104,7 +103,7 @@ export class DashboardComponent implements OnInit {
           }]
         ];
         const positionsMatchesChart = new Chartist.Bar('#positionsMatchesChart', dataPositionMatchesChart, optionsPositionMatchesChart, responsiveOptions);
-        this.startAnimationForBarChart(positionsMatchesChart);
+
 
         const datagalaxiesMatchesChart: any = {
           labels: [
@@ -163,7 +162,6 @@ export class DashboardComponent implements OnInit {
             chartPadding: { top: 0, right: 0, bottom: 0, left: 0}
         };
         const galaxiesMatchesChart = new Chartist.Bar('#galaxiesMatchesChart', datagalaxiesMatchesChart, optionsgalaxiesMatchesChart, responsiveOptions);
-        this.startAnimationForBarChart(galaxiesMatchesChart);
 
         const optionsDailySalesChart: any = {
           lineSmooth: Chartist.Interpolation.cardinal({
@@ -198,8 +196,11 @@ export class DashboardComponent implements OnInit {
 
         const completedTasksChart = new Chartist.Line('#champsChart', dataChampsChart, optionsChampsChart);
 
-        // start animation for the Completed Tasks Chart - Line Chart
-        this.startAnimationForLineChart(completedTasksChart);
+        if (this.summonerStats != null) {
+          this.startAnimationForLineChart(completedTasksChart);
+          this.startAnimationForBarChart(positionsMatchesChart);
+          this.startAnimationForBarChart(galaxiesMatchesChart);
+        }
       });
   }
 
