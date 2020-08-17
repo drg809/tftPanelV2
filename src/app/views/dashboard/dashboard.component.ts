@@ -3,6 +3,7 @@ import { SummonerService } from './../../shared/services/summoners.service';
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
 import { Utils } from 'app/shared/helpers/utils';
+import { User } from 'app/shared/models/user';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,6 +14,7 @@ export class DashboardComponent implements OnInit {
   summonerStats: SummonersStats;
   positions: SummonersStatsDetails;
   counts: any;
+  user: User;
 
   constructor(private summonerService: SummonerService) { }
   startAnimationForLineChart(chart) {
@@ -73,7 +75,8 @@ export class DashboardComponent implements OnInit {
   };
 
   ngOnInit() {
-      this.summonerService.getLeaguesEntries().subscribe((data: any) => {
+      this.user = JSON.parse(localStorage.getItem('currentUser') || '{}');
+      this.summonerService.getLeaguesEntries(this.user).subscribe((data: any) => {
         this.summonerStats = data;
         this.positions = data.positions;
         this.counts = data.count;
