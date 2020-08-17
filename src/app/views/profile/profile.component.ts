@@ -47,10 +47,8 @@ export class ProfileComponent implements OnInit {
       data: this.obj,
     }).afterClosed().subscribe((result) => {
       if (result.res) {
-        console.log(result);
         const sum: Summoner = {userId: this.user._id, summonerName: result.name};
         this.summonerService.create(sum).subscribe((emitData: any) => { console.log(emitData); });
-        // this.summonerService.create(sum).subscribe((emitData: any) => { console.log(emitData); });
         Utils.showNotification('top', 'right', 'success', 'Nuevo invocador creado con nombre ' + result.name);
         setTimeout(() => {
           this.summonerService.getByUserId(this.user._id).subscribe(data => {
@@ -120,6 +118,7 @@ export class ProfileComponent implements OnInit {
     this.summonerService.setMainSummoner(x).subscribe(() => {
       localStorage.removeItem('currentUser');
       this.user.main = sum.id;
+      this.user.puuid = sum.puuid;
       localStorage.setItem('currentUser', JSON.stringify(this.user));
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
       this.router.onSameUrlNavigation = 'reload';
