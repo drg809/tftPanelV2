@@ -39,7 +39,7 @@ export class HistoricalMatchComponent implements OnInit {
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('currentUser') || '{}');
-    this.entrieId = this.route.snapshot.paramMap.get('id');
+    this.entrieId = this.route.snapshot.paramMap.get('entrieId');
     this.summonerService.getMatchInfo(this.entrieId).subscribe(data => {
       this.entrie = data;
       this.entrie.data.info.participants.sort((a, b) => a.placement  - b.placement);
