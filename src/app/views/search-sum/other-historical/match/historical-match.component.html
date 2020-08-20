@@ -1,0 +1,391 @@
+<div class="main-content historicalMatch">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-header-tabs card-header-primary">
+                    <div class="nav-tabs-navigation">
+                        <div class="nav-tabs-wrapper">
+                            <!-- <span class="nav-tabs-title">Tasks:</span> -->
+                            <ul class="nav nav-tabs" data-tabs="tabs">
+                                <li class="nav-item">
+                                    <a mat-button class="nav-link active" href="#results" data-toggle="tab">
+                                        <!-- <i class="material-icons">bug_report</i> Bugs --> Resultados
+                                        <div class="ripple-container"></div>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                  <a mat-button class="nav-link" href="#analisis" data-toggle="tab">
+                                      <!-- <i class="material-icons">code</i> Website --> Analisis
+                                      <div class="ripple-container"></div>
+                                  </a>
+                                </li>
+                                <li class="nav-item">
+                                  <a mat-button class="nav-link" href="#notes" data-toggle="tab">
+                                      <!-- <i class="material-icons">cloud</i> Server --> Anotaciones
+                                      <div class="ripple-container"></div>
+                                  </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="tab-content">
+                        <div *ngIf="entrie" class="tab-pane active" id="results">
+                          <div class="matches" *ngFor="let item of entrie.data.info.participants">
+                            <div *ngIf="item.puuid == user.puuid" class="match p{{item.placement}}">
+                              <div class="info">
+                                <div>{{item.placement}}º Posicion</div>
+                                <div>
+                                  {{item.d}}<br>
+                                  {{dif}}<br>
+                                </div>
+                                <div>
+                                  <div [ngSwitch]="entrie.data.info.game_variation">
+                                    <span *ngSwitchCase="'TFT3_GameVariation_Bonanza'">
+                                      <img class="galaxie" src="../../../../assets/img/galaxies/TFT3_GameVariation_Bonanza.png" alt="icono galaxia">
+                                      Treasure Trove
+                                    </span>
+                                    <span *ngSwitchCase="'TFT3_GameVariation_FreeNeekos'">
+                                      <img class="galaxie" src="../../../../assets/img/galaxies/TFT3_GameVariation_FreeNeekos.png" alt="icono galaxia">
+                                      The Neekoverse
+                                    </span>
+                                    <span *ngSwitchCase="'TFT3_GameVariation_FreeRerolls'">
+                                      <img class="galaxie" src="../../../../assets/img/galaxies/TFT3_GameVariation_FreeRerolls.png" alt="icono galaxia">
+                                      Trade Sector
+                                    </span>
+                                    <span *ngSwitchCase="'TFT3_GameVariation_MidGameFoN'">
+                                      <img class="galaxie" src="../../../../assets/img/galaxies/TFT3_GameVariation_MidGameFoN.png" alt="icono galaxia">
+                                      Superdense Galaxy
+                                    </span>
+                                    <span *ngSwitchCase="'TFT3_GameVariation_StartingItems'">
+                                      <img class="galaxie" src="../../../../assets/img/galaxies/TFT3_GameVariation_StartingItems.png" alt="icono galaxia">
+                                      Galactic Armory
+                                    </span>
+                                    <span *ngSwitchCase="'TFT3_GameVariation_TwoItemMax'">
+                                      <img class="galaxie" src="../../../../assets/img/galaxies/TFT3_GameVariation_TwoItemMax.png" alt="icono galaxia">
+                                      Binary Star
+                                    </span>
+                                    <span *ngSwitchCase="'TFT3_GameVariation_TwoStarCarousels'">
+                                      <img class="galaxie" src="../../../../assets/img/galaxies/TFT3_GameVariation_TwoStarCarousels.png" alt="icono galaxia">
+                                      Star Cluster
+                                      <!-- <img class="info-icon" src="https://rerollcdn.com/ui/icon-info.svg" alt="info"> -->
+                                    </span>
+                                    <span *ngSwitchCase="'TFT3_GameVariation_SmallerBoards'">
+                                      <img class="galaxie" src="../../../../assets/img/galaxies/TFT3_GameVariation_SmallerBoards.png" alt="icono galaxia">
+                                      Dwarf Planet
+                                    </span>
+                                    <span *ngSwitchDefault>
+                                      Normal Galaxie
+                                    </span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div>
+                                Lvl.{{item.level}}<br>
+                              </div>
+                              <div class="build">
+                                <div class="champions">
+                                  <a *ngFor="let unit of item.units" class="tier{{unit.tier}} r{{unit.rarity}}">
+                                    <img src="../../../../assets/img/champions/{{unit.character_id}}.png" class="champion">
+                                    <div class="items">
+                                      <img *ngIf="unit.items[0] && unit.items[0] != 999" class="item" alt="primer item" src="../../../../assets/img/items/set3/{{unit.items[0]}}.png">
+                                      <img *ngIf="unit.items[1] && unit.items[1] != 999" class="item" alt="segundo item" src="../../../../assets/img/items/set3/{{unit.items[1]}}.png">
+                                      <img *ngIf="unit.items[2] && unit.items[2] != 999" class="item" alt="tercer item" src="../../../../assets/img/items/set3/{{unit.items[2]}}.png">
+                                    </div>
+                                  </a>
+                                </div>
+                                <div class="traits">
+                                  <div *ngFor="let trait of item.traits">
+                                    <div *ngIf="trait.tier_current  > 0" class="builder-bonus-item active tier{{trait.style}}">
+                                      <div class="builder-bonus-icon">
+                                        <img src="../../../../assets/img/traits/{{trait.name | lowercase }}.png" alt="{{trait.name}}">
+                                        <div class="builder-bonus-counter">
+                                          <span>{{trait.num_units}}</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <mat-divider></mat-divider>
+                          <div class="results matches">
+                            <div class="match" *ngFor="let player of entrie.data.info.participants" [ngClass]="{'player': player.puuid == user.puuid}">
+                              <div class="info">
+                                <div>#{{player.placement}}</div>
+                                <div>
+                                  {{player.name}} | Lvl.{{player.level}}
+                                </div>
+                                <div>
+                                  {{player.r}}
+                                </div>
+                                <div>
+                                  {{player.d}}
+                                </div>
+                              </div>
+                              <div class="build">
+                                <div class="traits">
+                                  <div *ngFor="let trait of player.traits">
+                                    <div *ngIf="trait.tier_current  > 0" class="builder-bonus-item active tier{{trait.style}}">
+                                      <div class="builder-bonus-icon">
+                                        <img src="../../../../assets/img/traits/{{trait.name | lowercase }}.png" alt="{{trait.name}}">
+                                        <div class="builder-bonus-counter">
+                                          <span>{{trait.num_units}}</span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="champions">
+                                  <a *ngFor="let unit of player.units" class="tier{{unit.tier}} r{{unit.rarity}} matchInfo">
+                                    <img src="../../../../assets/img/champions/{{unit.character_id}}.png" class="champion">
+                                    <div class="items">
+                                      <img *ngIf="unit.items[0] && unit.items[0] != 999" class="item" alt="primer item" src="../../../../assets/img/items/set3/{{unit.items[0]}}.png">
+                                      <img *ngIf="unit.items[1] && unit.items[1] != 999" class="item" alt="segundo item" src="../../../../assets/img/items/set3/{{unit.items[1]}}.png">
+                                      <img *ngIf="unit.items[2] && unit.items[2] != 999" class="item" alt="tercer item" src="../../../../assets/img/items/set3/{{unit.items[2]}}.png">
+                                    </div>
+                                  </a>
+                                </div>
+                              </div>
+                              <div>
+                                <img class="gold" src="../../../../assets/icons/icon-gold.svg" alt="icono oro">
+                                {{player.gold_left}}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="tab-pane analisis" id="analisis">
+                          <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                              <div class="card card-stats">
+                                  <div class="card-header card-header-success card-header-icon">
+                                      <h3 class="card-title">TU JUEGO</h3>
+                                  </div>
+                                  <div class="card-body">
+                                    <div *ngFor="let x of entrie.data.info.participants">
+                                      <div *ngIf="x.puuid === user.puuid">
+                                        <span [ngSwitch]="x.placement">
+                                          <h5 *ngSwitchCase="1">Felicidades, has ganado! A&uacute;n as&iacute; puedes aprender de tu juego.</h5>
+                                          <h5 *ngSwitchCase="2">Felicidades, has quedado segundo! Tienes que aprender sobre tu juego y porque no quedaste primero.</h5>
+                                          <h5 *ngSwitchCase="3">Felicidades, has quedado tercero! Tienes que aprender sobre tu juego y porque no quedaste primero.</h5>
+                                          <h5 *ngSwitchCase="4">Has quedado cuarto! Tienes que aprender sobre tu juego y porque no quedaste primero. Estos son los detalles:</h5>
+                                          <h5 *ngSwitchCase="5">Has perdido! Tu puesto ha sido el quinto, tienes que aprender sobre tu juego y porque no quedaste primero. Estos son los detalles:</h5>
+                                          <h5 *ngSwitchCase="6">Has perdido! Tu puesto ha sido el sexto, tienes que aprender sobre tu juego y porque no quedaste primero. Estos son los detalles:</h5>
+                                          <h5 *ngSwitchCase="7">Has perdido! Tu puesto ha sido el septimo, tienes que aprender sobre tu juego y porque no quedaste primero. Estos son los detalles:</h5>
+                                          <h5 *ngSwitchCase="8">Has perdido! Tu puesto ha sido el octabo, tienes que aprender sobre tu juego y porque no quedaste primero. Estos son los detalles:</h5>
+                                        </span>
+                                        <h6><u>Nivel</u></h6>
+                                        <span [ngSwitch]="x.level">
+                                          <p *ngSwitchCase="5"> - Nivel 5, llevabas muy pocas unidades y has perdido por esto.</p>
+                                          <p *ngSwitchCase="6"> - Nivel 6, al llevar muy pocas unidades has tenido pocas posibilidades de ganar. Debes subir de nivel si quieres hacer ganar. </p>
+                                          <p *ngSwitchCase="7"> - Nivel 7, pudiste completar la compo si era peque&ntilde;a pero te han faltado unidades epicas de apoyo  <span *ngIf="x.placement > 1"> y con ello quedar posiblemente en mejor posicion, adem&aacute;s has tenido un % muy bajo de highrollear epicas</span>. </p>
+                                          <p *ngSwitchCase="8"> - Nivel 8, has completado la compo pero no has llegado al m&aacute;ximo. <span *ngIf="x.placement > 1"> Si hubieras subido para meter tresh con un buen pull hubieras ganado, adem&aacute;s has tenido un % medio-bajo de highrollear epicas.</span> </p>
+                                          <p *ngSwitchCase="9"> - Nivel 9, nivel m&aacute;ximo. <span *ngIf="x.placement > 1"> No has ganado por no tener un tresh con buen pull o llegar tarde a este level.</span> </p>
+                                          <p *ngSwitchDefault> - Nivel {{x.level}}, has tenido muy mala partida, en estos casos es mejor descansar. </p>
+                                        </span>
+                                        <h6><u>Oro</u></h6>
+                                        <span [ngSwitch]="x.gold_left">
+                                          <p *ngSwitchCase="0"> - Has gastado todo tu oro, lo que esta perfecto. <span *ngIf="x.placement > 4">No hiciste top, no ha sido por esto.</span> </p>
+                                          <p *ngSwitchCase="1 || 2"> - No te ha sobrado oro para rollear. <span *ngIf="x.placement > 4">No hiciste top, no ha sido por esto.</span> </p>
+                                          <p *ngSwitchCase="3 || 4"> - Te ha sobrado oro para rolear, si tenias unidades en banca podrias haber subido de nivel alguna. <span *ngIf="x.placement > 4">Podrias haber hecho top si tu oponente quedo con poca vida.</span> </p>
+                                          <p *ngSwitchCase="5 || 6"> - Te ha sobrado oro para rolear y subir de nivel tus unidades. <span *ngIf="x.placement > 4">Podrias haber hecho top si tu oponente quedo con poca vida.</span> </p>
+                                          <p *ngSwitchDefault> - Te ha sobrado oro para rolear y subir de nivel tus unidades. <span *ngIf="x.placement > 4">Has podido perder por este motivo.</span> </p>
+                                        </span>
+                                        <h6><u>Jugadores elminados</u></h6>
+                                        <span [ngSwitch]="x.players_eliminated">
+                                          <p *ngSwitchCase="0"> - No has eliminado a ning&uacute;n jugador del lobby. Esto posiblemente se deba a que hiciste poco da&ntilde;o y/o ganaste pocas rondas. <span *ngIf="x.placement > 4">Para hacer Top hay que ganar las rondas y eliminar a los otros jugadores.</span> </p>
+                                          <p *ngSwitchCase="1"> - Has eliminado 1 jugador del lobby. Esto posiblemente se deba a que hiciste poco da&ntilde;o y/o ganaste pocas rondas. <span *ngIf="x.placement > 4">Para ganar hay que ganar las rondas y eliminar a los otros jugadores.</span> </p>
+                                          <p *ngSwitchCase="2"> - Has eliminado 2 jugadores del lobby. Has hecho un da&ntilde;o medio o no has dado los last hit. <span *ngIf="x.placement > 4">Tienes que hacer mas da&ntilde;.</span> </p>
+                                          <p *ngSwitchCase="3"> - Has eliminado 3 jugadores del lobby. Has hecho un da&ntilde;o considerable o has dado los last hit. <span *ngIf="x.placement > 2">Posiblemente no hayas tenido un buen early, si no ha sido por RNG tienes que jugar con lo m&aacute;s fuerte que tengas.</span> </p>
+                                          <p *ngSwitchDefault> - Has eliminado 4 jugadores del lobby. Eres el rematador. <span *ngIf="x.placement > 1">Le has hecho el carrito al ganador de la partida.</span> </p>
+                                        </span>
+                                        <h6><u>Ronda</u></h6>
+                                        <span>
+                                          <p *ngIf="x.last_round < 20"> - Te han eliminado en la ronda {{x.r}}. Has tenido que jugar una compo muy repetida, forzada o debil, intenta jugar compos metas y que no se repitan mucho, no te cierres pronto a una en concreto si no tienes las unidades de coste 4 e intenta controlar varias que puedan pivotar entre ellas. <span *ngIf="x.placement < 4">El lobby estaba lleno de trolazos y has hecho Top por eso.</span> </p>
+                                          <p *ngIf="x.last_round < 30 && x.last_round > 19"> - Te han eliminado en la ronda {{x.r}}. Has tenido que jugar una compo repetida o debil, intenta jugar compos metas y que no se repitan mucho e intenta controlar varias que puedan pivotar entre ellas. <span *ngIf="x.placement < 4">Es raro que hayas ganado en esta situaci&oacute;n.</span> </p>
+                                          <p *ngIf="x.last_round > 29 && x.last_round < 35"> - Te han eliminado en la ronda {{x.r}}. No has forzado pero has jugado una compo repetida. <span *ngIf="x.placement > 4 && x.players_eliminated < 7">Has tenido mala suerte o tuviste un early flojo, recuerda jugar con lo mas fuerte que tengas durante el early.</span> <span *ngIf="x.placement > 7">Has tenido mala suerte o no hiciste objetos core, es importante construir los objetos core de cada compo para hacer Top.</span> </p>
+                                          <p *ngIf="x.last_round < 40 && x.last_round > 34"> - Te han eliminado en la ronda {{x.r}}. Has jugado una buena compo. <span *ngIf="x.placement > 4">Has tenido mala suerte o no has hecho objetos core.</span></p>
+                                          <p *ngIf="x.last_round < 45 && x.last_round > 40"> - Te han eliminado en la ronda {{x.r}}. Has jugado una buena compo y con buenos objetos. <span *ngIf="x.placement > 2">A pesar de completar la compo o estar cerca, no has tenido todos los objetos core o has fallado posicionando la fichas.</span> <span *ngIf="x.placement > 4">Has tenido que tener mucha mala suerte para no hacer Top en esta ronda, estarias jugando un lobby muy dificil.</span> </p>
+                                          <p *ngIf="x.last_round > 45"> - Has terminado en la ronda {{x.r}}. Has jugado una buena compo y con buenos objetos. <span *ngIf="x.placement > 2">A pesar de completar la compo, no has tenido los objetos core o has fallado posicionando la fichas.</span> <span *ngIf="x.placement > 4">Has tenido que tener mucha mala suerte para no hacer Top en esta ronda, estarias jugando un lobby muy dificil.</span> </p>
+                                        </span>
+                                        <h6><u>Nivel de unidades</u></h6>
+                                        <div *ngFor="let y of x.units">
+                                          <span *ngIf="y.tier < 3 && y.rarity == 0">
+                                            - La ficha {{ y.character_id | TransformNamePipe:2 }} no es de tier 3, normalmente las fichas de coste 1 son subidas a tier 3 para que no pierdan value.
+                                          </span>
+                                          <span *ngIf="y.tier == 1 && y.rarity < 4 && y.rarity != 0">
+                                            - La ficha {{ y.character_id | TransformNamePipe:2 }} es tier 1, debes subir tus fichas a tier 2 (al menos) para ganar.
+                                          </span>
+                                          <span *ngIf="y.tier == 1 && y.rarity == 4">
+                                            - La ficha {{ y.character_id | TransformNamePipe:2 }} es tier 1, es aconsejable subir las fichas de epicas a tier 2.
+                                          </span>
+                                        </div>
+                                        <h6><u>Objetos en unidades</u></h6>
+                                        <div *ngFor="let y of x.units">
+                                          <span *ngIf="y.items[0] && y.items[0] != 999">
+                                            {{ y.character_id | ItemCoreChampsPipe:y.items:true }}
+                                          </span>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <div class="card-footer">
+                                      <div class="stats">
+                                        <span>Usa estas anotaciones para aprender sobre tu juego.</span>
+                                      </div>
+                                  </div>
+                              </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12">
+                                <div class="card card-stats">
+                                    <div class="card-header card-header-danger card-header-icon">
+                                        <h3 class="card-title">TUS OPONENTES</h3>
+                                    </div>
+                                    <div class="card-body">
+                                      <div class="opponentsDetails" *ngFor="let x of entrie.data.info.participants">
+                                        <div *ngIf="x.placement < 5 && x.puuid !== user.puuid">
+                                          <span [ngSwitch]="x.placement">
+                                            <h5 *ngSwitchCase="1">Invocador: {{x.name}} - 1er puesto.</h5>
+                                            <h5 *ngSwitchCase="2">Invocador: {{x.name}} - 2do puesto.</h5>
+                                            <h5 *ngSwitchCase="3">Invocador: {{x.name}} - 3er puesto.</h5>
+                                            <h5 *ngSwitchCase="4">Invocador: {{x.name}} - 4to puesto</h5>
+                                          </span>
+                                          <h6><u>Nivel</u></h6>
+                                          <span [ngSwitch]="x.level">
+                                            <p *ngSwitchCase="6"> - Nivel 6, al llevar muy pocas unidades tuvo pocas posibilidades de ganar. </p>
+                                            <p *ngSwitchCase="7"> - Nivel 7, pudo completar la compo si era peque&ntilde;a pero le faltaron epicas de apoyo  <span *ngIf="x.placement > 1"> y con ello quedar posiblemente en mejor posicion</span>. </p>
+                                            <p *ngSwitchCase="8"> - Nivel 8, ha completado la compo pero no ha llegado al m&aacute;ximo. <span *ngIf="x.placement > 1"> Si hubiera subido para meter tresh con un buen pull hubiera ganado</span>. </p>
+                                            <p *ngSwitchCase="9"> - Nivel 9, nivel m&aacute;ximo. <span *ngIf="x.placement > 1"> No ha ganado por no tener un tresh con buen pull</span>. </p>
+                                            <p *ngSwitchDefault> - Nivel {{x.level}}, no se explica como ha acabado aqu&iacute; y no estamp&oacute;. </p>
+                                          </span>
+                                          <h6><u>Oro</u></h6>
+                                          <span [ngSwitch]="x.gold_left">
+                                            <p *ngSwitchCase="0"> - Ha gastado todo su oro, lo que esta perfecto.</p>
+                                            <p *ngSwitchCase="1 || 2"> - No le ha sobrado oro para rollear. </p>
+                                            <p *ngSwitchCase="3 || 4"> - Le ha sobrado oro para rolear, si tenia unidades en banca podria haber subido de nivel alguna  <span *ngIf="x.placement > 1"> y con ello quedar posiblemente en mejor posicion</span>. </p>
+                                            <p *ngSwitchCase="5 || 6"> - Le ha sobrado oro para rolear y subir de nivel sus unidades <span *ngIf="x.placement > 1"> y con ello quedar en mejor posicion</span>. </p>
+                                            <p *ngSwitchDefault> - Le ha sobrado oro para rolear y subir de nivel sus unidades. <span *ngIf="x.placement > 1">Hubiera podido ganar por este motivo.</span> </p>
+                                          </span>
+                                          <h6><u>Jugadores elminados</u></h6>
+                                          <span [ngSwitch]="x.players_eliminated">
+                                            <p *ngSwitchCase="0"> - No ha eliminado a ning&uacute;n jugador del lobby. Esto posiblemente se deba a que hizo poco da&ntilde;o y gan&oacute; pocas rondas.</p>
+                                            <p *ngSwitchCase="1"> - Ha eliminado 1 jugador del lobby. Esto posiblemente se deba a que hizo poco da&ntilde;o y/o gan&oacute; pocas rondas.</p>
+                                            <p *ngSwitchCase="2"> - Ha eliminado 2 jugadores del lobby. Ha hecho un da&ntilde;o medio o no ha dado los last hit. </p>
+                                            <p *ngSwitchCase="3"> - Ha eliminado 3 jugadores del lobby. Ha hecho un da&ntilde;o considerable o ha dado los last hit. <span *ngIf="x.placement > 2">Posiblemente no haya tenido un buen early, si no ha sido por RNG es que no jugo con la compo m&aacute;s fuerte que ten&iacute;a.</span> </p>
+                                            <p *ngSwitchDefault> - Ha eliminado 4 jugadores del lobby. <span *ngIf="x.placement > 1">Le ha hecho el carrito al ganador de la partida.</span> </p>
+                                          </span>
+                                          <h6><u>Ronda</u></h6>
+                                          <span [ngSwitch]="x.last_round">
+                                            <p *ngSwitchCase="x.last_round < 20"> - Le han eliminado en la ronda {{x.r}}. Ha tenido que jugar una compo muy repetida, forzada o debil. </p>
+                                            <p *ngSwitchCase="x.last_round < 30 && x.last_round > 19"> - Le han eliminado en la ronda {{x.r}}. Ha tenido que jugar una compo repetida o debil. </p>
+                                            <p *ngSwitchCase="x.last_round < 35 && x.last_round > 29"> - Le han eliminado en la ronda {{x.r}}. No ha forzado compo pero ha jugado una repetida.</p>
+                                            <p *ngSwitchCase="x.last_round < 40 && x.last_round > 34"> - Le han eliminado en la ronda {{x.r}}. Ha jugado una buena compo. <span *ngIf="x.placement > 2">Ha tenido mala suerte o no ha hecho objetos core.</span></p>
+                                            <p *ngSwitchCase="x.last_round < 45 && x.last_round > 40"> - Le han eliminado en la ronda {{x.r}}. Ha jugado una buena compo y con buenos objetos. <span *ngIf="x.placement > 2">A pesar de completar la compo o estar cerca, no ha tenido todos los objetos core o ha fallado posicionando la fichas.</span> </p>
+                                            <p *ngSwitchDefault> - Ha terminado en la ronda {{x.r}}. Ha jugado una buena compo y con buenos objetos. <span *ngIf="x.placement > 2">A pesar de completar la compo, no ha tenido todos los objetos core o ha fallado posicionando la fichas.</span></p>
+                                          </span>
+                                          <h6><u>Nivel de unidades</u></h6>
+                                          <div *ngFor="let y of x.units">
+                                            <span *ngIf="y.tier < 3 && y.rarity == 0">
+                                              - La ficha {{ y.character_id | TransformNamePipe:2 }} no es de tier 3.
+                                            </span>
+                                            <span *ngIf="y.tier == 1 && y.rarity < 4 && y.rarity != 0">
+                                              - La ficha {{ y.character_id | TransformNamePipe:2 }} es tier 1.
+                                            </span>
+                                            <span *ngIf="y.tier == 1 && y.rarity == 4">
+                                              - La ficha &eacute;pica {{ y.character_id | TransformNamePipe:2 }} es tier 1.
+                                            </span>
+                                          </div>
+                                          <h6><u>Objetos en unidades</u></h6>
+                                          <div *ngFor="let y of x.units">
+                                            <span *ngIf="y.items[0] && y.items[0] != 999">
+                                              {{ y.character_id | ItemCoreChampsPipe:y.items:false }}
+                                            </span>
+                                          </div>
+                                          <br>
+                                          <mat-divider></mat-divider>
+                                        </div>
+                                      </div>
+                                    </div>
+                                    <div class="card-footer">
+                                        <div class="stats">
+                                          <span>Usa estas anotaciones para aprender sobre tus oponentes.</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="tab-pane notes" id="notes">
+                          <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="card card-stats">
+                                <form #f="ngForm" (ngSubmit)="f.form.valid && onSaveNote()">
+                                    <div class="card-header card-header-danger card-header-icon">
+                                        <h3 class="card-title">Escribe una nota:</h3>
+                                    </div>
+                                    <div class="card-body">
+                                        <textarea class="matchNotes" [(ngModel)]='text' name="text" rows="10" cols="60"></textarea>
+                                    </div>
+                                    <div class="card-footer">
+                                      <button mat-raised-button type="submit" class="btn btn-danger pull-right">Guarda la nota</button>
+                                      <div>
+                                        <mat-slide-toggle  [(ngModel)]="visible" name="visible"></mat-slide-toggle> Visible
+                                      </div>
+                                      <div>
+                                          <i class="material-icons">person</i> <span class="text-top"> {{ userProfile.name | titlecase }} {{ userProfile.lastname | titlecase }} </span>
+                                      </div>
+                                    </div>
+                                </form>
+                            </div>
+                          </div>
+                          <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="card card-stats">
+                                <div class="card-header card-header-danger card-header-icon">
+                                    <h3 class="card-title">Notas de esta partida</h3>
+                                </div>
+                                <div class="card-body">
+                                  <div class="row msg" *ngFor="let x of matchNotes">
+                                    <div class="col-md-2 col-xs-4 person">
+                                      <i class="material-icons">person</i> <span class="text-top"> {{ userProfile.name | titlecase }} {{ userProfile.lastname | titlecase }} </span>
+                                    </div>
+                                    <div class="col-md-10 col-xs-8">
+                                      {{x.text}}
+                                    </div>
+                                  </div>
+                                  <p *ngIf="matchNotes.length == 0">No hay notas que mostrar para esta partida. Escribe una nota para mostrarla aqu&iacute;.</p>
+                                </div>
+                                <div class="card-footer">
+
+                                </div>
+                            </div>
+                          </div>
+                          <div class="col-lg-12 col-md-12 col-sm-12">
+                            <div class="card card-stats">
+                                <div class="card-header card-header-danger card-header-icon">
+                                    <h3 class="card-title">Tus notas de esta partida</h3>
+                                </div>
+                                <div class="card-body">
+                                  <div class="row msg" *ngFor="let x of matchNotesh">
+                                    <div class="col-md-2 col-xs-4 person">
+                                      <i class="material-icons">person</i> <span class="text-top"> {{ userProfile.name | titlecase }} {{ userProfile.lastname | titlecase }} </span>
+                                    </div>
+                                    <div class="col-md-10 col-xs-8">
+                                      {{x.text}}
+                                    </div>
+                                  </div>
+                                  <p *ngIf="matchNotes.length == 0">No tienes notas que mostrar para esta partida. Escribe una nota oculta para mostrarla aqu&iacute;.</p>
+                                </div>
+                                <div class="card-footer">
+
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
