@@ -125,8 +125,6 @@ export class NavbarComponent implements OnInit {
       for (let item = 0; item < this.listTitles.length; item++) {
           if (this.listTitles[item].path === title) {
               return this.listTitles[item].title;
-          } else if (!this.listTitles[item].show && this.listTitles[item].title) {
-              return this.listTitles[item].title;
           }
       }
       return 'Dashboard';
