@@ -10,7 +10,7 @@ import { PageEvent } from '@angular/material/paginator';
   templateUrl: './sum-historical.component.html',
   styleUrls: ['./sum-historical.component.scss']
 })
-export class OtherHistoricalComponent implements OnInit {
+export class SumHistoricalComponent implements OnInit {
   matchsPaginated: SumMatch[];
   matchs: SumMatch[];
   user: User;
