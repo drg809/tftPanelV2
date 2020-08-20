@@ -13,12 +13,13 @@ declare interface RouteInfo {
 }
 export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '', show: true },
-    { path: '/user-profile', title: 'User Profile',  icon: 'person', class: '', show: false },
-    { path: '/profile', title: 'Summoner Profiles',  icon: 'person', class: '', show: true },
-    { path: '/historical', title: 'Historical',  icon: 'notifications', class: '', show: true },
+    { path: '/user-profile', title: 'Perfil usuario',  icon: 'person', class: '', show: false },
+    { path: '/profile', title: 'Perfil invocador',  icon: 'person', class: '', show: true },
+    { path: '/historical', title: 'Historico',  icon: 'notifications', class: '', show: true },
     { path: '/historical/:id', title: 'Match Info',  icon: 'notifications', class: '', show: false },
-    { path: '/settings', title: 'Settings',  icon: 'settings', class: '', show: false },
+    { path: '/settings', title: 'Preferencias',  icon: 'settings', class: '', show: false },
     { path: '/statics/:option', title: 'Info',  icon: 'info', class: '', show: false },
+    { path: '/search', title: 'Buscar',  icon: 'search', class: '', show: true },
 ];
 
 @Component({
