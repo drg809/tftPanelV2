@@ -14,6 +14,7 @@ import { HistoricalMatchComponent } from 'app/views/historical/match/historical-
 import { SettingsComponent } from 'app/views/settings/settings.component';
 import { DatabaseComponent } from 'app/views/database/databse.component';
 import { StaticsComponent } from 'app/views/statics/statics.component';
+import { SearchSumComponent } from 'app/views/search-sum/search-sum.component';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import { StaticsComponent } from 'app/views/statics/statics.component';
     DatabaseComponent,
     TransformNamePipe,
     StaticsComponent,
-    ItemCoreChampsPipe
+    ItemCoreChampsPipe,
+    SearchSumComponent
   ],
   exports: [
     AngularMaterialModule,
