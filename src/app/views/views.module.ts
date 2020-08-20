@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 import { AngularMaterialModule } from 'app/angular-material.modules';
 import { SearchSumComponent } from './search-sum/search-sum.component';
 import { SumHistoricalMatchComponent } from './search-sum/sum-historical/match/historical-match.component';
-import { OtherHistoricalComponent } from './search-sum/sum-historical/sum-historical.component';
+import { SumHistoricalComponent } from './search-sum/sum-historical/sum-historical.component';
 import { TransformNamePipe, ItemCoreChampsPipe } from 'app/shared/helpers/utils';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HistoricalComponent } from './historical/historical.component';
@@ -24,7 +24,7 @@ import { HistoricalMatchComponent } from './historical/match/historical-match.co
     HistoricalMatchComponent,
     DashboardComponent,
     SearchSumComponent,
-    OtherHistoricalComponent,
+    SumHistoricalComponent,
     SumHistoricalMatchComponent,
     TransformNamePipe,
     ItemCoreChampsPipe
