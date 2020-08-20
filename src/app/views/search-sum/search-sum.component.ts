@@ -19,7 +19,7 @@ export class SearchSumComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('currentUser') || '{}');
   }
 
-  navigateToMatch(entrie: string) {
-    this.router.navigate(['/historical/' + entrie]);
+  navigateToMatch(sumId: string) {
+    this.router.navigate(['/sum-historical/' + sumId]);
   }
 }

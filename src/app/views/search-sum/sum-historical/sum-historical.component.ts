@@ -43,8 +43,8 @@ export class SumHistoricalComponent implements OnInit {
     return event;
   }
 
-  navigateToMatch(entrie: string) {
-    this.router.navigate(['/historical/' + entrie]);
+  navigateToMatch(entrie: string, sumId: string) {
+    this.router.navigate(['/sum-historical/' + entrie + '/' + sumId]);
   }
 
   reloadData() {
