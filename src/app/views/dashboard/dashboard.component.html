@@ -1,9 +1,9 @@
 <div class="main-content dashboard">
   <div class="container-fluid">
-      <div class="hideDashboard" *ngIf="!summonerStats">
+      <div class="hideDashboard" *ngIf="!positions?.top1">
         Cuenta main no sincronizada. Sincroniza tu cuenta pulsando "actualizar" sobre tu cuenta de invocador <a [routerLink]="['/profile']">aqu&iacute;</a>.
       </div>
-      <div class="row" *ngIf="summonerStats">
+      <div class="row" *ngIf="positions?.top1">
           <div class="col-lg-2 col-md-4 col-sm-4">
               <div class="card card-stats">
                   <div class="card-header card-header-gold card-header-icon">
@@ -155,7 +155,7 @@
               </div>
           </div>
       </div>
-      <div *ngIf="summonerStats" class="row">
+      <div *ngIf="positions?.top1" class="row">
         <div class="col-md-6">
           <div class="card card-chart">
               <div class="card-header card-header-danger">

@@ -2,7 +2,10 @@
   <div class="container-fluid">
     <div class="row">
       <div class="col-md-12">
-          <div class="card">
+          <div class="hideDashboard" *ngIf="matchsPaginated?.length == 0">
+            Cuenta main no sincronizada. Sincroniza tu cuenta pulsando "actualizar" sobre tu cuenta de invocador <a [routerLink]="['/profile']">aqu&iacute;</a>.
+          </div>
+          <div class="card" *ngIf="matchsPaginated?.length > 0">
               <div class="card-header card-header-tabs card-header-primary">
                   <div class="nav-tabs-navigation">
                       <div class="nav-tabs-wrapper">
