@@ -1,4 +1,3 @@
-import { TransformNamePipe } from './shared/helpers/utils';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -17,11 +16,15 @@ import { AngularMaterialModule } from './angular-material.modules';
 import { AccountModule } from './components/account/account.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { SharedModule } from './shared/shared.module';
+import { ViewsModule } from './views/views.module';
+import { TransformNamePipe, ItemCoreChampsPipe } from 'app/shared/helpers/utils';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     LayoutComponent
+
   ],
   imports: [
     BrowserAnimationsModule,
@@ -37,12 +40,13 @@ import { SharedModule } from './shared/shared.module';
     ReactiveFormsModule,
     CommonModule,
     AngularMaterialModule,
-    BrowserModule
+    BrowserModule,
+    ViewsModule
   ],
   exports: [
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule
   ],
   providers: [{provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}],
   bootstrap: [AppComponent]
