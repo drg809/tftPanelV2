@@ -86,12 +86,14 @@ export class DashboardComponent implements OnInit {
             [this.positions.top1, this.positions.top2, this.positions.top3, this.positions.top4, this.positions.top5, this.positions.top6, this.positions.top7, this.positions.top8]
           ]
         };
+        //const number = Object.values(this.positions);
+        //console.log(number);
         const optionsPositionMatchesChart = {
             axisX: {
                 showGrid: false
             },
             low: 0,
-            high: 30,
+            high: this.positions.maxV + 3,
             height: '250px',
             chartPadding: { top: 0, right: 2, bottom: 0, left: 0}
         };
@@ -161,7 +163,7 @@ export class DashboardComponent implements OnInit {
             reverseData: true,
             horizontalBars: true,
             low: 0,
-            high: 30,
+            high: this.counts.perGalaxie.maxV,
             chartPadding: { top: 0, right: 0, bottom: 0, left: 0}
         };
         const galaxiesMatchesChart = new Chartist.Bar('#galaxiesMatchesChart', datagalaxiesMatchesChart, optionsgalaxiesMatchesChart, responsiveOptions);
@@ -193,7 +195,7 @@ export class DashboardComponent implements OnInit {
             reverseData: true,
             horizontalBars: true,
             height: '250px',
-            high: 60,
+            high: this.counts.champs.maxV,
             chartPadding: { top: 0, right: 0, bottom: 0, left: 0}
         }
 
