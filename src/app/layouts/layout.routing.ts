@@ -9,6 +9,7 @@ import { HistoricalMatchComponent } from 'app/views/historical/match/historical-
 import { ProfileComponent } from 'app/views/profile/profile.component';
 import { SettingsComponent } from 'app/views/settings/settings.component';
 import { SearchSumComponent } from 'app/views/search-sum/search-sum.component';
+import { SumHistoricalMatchComponent } from 'app/views/search-sum/sum-historical/match/historical-match.component';
 
 export const LayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -16,8 +17,9 @@ export const LayoutRoutes: Routes = [
     { path: 'profile',   component: ProfileComponent },
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'historical',  component: HistoricalComponent },
-    { path: 'historical/:id',  component: HistoricalMatchComponent },
+    { path: 'historical/:entrieId',  component: HistoricalMatchComponent },
     { path: 'settings',  component: SettingsComponent },
     { path: 'statics/:option',  component: StaticsComponent },
     { path: 'search',  component: SearchSumComponent },
+    { path: 'sum-historical/:entrieId/:sumId',  component: SumHistoricalMatchComponent },
 ];
