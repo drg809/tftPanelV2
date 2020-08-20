@@ -26,4 +26,5 @@ export class SummonersStatsDetails {
     public top7?: number;
     public top8?: number;
     public total?: number;
+    public maxV?: number;
 }
