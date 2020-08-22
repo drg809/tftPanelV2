@@ -25,14 +25,14 @@ export class HistoricalComponent implements OnInit {
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('currentUser') || '{}');
     this.getServerData(null);
-    this.summonerService.getMatchesHistoric(this.user.main, this.user._id).subscribe(data => {
+    this.summonerService.getMatchesHistoric(this.user.main).subscribe(data => {
       this.matchs = data;
     });
   }
 
   public getServerData(event?: PageEvent) {
     const pageI = event ? event.pageIndex : 0;
-    const params = {sumId: this.user.main, userId: this.user._id, page: pageI + 1}
+    const params = {sumId: this.user.main, page: pageI + 1}
     this.summonerService.getMatchesHistoricPaginate(params).subscribe(data => {
       this.matchsPaginated = data.data;
       // this.matchs.sort((a, b) => b.data?.info.game_datetime  - a.data?.info.game_datetime);
