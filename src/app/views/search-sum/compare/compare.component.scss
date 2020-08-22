@@ -1,6 +1,121 @@
-//Colors
 $platinum: #AD1457;
 $gold: #bd9a38;
 $silver: #7c8f92;
 $bronze: #A0715E;
 $fourth: #284454;
+
+.card {
+  .card-header-gold .card-icon {
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4);
+    background: linear-gradient(60deg, #ffa726, #fb8c00);
+  }
+  .card-header-silver .card-icon {
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4);
+    background: linear-gradient(60deg,$silver, #657274);
+  }
+  .card-header-bronze .card-icon {
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4);
+    background: linear-gradient(60deg,$bronze, #805949);
+  }
+  .card-header-fourth .card-icon {
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4);
+    background: linear-gradient(60deg,$fourth, #1c313c);
+  }
+  .card-icon{
+    font-size: 2em;
+    font-weight: 900;
+    font-family: revert;
+  }
+}
+
+.card [class*=card-header-] .ct-chart .ct-series-a .ct-bar {
+  stroke-width: 25px !important;
+}
+
+.card [class*=card-header-] .ct-chart .ct-grid {
+  stroke: rgb(255 255 255);
+}
+.ct-chart .ct-label.ct-vertical.ct-start {
+  font-size: 10px !important;
+}
+.ct-chart .ct-series-b .ct-bar{
+  stroke: #284454;
+}
+
+.dashboard {
+  .hideDashboard {
+    min-height: calc(100vh - 210px);
+    min-width: calc(100vw - 300px);
+    position: absolute;
+    background-color: #eeeeee;
+    z-index: 99;
+  }
+  .tableChamps,
+  .tableGalaxies {
+    width: 25px;
+    margin-right: 10px;
+  }
+
+  .hex {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+    position: relative;
+    width: 20px;
+    height: 11.55px;
+    background-color: #383838;
+    margin: 5.77px 0;
+    .tableTraits {
+      position: absolute;
+      top: -1px;
+      left: 3px;
+      width: 14px;
+      -webkit-filter: brightness(0) invert(1);
+      filter: brightness(0) invert(1);
+    }
+    &:after, &:before {
+      content: "";
+      position: absolute;
+      width: 0;
+      border-left: 10px solid transparent;
+      border-right: 10px solid transparent;
+    }
+    &:after {
+      top: 100%;
+      width: 0;
+      border-top: 5.77px solid #383838;
+
+    }
+    &:before {
+      bottom: 100%;
+      border-bottom: 5.77px solid #383838;
+    }
+    &.tier1 {
+      background-color: $bronze;
+      &:before {
+        border-bottom-color: $bronze;
+      }
+      &:after {
+        border-top-color: $bronze;
+      }
+    }
+    &.tier2 {
+      background-color: $silver;
+      &:before {
+        border-bottom-color: $silver;
+      }
+      &:after {
+        border-top-color: $silver;
+      }
+    }
+    &.tier3 {
+      background-color: $gold;
+      &:before {
+        border-bottom-color: $gold;
+      }
+      &:after {
+        border-top-color: $gold;
+      }
+    }
+  }
+}
