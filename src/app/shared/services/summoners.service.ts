@@ -80,7 +80,7 @@ export class SummonerService {
     return this.http.post<any>(this.apiUrl + '/summoners/apexLeagues_ext', {});
   }
 
-  getLeaguesEntries(data: User) {
+  getLeaguesEntries(data: any) {
     data.token = '';
     return this.http.post<any>(this.apiUrl + '/summoners/stats', data);
   }
