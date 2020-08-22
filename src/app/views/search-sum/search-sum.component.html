@@ -9,7 +9,7 @@
                               <div class="col-lg-6 col-md-6 col-sm-12">
                                   <form class="navbar-form">
                                       <div class="input-group no-border">
-                                          <input type="text" class="form-control"  minlength="3" placeholder="Search..." name="searchQuery" [(ngModel)]="searchQuery">
+                                          <input type="text" class="form-control"  minlength="3" placeholder="Nombre de invocador..." name="searchQuery" [(ngModel)]="searchQuery">
                                           <button mat-raised-button (click)="searchSum()" class="btn btn-white btn-round btn-just-icon">
                                               <i class="material-icons">search</i>
                                               <div class="ripple-container"></div>
@@ -24,18 +24,18 @@
                                   <p *ngIf="sumStats?.length == 0">No se encontraron invocadores con dicho nombre.</p>
                                   <table *ngIf="sumStats?.length > 0" class="table">
                                     <thead>
-                                      <th>Position</th>
-                                      <th>Name</th>
+                                      <th>Nombre</th>
+                                      <th>Posici&oacute;n</th>
                                       <th></th>
                                       <th></th>
                                     </thead>
                                     <tbody>
                                       <tr *ngFor="let s of sumStats">
                                           <td>
-                                            {{s.tier}} {{s.rank}} - {{s.leaguePoints}} LP
+                                            {{s.summonerName}}
                                           </td>
                                           <td>
-                                            {{s.summonerName}}
+                                            {{s.tier}} {{s.rank}} - {{s.leaguePoints}} LP
                                           </td>
                                           <td>
                                             <a class="btn btn-danger btn-round" (click)="showGraphics(s.summonerName)">Ver estadisticas</a>
