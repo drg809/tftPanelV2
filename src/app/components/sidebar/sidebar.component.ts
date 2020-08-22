@@ -15,13 +15,14 @@ export const ROUTES: RouteInfo[] = [
     { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '', show: true },
     { path: '/user-profile', title: 'Perfil usuario',  icon: 'person', class: '', show: false },
     { path: '/profile', title: 'Perfil invocador',  icon: 'person', class: '', show: true },
-    { path: '/historical', title: 'Historico',  icon: 'notifications', class: '', show: true },
+    { path: '/historical', title: 'Histórico',  icon: 'notifications', class: '', show: true },
     { path: '/historical/:id', title: 'Match Info',  icon: 'notifications', class: '', show: false },
     { path: '/settings', title: 'Preferencias',  icon: 'settings', class: '', show: false },
     { path: '/statics/:option', title: 'Info',  icon: 'info', class: '', show: false },
     { path: '/search', title: 'Buscar invocador',  icon: 'search', class: '', show: true },
-    { path: '/compare/:id', title: 'Comparar',  icon: 'search', class: '', show: false },
-    { path: '/sum-historical/:id', title: 'Historico',  icon: 'search', class: '', show: false },
+    { path: '/compare/:sumId', title: 'Comparar con otro invocador',  icon: 'search', class: '', show: false },
+    { path: '/sum-historical/:sumId', title: 'Histórico de otro invocador',  icon: 'search', class: '', show: false },
+    { path: '/sum-historical-match/:entrieId/:sumId', title: 'Historico de otro invocador',  icon: 'search', class: '', show: false }
 ];
 
 @Component({
