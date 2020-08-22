@@ -26,8 +26,8 @@
                                     <thead>
                                       <th>Position</th>
                                       <th>Name</th>
-                                      <th>Top%</th>
-                                      <th>Totales</th>
+                                      <th></th>
+                                      <th></th>
                                     </thead>
                                     <tbody>
                                       <tr *ngFor="let s of sumStats">
@@ -38,10 +38,10 @@
                                             {{s.summonerName}}
                                           </td>
                                           <td>
-                                            <button (click)="showGraphics(s.summonerName)">Ver estadisticas</button>
+                                            <a class="btn btn-danger btn-round" (click)="showGraphics(s.summonerName)">Ver estadisticas</a>
                                           </td>
                                           <td>
-                                            <button (click)="compare(s.summonerName)">Comparar</button>
+                                            <a class="btn btn-danger btn-round" (click)="compare(s.summonerName)">Comparar</a>
 
                                           </td>
                                       </tr>

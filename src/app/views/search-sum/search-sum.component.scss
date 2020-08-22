@@ -10,6 +10,9 @@ $fourth: #284454;
     &.card-stats{
       .card-body {
         text-align: left;
+        a.btn{
+          color: white;
+        }
       }
     }
   }
