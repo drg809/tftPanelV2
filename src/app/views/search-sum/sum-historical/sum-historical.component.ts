@@ -29,10 +29,10 @@ export class SumHistoricalComponent implements OnInit {
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('currentUser') || '{}');
     this.sumId = this.route.snapshot.paramMap.get('sumId');
-    this.getServerData(null);
     this.summonerService.getById(this.sumId).subscribe(x => {
       this.sum = x;
     });
+    this.getServerData(null);
     this.summonerService.getMatchesHistoric(this.sumId).subscribe(data => {
       this.matchs = data;
     });
