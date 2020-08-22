@@ -173,22 +173,22 @@
                   </thead>
                   <tbody>
                     <tr *ngFor="let g of counts.perGalaxie.top">
-                        <td *ngIf="g.key != 'TFT3_GameVariation_Dreadnova'">
+                        <td>
                           <img *ngIf="g.key != 'TFT3_GameVariation_None'" class="tableGalaxies" src="../../../../assets/img/galaxies/{{g.key}}.png">{{g.key | TransformNamePipe:1}}
                         </td>
-                        <td *ngIf="g.key != 'TFT3_GameVariation_Dreadnova'">
+                        <td>
                           {{counts.perGalaxie.top1[g.key] || 0}}
                         </td>
-                        <td *ngIf="g.key != 'TFT3_GameVariation_Dreadnova'">
+                        <td>
                           {{g.value || 0}}
                         </td>
-                        <td *ngIf="g.key != 'TFT3_GameVariation_Dreadnova'">
+                        <td>
                           {{(counts.perGalaxie.top1[g.key] / counts.total[g.key]) * 100 || 0 | number:'1.0-2'}}%
                         </td>
-                        <td *ngIf="g.key != 'TFT3_GameVariation_Dreadnova'">
+                        <td>
                           {{(g.value / counts.total[g.key]) * 100 || 0 | number:'1.0-2'}}%
                         </td>
-                        <td *ngIf="g.key != 'TFT3_GameVariation_Dreadnova'">
+                        <td>
                           {{counts.total[g.key] || 0}}
                         </td>
                     </tr>
