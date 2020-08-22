@@ -19,7 +19,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/historical/:id', title: 'Match Info',  icon: 'notifications', class: '', show: false },
     { path: '/settings', title: 'Preferencias',  icon: 'settings', class: '', show: false },
     { path: '/statics/:option', title: 'Info',  icon: 'info', class: '', show: false },
-    { path: '/search', title: 'Buscar',  icon: 'search', class: '', show: true },
+    { path: '/search', title: 'Buscar invocador',  icon: 'search', class: '', show: true },
     { path: '/compare/:id', title: 'Comparar',  icon: 'search', class: '', show: false },
     { path: '/sum-historical/:id', title: 'Historico',  icon: 'search', class: '', show: false },
 ];
