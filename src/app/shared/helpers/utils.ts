@@ -191,8 +191,14 @@ export class Utils {
         r = 'Binary Star';
         break;
       case 'TFT3_GameVariation_TwoStarCarousels':
-          r = 'Star Cluster';
-          break;
+        r = 'Star Cluster';
+        break;
+      case 'TFT3_GameVariation_ItemsBreak':
+        r = 'Salvage World';
+        break;
+      case 'TFT3_GameVariation_Dreadnova':
+        r = 'Plunder Planet';
+        break;
       default:
         r = 'Normal Galaxie';
     }
