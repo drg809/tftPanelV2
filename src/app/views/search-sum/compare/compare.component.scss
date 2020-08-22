@@ -26,6 +26,9 @@ $fourth: #284454;
     font-weight: 900;
     font-family: revert;
   }
+  .card-body{
+    display: inline-flex;
+  }
 }
 
 .card [class*=card-header-] .ct-chart .ct-series-a .ct-bar {

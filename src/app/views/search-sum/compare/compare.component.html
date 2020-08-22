@@ -11,11 +11,11 @@
                         1º
                       </div>
                       <p class="card-category">Ganadas</p>
-                      <h3 class="card-title">{{positions?.top1}}</h3>
+                      <h3 class="card-title">{{positions?.top1}} - {{positionsOther?.top1}}</h3>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
-                          <span>{{(positions?.top1 / positions?.total) * 100 | number:'1.0-2'}}%</span>
+                          <span>{{(positions?.top1 / positions?.total) * 100 | number:'1.0-2'}}% - {{(positionsOther?.top1 / positionsOther?.total) * 100 | number:'1.0-2'}}%</span>
                       </div>
                   </div>
               </div>
@@ -27,11 +27,11 @@
                         2º
                       </div>
                       <p class="card-category">2º puesto</p>
-                      <h3 class="card-title">{{positions?.top2}}</h3>
+                      <h3 class="card-title">{{positions?.top2}} - {{positionsOther?.top2}}</h3>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
-                        <span>{{(positions?.top2 / positions?.total) * 100 | number:'1.0-2' }}%</span>
+                        <span>{{(positions?.top2 / positions?.total) * 100 | number:'1.0-2' }}% - {{(positionsOther?.top2 / positionsOther?.total) * 100 | number:'1.0-2' }}%</span>
                       </div>
                   </div>
               </div>
@@ -43,11 +43,11 @@
                         3º
                       </div>
                       <p class="card-category">3o puesto</p>
-                      <h3 class="card-title">{{positions?.top3}}</h3>
+                      <h3 class="card-title">{{positions?.top3}} - {{positionsOther?.top3}}</h3>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
-                        <span>{{(positions?.top3 / positions?.total) * 100 | number:'1.0-2' }}%</span>
+                        <span>{{(positions?.top3 / positions?.total) * 100 | number:'1.0-2' }}% - {{(positionsOther?.top3 / positionsOther?.total) * 100 | number:'1.0-2' }}%</span>
                       </div>
                   </div>
               </div>
@@ -59,11 +59,11 @@
                         4º
                       </div>
                       <p class="card-category">4º puesto</p>
-                      <h3 class="card-title">{{positions?.top4}}</h3>
+                      <h3 class="card-title">{{positions?.top4}} - {{positionsOther?.top4}}</h3>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
-                        <span>{{(positions?.top4 / positions?.total) * 100 | number:'1.0-2' }}%</span>
+                        <span>{{(positions?.top4 / positions?.total) * 100 | number:'1.0-2' }}% - {{(positionsOther?.top4 / positionsOther?.total) * 100 | number:'1.0-2' }}%</span>
                       </div>
                   </div>
               </div>
@@ -75,11 +75,11 @@
                           <span class="material-icons">mood_bad</span>
                       </div>
                       <p class="card-category">Perdidas</p>
-                      <h3 class="card-title">{{(positions?.top5 + positions?.top6 + positions?.top7 + positions?.top8)}}</h3>
+                      <h3 class="card-title">{{(positions?.top5 + positions?.top6 + positions?.top7 + positions?.top8)}} - {{(positionsOther?.top5 + positionsOther?.top6 + positionsOther?.top7 + positionsOther?.top8)}}</h3>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
-                          <span>{{((positions?.top5 + positions?.top6 + positions?.top7 + positions?.top8) / positions?.total) * 100 | number:'1.0-2' }}%</span>
+                          <span>{{((positions?.top5 + positions?.top6 + positions?.top7 + positions?.top8) / positions?.total) * 100 | number:'1.0-2' }}% - {{((positionsOther?.top5 + positionsOther?.top6 + positionsOther?.top7 + positionsOther?.top8) / positionsOther?.total) * 100 | number:'1.0-2' }}%</span>
                       </div>
                   </div>
               </div>
@@ -91,7 +91,7 @@
                           <span class="material-icons">sports_esports</span>
                       </div>
                       <p class="card-category">Totales</p>
-                      <h3 class="card-title">{{positions?.total}}</h3>
+                      <h3 class="card-title">{{positions?.total}} - {{positionsOther?.total}}</h3>
                   </div>
                   <div class="card-footer">
                       <div class="stats">
@@ -128,7 +128,7 @@
                   <div class="card-body">
                       <h4 class="card-title">Galaxias Top 4</h4>
                       <p class="card-category">
-                        Notese en gris el Top 4 por galaxias y en blanco el total de partidas.
+                        Notese en gris la cuenta main y en blanco el invocador comparado.
                       </p>
                   </div>
                   <div class="card-footer">
@@ -141,11 +141,11 @@
           <div class="col-md-4">
               <div class="card card-chart">
                   <div class="card-header card-header-danger">
-                      <div class="ct-chart" id="champsChart"></div>
+                      <div class="ct-chart" id="galaxiesMatchesChart1"></div>
                   </div>
                   <div class="card-body">
-                      <h4 class="card-title">Campeones m&aacute;s jugados</h4>
-                      <p class="card-category">Notese el numero de veces que se jug&oacute; en gris el Top 1 y en blanco el Top 4.</p>
+                      <h4 class="card-title">Galaxias Total</h4>
+                      <p class="card-category">Notese en gris la cuenta main y en blanco el invocador comparado.</p>
                   </div>
                   <div class="card-footer">
                     <div class="stats">
@@ -156,44 +156,82 @@
           </div>
       </div>
       <div *ngIf="positions?.top1" class="row">
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div class="card card-chart">
               <div class="card-header card-header-danger">
                   <div class="ct-chart">Winrate por galaxias</div>
               </div>
               <div class="card-body">
-                <table class="table">
-                  <thead>
-                    <th>Galaxia</th>
-                    <th>Top1</th>
-                    <th>Top4</th>
-                    <th>Win%</th>
-                    <th>Top%</th>
-                    <th>Totales</th>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let g of counts.perGalaxie.top">
-                      <td>
-                        <img *ngIf="g.key != 'TFT3_GameVariation_None'" class="tableGalaxies" src="../../../../assets/img/galaxies/{{g.key}}.png">{{g.key | TransformNamePipe:1}}
-                        </td>
+                <div class="col-md-6">
+                  <h6>Tu cuenta main</h6>
+                  <table class="table">
+                    <thead>
+                      <th>Galaxia</th>
+                      <th>Top1</th>
+                      <th>Top4</th>
+                      <th>Win%</th>
+                      <th>Top%</th>
+                      <th>Totales</th>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let g of counts.perGalaxie.top">
                         <td>
-                          {{counts.perGalaxie.top1[g.key] || 0}}
-                        </td>
+                          <img *ngIf="g.key != 'TFT3_GameVariation_None'" class="tableGalaxies" src="../../../../assets/img/galaxies/{{g.key}}.png">{{g.key | TransformNamePipe:1}}
+                          </td>
+                          <td>
+                            {{counts.perGalaxie.top1[g.key] || 0}}
+                          </td>
+                          <td>
+                            {{g.value || 0}}
+                          </td>
+                          <td>
+                            {{(counts.perGalaxie.top1[g.key] / counts.total[g.key]) * 100 || 0 | number:'1.0-2'}}%
+                          </td>
+                          <td>
+                            {{(g.value / counts.total[g.key]) * 100 || 0 | number:'1.0-2'}}%
+                          </td>
+                          <td>
+                            {{counts.total[g.key] || 0}}
+                          </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="col-md-6">
+                  <h6>Invocador comparado</h6>
+                  <table class="table">
+                    <thead>
+                      <th>Galaxia</th>
+                      <th>Top1</th>
+                      <th>Top4</th>
+                      <th>Win%</th>
+                      <th>Top%</th>
+                      <th>Totales</th>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let g of countsOther.perGalaxie.top">
                         <td>
-                          {{g.value || 0}}
-                        </td>
-                        <td>
-                          {{(counts.perGalaxie.top1[g.key] / counts.total[g.key]) * 100 || 0 | number:'1.0-2'}}%
-                        </td>
-                        <td>
-                          {{(g.value / counts.total[g.key]) * 100 || 0 | number:'1.0-2'}}%
-                        </td>
-                        <td>
-                          {{counts.total[g.key] || 0}}
-                        </td>
-                    </tr>
-                  </tbody>
-                </table>
+                          <img *ngIf="g.key != 'TFT3_GameVariation_None'" class="tableGalaxies" src="../../../../assets/img/galaxies/{{g.key}}.png">{{g.key | TransformNamePipe:1}}
+                          </td>
+                          <td>
+                            {{counts.perGalaxie.top1[g.key] || 0}}
+                          </td>
+                          <td>
+                            {{g.value || 0}}
+                          </td>
+                          <td>
+                            {{(countsOther.perGalaxie.top1[g.key] / countsOther.total[g.key]) * 100 || 0 | number:'1.0-2'}}%
+                          </td>
+                          <td>
+                            {{(g.value / countsOther.total[g.key]) * 100 || 0 | number:'1.0-2'}}%
+                          </td>
+                          <td>
+                            {{countsOther.total[g.key] || 0}}
+                          </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
               <div class="card-footer">
                 <div class="stats">
@@ -202,54 +240,102 @@
               </div>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div class="card card-chart">
               <div class="card-header card-header-danger">
                   <div class="ct-chart">Winrate por sinergias</div>
               </div>
               <div class="card-body">
-                <table class="table">
-                  <thead>
-                    <th colspan="4">Sinergia</th>
-                    <th>Win%</th>
-                    <th>Top%</th>
-                    <th>Totales</th>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let g of counts.traits.top1">
-                        <td>
-                          {{ g.x | TransformNamePipe:3 }}
-                        </td>
-                        <td>
-                          <div class="hex tier1" *ngIf="counts.traits.top4S1[g.x] > 0">
-                            <img class="tableTraits" src="../../../../assets/img/traits/{{ g.x | lowercase }}.png">
-                          </div>
-                          {{ counts.traits.top4S1[g.x] }}
-                        </td>
-                        <td>
-                          <div class="hex tier2" *ngIf="counts.traits.top4S2[g.x] > 0">
-                            <img class="tableTraits" src="../../../../assets/img/traits/{{ g.x | lowercase }}.png">
-                          </div>
-                          {{ counts.traits.top4S2[g.x] }}
-                        </td>
-                        <td>
-                          <div class="hex tier3" *ngIf="counts.traits.top4S3[g.x] > 0">
-                            <img class="tableTraits" src="../../../../assets/img/traits/{{ g.x | lowercase }}.png">
-                          </div>
-                          {{ counts.traits.top4S3[g.x] }}
-                        </td>
-                        <td>
-                          {{( g.y / counts.traits.totalC[g.x] ) * 100 || 0 | number:'1.0-2'}}%
-                        </td>
-                        <td>
-                          {{( counts.traits.top4C[g.x] / counts.traits.totalC[g.x] ) * 100 || 0 | number:'1.0-2'}}%
-                        </td>
-                        <td>
-                          {{ counts.traits.totalC[g.x] || 0 }}
-                        </td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div class="col-md-6">
+                  <h6>Tu cuenta main</h6>
+                  <table class="table">
+                    <thead>
+                      <th colspan="4">Sinergia</th>
+                      <th>Win%</th>
+                      <th>Top%</th>
+                      <th>Totales</th>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let g of counts.traits.top1">
+                          <td>
+                            {{ g.x | TransformNamePipe:3 }}
+                          </td>
+                          <td>
+                            <div class="hex tier1" *ngIf="counts.traits.top4S1[g.x] > 0">
+                              <img class="tableTraits" src="../../../../assets/img/traits/{{ g.x | lowercase }}.png">
+                            </div>
+                            {{ counts.traits.top4S1[g.x] }}
+                          </td>
+                          <td>
+                            <div class="hex tier2" *ngIf="counts.traits.top4S2[g.x] > 0">
+                              <img class="tableTraits" src="../../../../assets/img/traits/{{ g.x | lowercase }}.png">
+                            </div>
+                            {{ counts.traits.top4S2[g.x] }}
+                          </td>
+                          <td>
+                            <div class="hex tier3" *ngIf="counts.traits.top4S3[g.x] > 0">
+                              <img class="tableTraits" src="../../../../assets/img/traits/{{ g.x | lowercase }}.png">
+                            </div>
+                            {{ counts.traits.top4S3[g.x] }}
+                          </td>
+                          <td>
+                            {{( g.y / counts.traits.totalC[g.x] ) * 100 || 0 | number:'1.0-2'}}%
+                          </td>
+                          <td>
+                            {{( counts.traits.top4C[g.x] / counts.traits.totalC[g.x] ) * 100 || 0 | number:'1.0-2'}}%
+                          </td>
+                          <td>
+                            {{ counts.traits.totalC[g.x] || 0 }}
+                          </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="col-md-6">
+                  <h6>Invocador comparado</h6>
+                  <table class="table">
+                    <thead>
+                      <th colspan="4">Sinergia</th>
+                      <th>Win%</th>
+                      <th>Top%</th>
+                      <th>Totales</th>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let g of countsOther.traits.top1">
+                          <td>
+                            {{ g.x | TransformNamePipe:3 }}
+                          </td>
+                          <td>
+                            <div class="hex tier1" *ngIf="countsOther.traits.top4S1[g.x] > 0">
+                              <img class="tableTraits" src="../../../../assets/img/traits/{{ g.x | lowercase }}.png">
+                            </div>
+                            {{ countsOther.traits.top4S1[g.x] }}
+                          </td>
+                          <td>
+                            <div class="hex tier2" *ngIf="countsOther.traits.top4S2[g.x] > 0">
+                              <img class="tableTraits" src="../../../../assets/img/traits/{{ g.x | lowercase }}.png">
+                            </div>
+                            {{ countsOther.traits.top4S2[g.x] }}
+                          </td>
+                          <td>
+                            <div class="hex tier3" *ngIf="countsOther.traits.top4S3[g.x] > 0">
+                              <img class="tableTraits" src="../../../../assets/img/traits/{{ g.x | lowercase }}.png">
+                            </div>
+                            {{ countsOther.traits.top4S3[g.x] }}
+                          </td>
+                          <td>
+                            {{( g.y / countsOther.traits.totalC[g.x] ) * 100 || 0 | number:'1.0-2'}}%
+                          </td>
+                          <td>
+                            {{( countsOther.traits.top4C[g.x] / countsOther.traits.totalC[g.x] ) * 100 || 0 | number:'1.0-2'}}%
+                          </td>
+                          <td>
+                            {{ countsOther.traits.totalC[g.x] || 0 }}
+                          </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
               <div class="card-footer">
                 <div class="stats">
@@ -258,44 +344,82 @@
               </div>
           </div>
         </div>
-        <div class="col-md-6">
+        <div class="col-md-12">
           <div class="card card-chart">
               <div class="card-header card-header-danger">
                   <div class="ct-chart">Winrate por campeones</div>
               </div>
               <div class="card-body">
-                <table class="table">
-                  <thead>
-                    <th>Campe&oacute;n</th>
-                    <th>Top1</th>
-                    <th>Top4</th>
-                    <th>Win%</th>
-                    <th>Top%</th>
-                    <th>Totales</th>
-                  </thead>
-                  <tbody>
-                    <tr *ngFor="let g of counts.champs.top1">
-                        <td>
-                          <img class="tableChamps" src="../../../../assets/img/champions/{{g.x}}.png">{{ g.x | TransformNamePipe:2 }}
-                        </td>
-                        <td>
-                          {{ g.y }}
-                        </td>
-                        <td>
-                          {{ counts.champs.top4C[g.x] || 0 }}
-                        </td>
-                        <td>
-                          {{( g.y / counts.champs.totalC[g.x] ) * 100 || 0 | number:'1.0-2'}}%
-                        </td>
-                        <td>
-                          {{( counts.champs.top4C[g.x] / counts.champs.totalC[g.x] ) * 100 || 0 | number:'1.0-2'}}%
-                        </td>
-                        <td>
-                          {{ counts.champs.totalC[g.x] || 0 }}
-                        </td>
-                    </tr>
-                  </tbody>
-                </table>
+                <div class="col-md-6">
+                  <h6>Tu cuenta main</h6>
+                  <table class="table">
+                    <thead>
+                      <th>Campe&oacute;n</th>
+                      <th>Top1</th>
+                      <th>Top4</th>
+                      <th>Win%</th>
+                      <th>Top%</th>
+                      <th>Totales</th>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let g of counts.champs.top1">
+                          <td>
+                            <img class="tableChamps" src="../../../../assets/img/champions/{{g.x}}.png">{{ g.x | TransformNamePipe:2 }}
+                          </td>
+                          <td>
+                            {{ g.y }}
+                          </td>
+                          <td>
+                            {{ counts.champs.top4C[g.x] || 0 }}
+                          </td>
+                          <td>
+                            {{( g.y / counts.champs.totalC[g.x] ) * 100 || 0 | number:'1.0-2'}}%
+                          </td>
+                          <td>
+                            {{( counts.champs.top4C[g.x] / counts.champs.totalC[g.x] ) * 100 || 0 | number:'1.0-2'}}%
+                          </td>
+                          <td>
+                            {{ counts.champs.totalC[g.x] || 0 }}
+                          </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+                <div class="col-md-6">
+                  <h6>Invocador comparado</h6>
+                  <table class="table">
+                    <thead>
+                      <th>Campe&oacute;n</th>
+                      <th>Top1</th>
+                      <th>Top4</th>
+                      <th>Win%</th>
+                      <th>Top%</th>
+                      <th>Totales</th>
+                    </thead>
+                    <tbody>
+                      <tr *ngFor="let g of countsOther.champs.top1">
+                          <td>
+                            <img class="tableChamps" src="../../../../assets/img/champions/{{g.x}}.png">{{ g.x | TransformNamePipe:2 }}
+                          </td>
+                          <td>
+                            {{ g.y }}
+                          </td>
+                          <td>
+                            {{ countsOther.champs.top4C[g.x] || 0 }}
+                          </td>
+                          <td>
+                            {{( g.y / countsOther.champs.totalC[g.x] ) * 100 || 0 | number:'1.0-2'}}%
+                          </td>
+                          <td>
+                            {{( countsOther.champs.top4C[g.x] / countsOther.champs.totalC[g.x] ) * 100 || 0 | number:'1.0-2'}}%
+                          </td>
+                          <td>
+                            {{ countsOther.champs.totalC[g.x] || 0 }}
+                          </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
               </div>
               <div class="card-footer">
                 <div class="stats">

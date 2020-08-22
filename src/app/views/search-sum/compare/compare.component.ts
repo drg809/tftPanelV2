@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
 import { Utils } from 'app/shared/helpers/utils';
 import { User } from 'app/shared/models/user';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-compare',
@@ -15,8 +16,14 @@ export class CompareSumComponent implements OnInit {
   positions: SummonersStatsDetails;
   counts: any;
   user: User;
+  summonerStatsOther: SummonersStats;
+  positionsOther: SummonersStatsDetails;
+  countsOther: any;
+  sumId: string | null;
 
-  constructor(private summonerService: SummonerService) { }
+  constructor(private summonerService: SummonerService,
+              private route: ActivatedRoute) { }
+
   startAnimationForLineChart(chart) {
       let seq: any, delays: any, durations: any;
       seq = 0;
@@ -74,8 +81,14 @@ export class CompareSumComponent implements OnInit {
       seq2 = 1;
   };
 
-  ngOnInit() {
+  async ngOnInit() {
       this.user = JSON.parse(localStorage.getItem('currentUser') || '{}');
+      this.sumId = this.route.snapshot.paramMap.get('sumId');
+      await this.summonerService.getLeaguesEntries({main: this.sumId}).subscribe((x: any) => {
+        this.summonerStatsOther = x;
+        this.positionsOther = x.positions;
+        this.countsOther = x.count;
+      });
       this.summonerService.getLeaguesEntries(this.user).subscribe((data: any) => {
         this.summonerStats = data;
         this.positions = data.positions;
@@ -83,7 +96,8 @@ export class CompareSumComponent implements OnInit {
         const dataPositionMatchesChart = {
           labels: ['Top1', 'Top2', 'Top3', 'Top4', 'Top5', 'Top6', 'Top7', 'Top8'],
           series: [
-            [this.positions.top1, this.positions.top2, this.positions.top3, this.positions.top4, this.positions.top5, this.positions.top6, this.positions.top7, this.positions.top8]
+            [this.positions.top1, this.positions.top2, this.positions.top3, this.positions.top4, this.positions.top5, this.positions.top6, this.positions.top7, this.positions.top8],
+            [this.positionsOther.top1, this.positionsOther.top2, this.positionsOther.top3, this.positionsOther.top4, this.positionsOther.top5, this.positionsOther.top6, this.positionsOther.top7, this.positionsOther.top8]
           ]
         };
         //const number = Object.values(this.positions);
@@ -137,16 +151,16 @@ export class CompareSumComponent implements OnInit {
                 this.counts.top4.TFT3_GameVariation_TwoStarCarousels,
               ],
               [
-                this.counts.total.TFT3_GameVariation_Bonanza,
-                this.counts.total.TFT3_GameVariation_FreeNeekos,
-                this.counts.total.TFT3_GameVariation_FreeRerolls,
-                this.counts.total.TFT3_GameVariation_LittlerLegends,
-                this.counts.total.TFT3_GameVariation_MidGameFoN,
-                this.counts.total.TFT3_GameVariation_None,
-                this.counts.total.TFT3_GameVariation_SmallerBoards,
-                this.counts.total.TFT3_GameVariation_StartingItems,
-                this.counts.total.TFT3_GameVariation_TwoItemMax,
-                this.counts.total.TFT3_GameVariation_TwoStarCarousels,
+                this.countsOther.top4.TFT3_GameVariation_Bonanza,
+                this.countsOther.top4.TFT3_GameVariation_FreeNeekos,
+                this.countsOther.top4.TFT3_GameVariation_FreeRerolls,
+                this.countsOther.top4.TFT3_GameVariation_LittlerLegends,
+                this.countsOther.top4.TFT3_GameVariation_MidGameFoN,
+                this.countsOther.top4.TFT3_GameVariation_None,
+                this.countsOther.top4.TFT3_GameVariation_SmallerBoards,
+                this.countsOther.top4.TFT3_GameVariation_StartingItems,
+                this.countsOther.top4.TFT3_GameVariation_TwoItemMax,
+                this.countsOther.top4.TFT3_GameVariation_TwoStarCarousels,
               ]
           ]
         };
@@ -168,41 +182,66 @@ export class CompareSumComponent implements OnInit {
         };
         const galaxiesMatchesChart = new Chartist.Bar('#galaxiesMatchesChart', datagalaxiesMatchesChart, optionsgalaxiesMatchesChart, responsiveOptions);
 
-        const optionsDailySalesChart: any = {
-          lineSmooth: Chartist.Interpolation.cardinal({
-              tension: 0
-          }),
-          low: 0,
-          high: 30, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
-          chartPadding: { top: 0, right: 0, bottom: 0, left: 0},
-        }
-
-        /* ----------==========     Completed Tasks Chart initialization    ==========---------- */
-
-        const dataChampsChart: any = {
-            labels: [this.counts.champs.top4[0].x.split('TFT3_')[1], this.counts.champs.top4[1].x.split('TFT3_')[1], this.counts.champs.top4[2].x.split('TFT3_')[1], this.counts.champs.top4[3].x.split('TFT3_')[1], this.counts.champs.top4[4].x.split('TFT3_')[1], this.counts.champs.top4[5].x.split('TFT3_')[1], this.counts.champs.top4[6].x.split('TFT3_')[1], this.counts.champs.top4[7].x.split('TFT3_')[1]],
-            series: [
-                [this.counts.champs.top1[0].y, this.counts.champs.top1[1].y, this.counts.champs.top1[2].y, this.counts.champs.top1[3].y, this.counts.champs.top1[4].y, this.counts.champs.top1[5].y, this.counts.champs.top1[6].y, this.counts.champs.top1[7].y],
-                [this.counts.champs.top4[0].y, this.counts.champs.top4[1].y, this.counts.champs.top4[2].y, this.counts.champs.top4[3].y, this.counts.champs.top4[4].y, this.counts.champs.top4[5].y, this.counts.champs.top4[6].y, this.counts.champs.top4[7].y]
-            ]
+        const datagalaxiesMatchesChart1: any = {
+          labels: [
+            Utils.getGalaxie('TFT3_GameVariation_Bonanza'),
+            Utils.getGalaxie('TFT3_GameVariation_FreeNeekos'),
+            Utils.getGalaxie('TFT3_GameVariation_FreeRerolls'),
+            Utils.getGalaxie('TFT3_GameVariation_LittlerLegends'),
+            Utils.getGalaxie('TFT3_GameVariation_MidGameFoN'),
+            Utils.getGalaxie('TFT3_GameVariation_None'),
+            Utils.getGalaxie('TFT3_GameVariation_SmallerBoards'),
+            Utils.getGalaxie('TFT3_GameVariation_StartingItems'),
+            Utils.getGalaxie('TFT3_GameVariation_TwoItemMax'),
+            Utils.getGalaxie('TFT3_GameVariation_TwoStarCarousels'),
+          ],
+          series: [
+              [
+                this.counts.total.TFT3_GameVariation_Bonanza,
+                this.counts.total.TFT3_GameVariation_FreeNeekos,
+                this.counts.total.TFT3_GameVariation_FreeRerolls,
+                this.counts.total.TFT3_GameVariation_LittlerLegends,
+                this.counts.total.TFT3_GameVariation_MidGameFoN,
+                this.counts.total.TFT3_GameVariation_None,
+                this.counts.total.TFT3_GameVariation_SmallerBoards,
+                this.counts.total.TFT3_GameVariation_StartingItems,
+                this.counts.total.TFT3_GameVariation_TwoItemMax,
+                this.counts.total.TFT3_GameVariation_TwoStarCarousels,
+              ],
+              [
+                this.countsOther.total.TFT3_GameVariation_Bonanza,
+                this.countsOther.total.TFT3_GameVariation_FreeNeekos,
+                this.countsOther.total.TFT3_GameVariation_FreeRerolls,
+                this.countsOther.total.TFT3_GameVariation_LittlerLegends,
+                this.countsOther.total.TFT3_GameVariation_MidGameFoN,
+                this.countsOther.total.TFT3_GameVariation_None,
+                this.countsOther.total.TFT3_GameVariation_SmallerBoards,
+                this.countsOther.total.TFT3_GameVariation_StartingItems,
+                this.countsOther.total.TFT3_GameVariation_TwoItemMax,
+                this.countsOther.total.TFT3_GameVariation_TwoStarCarousels,
+              ]
+          ]
         };
-
-        const optionsChampsChart: any = {
-            lineSmooth: Chartist.Interpolation.cardinal({
-                tension: 0
-            }),
-            low: 0,
+        const optionsgalaxiesMatchesChart1 = {
+            axisX: {
+                scaleMinSpace: 50,
+                offset: 30
+            },
+            axisY: {
+                offset: 120,
+            },
+            height: '250px',
+            seriesBarDistance: 10,
             reverseData: true,
             horizontalBars: true,
-            height: '250px',
-            high: this.counts.champs.maxV,
+            low: 0,
+            high: this.counts.perGalaxie.maxV,
             chartPadding: { top: 0, right: 0, bottom: 0, left: 0}
-        }
-
-        const completedTasksChart = new Chartist.Line('#champsChart', dataChampsChart, optionsChampsChart);
+        };
+        const galaxiesMatchesChart1 = new Chartist.Bar('#galaxiesMatchesChart1', datagalaxiesMatchesChart1, optionsgalaxiesMatchesChart1);
 
         if (this.summonerStats != null) {
-          this.startAnimationForLineChart(completedTasksChart);
+          this.startAnimationForBarChart(galaxiesMatchesChart1);
           this.startAnimationForBarChart(positionsMatchesChart);
           this.startAnimationForBarChart(galaxiesMatchesChart);
         }
