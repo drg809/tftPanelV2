@@ -41,7 +41,7 @@
                       <div class="tab-pane active" id="general">
                         <div *ngFor="let match of matchsPaginated">
                           <div class="matches" *ngFor="let item of match.data.info.participants">
-                            <div (click)="navigateToMatch(match.entrie)" *ngIf="item.puuid == sum?.puuid" class="match p{{item.placement}}">
+                            <div (click)="navigateToMatch(match.entrie, sum?._id)" *ngIf="item.puuid == sum?.puuid" class="match p{{item.placement}}">
                               <div class="info">
                                 <div>{{item.placement}}º Posicion</div>
                                 <div>
@@ -122,7 +122,7 @@
                       <div class="tab-pane" id="top1">
                         <div *ngFor="let match of matchs">
                           <div class="matches" *ngFor="let item of match.data.info.participants">
-                            <div (click)="navigateToMatch(match.entrie)" *ngIf="item.puuid == sum?.puuid && item.placement == 1" class="match p{{item.placement}}">
+                            <div (click)="navigateToMatch(match.entrie, sum?._id)" *ngIf="item.puuid == sum?.puuid && item.placement == 1" class="match p{{item.placement}}">
                               <div class="info">
                                 <div>{{item.placement}}º Posicion</div>
                                 <div>
@@ -202,7 +202,7 @@
                       <div class="tab-pane" id="top4">
                         <div *ngFor="let match of matchs">
                           <div class="matches" *ngFor="let item of match.data.info.participants">
-                            <div (click)="navigateToMatch(match.entrie)" *ngIf="item.puuid == sum?.puuid && item.placement < 5" class="match p{{item.placement}}">
+                            <div (click)="navigateToMatch(match.entrie, sum?._id)" *ngIf="item.puuid == sum?.puuid && item.placement < 5" class="match p{{item.placement}}">
                               <div class="info">
                                 <div>{{item.placement}}º Posicion</div>
                                 <div>
@@ -282,7 +282,7 @@
                       <div class="tab-pane" id="topGG">
                         <div *ngFor="let match of matchs">
                           <div class="matches" *ngFor="let item of match.data.info.participants">
-                            <div (click)="navigateToMatch(match.entrie)" *ngIf="item.puuid == sum?.puuid && item.placement > 6" class="match p{{item.placement}}">
+                            <div (click)="navigateToMatch(match.entrie, sum?._id)" *ngIf="item.puuid == sum?.puuid && item.placement > 6" class="match p{{item.placement}}">
                               <div class="info">
                                 <div>{{item.placement}}º Posicion</div>
                                 <div>

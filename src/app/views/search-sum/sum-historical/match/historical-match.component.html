@@ -34,7 +34,7 @@
                     <div class="tab-content">
                         <div *ngIf="entrie" class="tab-pane active" id="results">
                           <div class="matches" *ngFor="let item of entrie.data.info.participants">
-                            <div *ngIf="item.puuid == user.puuid" class="match p{{item.placement}}">
+                            <div *ngIf="item.puuid == summoner.puuid" class="match p{{item.placement}}">
                               <div class="info">
                                 <div>{{item.placement}}º Posicion</div>
                                 <div>
@@ -113,7 +113,7 @@
                           </div>
                           <mat-divider></mat-divider>
                           <div class="results matches">
-                            <div class="match" *ngFor="let player of entrie.data.info.participants" [ngClass]="{'player': player.puuid == user.puuid}">
+                            <div class="match" *ngFor="let player of entrie.data.info.participants" [ngClass]="{'player': player.puuid == summoner.puuid}">
                               <div class="info">
                                 <div>#{{player.placement}}</div>
                                 <div>
@@ -166,7 +166,7 @@
                                   </div>
                                   <div class="card-body">
                                     <div *ngFor="let x of entrie.data.info.participants">
-                                      <div *ngIf="x.puuid === user.puuid">
+                                      <div *ngIf="x.puuid === summoner.puuid">
                                         <span [ngSwitch]="x.placement">
                                           <h5 *ngSwitchCase="1">Felicidades, has ganado! A&uacute;n as&iacute; puedes aprender de tu juego.</h5>
                                           <h5 *ngSwitchCase="2">Felicidades, has quedado segundo! Tienes que aprender sobre tu juego y porque no quedaste primero.</h5>
@@ -246,7 +246,7 @@
                                     </div>
                                     <div class="card-body">
                                       <div class="opponentsDetails" *ngFor="let x of entrie.data.info.participants">
-                                        <div *ngIf="x.placement < 5 && x.puuid !== user.puuid">
+                                        <div *ngIf="x.placement < 5 && x.puuid !== summoner.puuid">
                                           <span [ngSwitch]="x.placement">
                                             <h5 *ngSwitchCase="1">Invocador: {{x.name}} - 1er puesto.</h5>
                                             <h5 *ngSwitchCase="2">Invocador: {{x.name}} - 2do puesto.</h5>
