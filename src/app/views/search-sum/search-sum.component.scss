@@ -4,3 +4,13 @@ $gold: #bd9a38;
 $silver: #7c8f92;
 $bronze: #A0715E;
 $fourth: #284454;
+
+.search-sum {
+  .card{
+    &.card-stats{
+      .card-body {
+        text-align: left;
+      }
+    }
+  }
+}
