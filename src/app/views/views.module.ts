@@ -11,6 +11,7 @@ import { TransformNamePipe, ItemCoreChampsPipe } from 'app/shared/helpers/utils'
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { HistoricalComponent } from './historical/historical.component';
 import { HistoricalMatchComponent } from './historical/match/historical-match.component';
+import { CompareSumComponent } from './search-sum/compare/compare.component';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { HistoricalMatchComponent } from './historical/match/historical-match.co
     SearchSumComponent,
     SumHistoricalComponent,
     SumHistoricalMatchComponent,
+    CompareSumComponent,
     TransformNamePipe,
     ItemCoreChampsPipe
 
