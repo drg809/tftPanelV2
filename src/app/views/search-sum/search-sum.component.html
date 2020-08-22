@@ -1,13 +1,57 @@
-<div class="main-content statics">
-  <div class="container-fluid">
-      <div class="row">
-          <div class="col-lg-12 col-md-12 col-sm-12">
-              <div class="card card-stats">
-                  <div class="card-header card-header-danger card-header-icon"></div>
-                  <div class="card-body">
-                  </div>
-              </div>
-          </div>
-      </div>
-  </div>
+<div class="main-content search-sum">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-sm-12">
+                <div class="card card-stats">
+                    <div class="card-header card-header-danger card-header-icon"></div>
+                        <div class="card-body">
+                          <div class="row justify-content-end">
+                              <div class="col-lg-6 col-md-6 col-sm-12">
+                                  <form class="navbar-form">
+                                      <div class="input-group no-border">
+                                          <input type="text" class="form-control"  minlength="3" placeholder="Search..." name="searchQuery" [(ngModel)]="searchQuery">
+                                          <button mat-raised-button (click)="searchSum()" class="btn btn-white btn-round btn-just-icon">
+                                              <i class="material-icons">search</i>
+                                              <div class="ripple-container"></div>
+                                          </button>
+                                      </div>
+                                  </form>
+                              </div>
+                          </div>
+                          <div class="row">
+                              <div class="col-lg-12 col-md-12 col-sm-12">
+                                  <p *ngIf="!sum">Introduce un nombre de invocador para buscar.</p>
+                                  <p *ngIf="sum?.length == 0">No se encontraron invocadores con dicho nombre.</p>
+                                  <table *ngIf="sum?.length > 0" class="table">
+                                    <thead>
+                                      <th>Position</th>
+                                      <th>Name</th>
+                                      <th>Top%</th>
+                                      <th>Totales</th>
+                                    </thead>
+                                    <tbody>
+                                      <tr *ngFor="let s of sum">
+                                          <td>
+                                            {{s.tier}} {{s.rank}} - {{s.leaguePoints}} LP
+                                          </td>
+                                          <td>
+                                            {{s.summonerName}}
+                                          </td>
+                                          <td>
+                                            <button (click)="showGraphics(s.summonerName)">Ver estadisticas</button>
+                                          </td>
+                                          <td>
+                                            <button (click)="compare(s.summonerName)">Comparar</button>
+
+                                          </td>
+                                      </tr>
+                                    </tbody>
+                                  </table>
+                              </div>
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
