@@ -494,7 +494,6 @@ export class ItemCoreChampsPipe implements PipeTransform {
       const iN: string = items.lenght > 1 ? items.lenght + ' objetos que no son core.' : 'un objeto que no es core.';
       it = '- La ficha de ' + Utils.getChamps(value).n + ' tiene ' + iN;
     }
-    console.log(it);
     return it;
   };
 }
