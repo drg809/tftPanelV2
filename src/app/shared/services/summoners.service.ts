@@ -65,11 +65,11 @@ export class SummonerService {
   }
 
   getMatchesHistoricPaginate(params: any) {
-    return this.http.post<MatchesPagination>(this.apiUrl + '/summoners/match_history_paginate/' + params.userId, params);
+    return this.http.post<MatchesPagination>(this.apiUrl + '/summoners/match_history_paginate', params);
   }
 
-  getMatchesHistoric(sumId: any, userId: any) {
-    return this.http.get<any>(this.apiUrl + '/summoners/match_history/' + sumId + '/' + userId);
+  getMatchesHistoric(sumId: any) {
+    return this.http.get<any>(this.apiUrl + '/summoners/match_history/' + sumId);
   }
 
   getLeaguesEntriesExt() {
