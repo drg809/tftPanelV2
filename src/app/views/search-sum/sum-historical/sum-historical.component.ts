@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { SummonerService } from '../../../shared/services/summoners.service';
 import { SumMatch } from '../../../shared/models/match';
 import { User } from '../../../shared/models/user';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
 
 @Component({
@@ -18,14 +18,17 @@ export class SumHistoricalComponent implements OnInit {
   pageIndex: number;
   pageSize: number;
   length: number;
+  sumId: string;
 
   constructor(private summonerService: SummonerService,
+              private route: ActivatedRoute,
               private router: Router) { }
 
   ngOnInit() {
     this.user = JSON.parse(localStorage.getItem('currentUser') || '{}');
+    this.sumId = this.route.snapshot.paramMap.get('sumId');
     this.getServerData(null);
-    this.summonerService.getMatchesHistoric(this.user.main, this.user._id).subscribe(data => {
+    this.summonerService.getMatchesHistoric(this.sumId, this.user._id).subscribe(data => {
       this.matchs = data;
     });
   }
