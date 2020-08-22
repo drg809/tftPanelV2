@@ -114,10 +114,10 @@ export class ProfileComponent implements OnInit {
 
   setMain(sum: Summoner) {
     sum.main = !sum.main;
-    const x: any = {id: sum.id, userId: sum.userId, main: sum.main};
+    const x: any = {id: sum._id, userId: sum.userId, main: sum.main};
     this.summonerService.setMainSummoner(x).subscribe(() => {
       localStorage.removeItem('currentUser');
-      this.user.main = sum.id;
+      this.user.main = sum._id;
       this.user.puuid = sum.puuid;
       localStorage.setItem('currentUser', JSON.stringify(this.user));
       this.router.routeReuseStrategy.shouldReuseRoute = () => false;
