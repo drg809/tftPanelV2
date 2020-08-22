@@ -1,5 +1,5 @@
 export class Summoner {
-  public id?: string;
+  public _id?: string;
   public userId!: string | null;
   public summonerName!: string | null;
   public puuid?: string | null;
