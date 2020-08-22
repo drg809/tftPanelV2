@@ -123,7 +123,7 @@ export class NavbarComponent implements OnInit {
           title = title.slice( 1 );
       }
       for (let item = 0; item < this.listTitles.length; item++) {
-          if (this.listTitles[item].path === title) {
+          if (this.listTitles[item].path === title || (this.listTitles[item].path).split('/')[1] === title.split('/')[1]) {
               return this.listTitles[item].title;
           }
       }
