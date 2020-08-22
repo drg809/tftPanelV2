@@ -25,6 +25,11 @@ export class SummonerService {
     return this.http.get<Summoner>(this.apiUrl + '/summoners/users/' + id);
   }
 
+  getStatsByName(data: any) {
+    console.log(data);
+    return this.http.post<Summoner[]>(this.apiUrl + '/summoners/stats/search', data);
+  }
+
   create(data: Summoner) {
     console.log('service');
     return this.http.post<Summoner>(this.apiUrl + '/summoners/', data);
