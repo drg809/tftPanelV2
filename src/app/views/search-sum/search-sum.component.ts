@@ -32,19 +32,13 @@ export class SearchSumComponent implements OnInit {
 
   showGraphics(name: string) {
     this.summonerService.getByName({name: name}).subscribe(x => {
-      this.sum = x;
-      console.log(this.sum);
+      this.router.navigate(['/sum-historical/' + x._id]);
     });
   }
 
   compare(name: string) {
     this.summonerService.getByName({name: name}).subscribe(x => {
-      this.sum = x;
-      console.log(this.sum);
+      this.router.navigate(['/compare/' + x._id]);
     });
-  }
-
-  navigateToMatch(sumId: string) {
-    this.router.navigate(['/sum-historical/' + sumId]);
   }
 }

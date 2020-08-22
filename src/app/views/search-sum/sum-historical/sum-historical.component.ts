@@ -4,6 +4,7 @@ import { SumMatch } from '../../../shared/models/match';
 import { User } from '../../../shared/models/user';
 import { Router, ActivatedRoute } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
+import { Summoner } from 'app/shared/models/summoner';
 
 @Component({
   selector: 'app-sum-historical',
@@ -19,6 +20,7 @@ export class SumHistoricalComponent implements OnInit {
   pageSize: number;
   length: number;
   sumId: string;
+  sum: Summoner;
 
   constructor(private summonerService: SummonerService,
               private route: ActivatedRoute,
@@ -28,14 +30,17 @@ export class SumHistoricalComponent implements OnInit {
     this.user = JSON.parse(localStorage.getItem('currentUser') || '{}');
     this.sumId = this.route.snapshot.paramMap.get('sumId');
     this.getServerData(null);
-    this.summonerService.getMatchesHistoric(this.sumId, this.user._id).subscribe(data => {
+    this.summonerService.getById(this.sumId).subscribe(x => {
+      this.sum = x;
+    });
+    this.summonerService.getMatchesHistoric(this.sumId).subscribe(data => {
       this.matchs = data;
     });
   }
 
   public getServerData(event?: PageEvent) {
     const pageI = event ? event.pageIndex : 0;
-    const params = {sumId: this.user.main, userId: this.user._id, page: pageI + 1}
+    const params = {sumId: this.sumId, page: pageI + 1}
     this.summonerService.getMatchesHistoricPaginate(params).subscribe(data => {
       this.matchsPaginated = data.data;
       // this.matchs.sort((a, b) => b.data?.info.game_datetime  - a.data?.info.game_datetime);
