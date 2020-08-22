@@ -1,3 +1,4 @@
+import { SummonersStats } from './../models/summonersStats';
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {environment} from '../../../environments/environment';
@@ -26,8 +27,11 @@ export class SummonerService {
   }
 
   getStatsByName(data: any) {
-    console.log(data);
-    return this.http.post<Summoner[]>(this.apiUrl + '/summoners/stats/search', data);
+    return this.http.post<SummonersStats[]>(this.apiUrl + '/summoners/stats/search', data);
+  }
+
+  getByName(data: any) {
+    return this.http.post<Summoner>(this.apiUrl + '/summoners/get_by_name', data);
   }
 
   create(data: Summoner) {
