@@ -20,9 +20,9 @@
                           </div>
                           <div class="row">
                               <div class="col-lg-12 col-md-12 col-sm-12">
-                                  <p *ngIf="!sum">Introduce un nombre de invocador para buscar.</p>
-                                  <p *ngIf="sum?.length == 0">No se encontraron invocadores con dicho nombre.</p>
-                                  <table *ngIf="sum?.length > 0" class="table">
+                                  <p *ngIf="!sumStats">Introduce un nombre de invocador para buscar.</p>
+                                  <p *ngIf="sumStats?.length == 0">No se encontraron invocadores con dicho nombre.</p>
+                                  <table *ngIf="sumStats?.length > 0" class="table">
                                     <thead>
                                       <th>Position</th>
                                       <th>Name</th>
@@ -30,7 +30,7 @@
                                       <th>Totales</th>
                                     </thead>
                                     <tbody>
-                                      <tr *ngFor="let s of sum">
+                                      <tr *ngFor="let s of sumStats">
                                           <td>
                                             {{s.tier}} {{s.rank}} - {{s.leaguePoints}} LP
                                           </td>

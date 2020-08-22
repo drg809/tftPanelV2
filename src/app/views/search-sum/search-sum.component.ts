@@ -4,6 +4,7 @@ import { SummonerService } from '../../shared/services/summoners.service';
 import { Router } from '@angular/router';
 import { PageEvent } from '@angular/material/paginator';
 import { User } from 'app/shared/models/user';
+import { Summoner } from 'app/shared/models/summoner';
 
 @Component({
   selector: 'app-search-sum',
@@ -12,7 +13,8 @@ import { User } from 'app/shared/models/user';
 })
 export class SearchSumComponent implements OnInit {
   user: User;
-  sum: SummonersStats[];
+  sumStats: SummonersStats[];
+  sum: Summoner;
   searchQuery: string;
 
   constructor(private summonerService: SummonerService,
@@ -24,20 +26,19 @@ export class SearchSumComponent implements OnInit {
 
   searchSum() {
     this.summonerService.getStatsByName({name: this.searchQuery}).subscribe(x => {
-      this.sum = x;
-      console.log(this.sum);
+      this.sumStats = x;
     });
   }
 
   showGraphics(name: string) {
-    this.summonerService.getStatsByName({name: name}).subscribe(x => {
+    this.summonerService.getByName({name: name}).subscribe(x => {
       this.sum = x;
       console.log(this.sum);
     });
   }
 
   compare(name: string) {
-    this.summonerService.getStatsByName({name: name}).subscribe(x => {
+    this.summonerService.getByName({name: name}).subscribe(x => {
       this.sum = x;
       console.log(this.sum);
     });
