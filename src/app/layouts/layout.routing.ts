@@ -11,6 +11,7 @@ import { SettingsComponent } from 'app/views/settings/settings.component';
 import { SearchSumComponent } from 'app/views/search-sum/search-sum.component';
 import { SumHistoricalMatchComponent } from 'app/views/search-sum/sum-historical/match/historical-match.component';
 import { SumHistoricalComponent } from 'app/views/search-sum/sum-historical/sum-historical.component';
+import { CompareSumComponent } from 'app/views/search-sum/compare/compare.component';
 
 export const LayoutRoutes: Routes = [
     { path: 'dashboard',      component: DashboardComponent },
@@ -24,4 +25,5 @@ export const LayoutRoutes: Routes = [
     { path: 'search',  component: SearchSumComponent },
     { path: 'sum-historical/:sumId',  component: SumHistoricalComponent },
     { path: 'sum-historical-match/:entrieId/:sumId',  component: SumHistoricalMatchComponent },
+    { path: 'compare/:sumId',  component: CompareSumComponent },
 ];
