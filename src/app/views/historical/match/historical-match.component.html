@@ -278,14 +278,14 @@
                                             <p *ngSwitchDefault> - Ha eliminado 4 jugadores del lobby. <span *ngIf="x.placement > 1">Le ha hecho el carrito al ganador de la partida.</span> </p>
                                           </span>
                                           <h6><u>Ronda</u></h6>
-                                          <span [ngSwitch]="x.last_round">
-                                            <p *ngSwitchCase="x.last_round < 20"> - Le han eliminado en la ronda {{x.r}}. Ha tenido que jugar una compo muy repetida, forzada o debil. </p>
-                                            <p *ngSwitchCase="x.last_round < 30 && x.last_round > 19"> - Le han eliminado en la ronda {{x.r}}. Ha tenido que jugar una compo repetida o debil. </p>
-                                            <p *ngSwitchCase="x.last_round < 35 && x.last_round > 29"> - Le han eliminado en la ronda {{x.r}}. No ha forzado compo pero ha jugado una repetida.</p>
-                                            <p *ngSwitchCase="x.last_round < 40 && x.last_round > 34"> - Le han eliminado en la ronda {{x.r}}. Ha jugado una buena compo. <span *ngIf="x.placement > 2">Ha tenido mala suerte o no ha hecho objetos core.</span></p>
-                                            <p *ngSwitchCase="x.last_round < 45 && x.last_round > 40"> - Le han eliminado en la ronda {{x.r}}. Ha jugado una buena compo y con buenos objetos. <span *ngIf="x.placement > 2">A pesar de completar la compo o estar cerca, no ha tenido todos los objetos core o ha fallado posicionando la fichas.</span> </p>
-                                            <p *ngSwitchDefault> - Ha terminado en la ronda {{x.r}}. Ha jugado una buena compo y con buenos objetos. <span *ngIf="x.placement > 2">A pesar de completar la compo, no ha tenido todos los objetos core o ha fallado posicionando la fichas.</span></p>
+                                          <span>
+                                            <p *ngIf="x.last_round < 20"> - Le han eliminado en la ronda {{x.r}}. Ha tenido que jugar una compo muy repetida, forzada o debil. </p>
+                                            <p *ngIf="x.last_round < 30 && x.last_round > 19"> - Le han eliminado en la ronda {{x.r}}. Ha tenido que jugar una compo repetida o debil. </p>
+                                            <p *ngIf="x.last_round > 29 && x.last_round < 37"> - Le han eliminado en la ronda {{x.r}}. Ha jugado una buena compo. <span *ngIf="x.placement > 2">Ha tenido mala suerte o no ha hecho objetos core.</span></p>
+                                            <p *ngIf="x.last_round < 45 && x.last_round > 36"> - Le han eliminado en la ronda {{x.r}}. Ha jugado una buena compo y con buenos objetos. <span *ngIf="x.placement > 2">A pesar de completar la compo o estar cerca, no ha tenido todos los objetos core o ha fallado posicionando la fichas.</span> </p>
+                                            <p *ngIf="x.last_round > 45"> - Ha terminado en la ronda {{x.r}}. Ha jugado una buena compo y con buenos objetos. <span *ngIf="x.placement > 2">A pesar de completar la compo, no ha tenido todos los objetos core o ha fallado posicionando la fichas.</span></p>
                                           </span>
+
                                           <h6><u>Nivel de unidades</u></h6>
                                           <div *ngFor="let y of x.units">
                                             <span *ngIf="y.tier < 3 && y.rarity == 0">
