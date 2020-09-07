@@ -47,7 +47,7 @@ $fourth: #284454;
     min-height: calc(100vh - 210px);
     min-width: calc(100vw - 300px);
     position: absolute;
-    background-color: #eeeeee;
+    background: linear-gradient(60deg, #37505f, #102531);
     z-index: 99;
   }
   .tableChamps,
