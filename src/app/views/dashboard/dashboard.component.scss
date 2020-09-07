@@ -10,15 +10,15 @@ $fourth: #284454;
     background: linear-gradient(60deg, #ffa726, #fb8c00);
   }
   .card-header-silver .card-icon {
-    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4);
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px #9999998c;
     background: linear-gradient(60deg,$silver, #657274);
   }
   .card-header-bronze .card-icon {
-    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4);
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(77, 48, 6, .45);
     background: linear-gradient(60deg,$bronze, #805949);
   }
   .card-header-fourth .card-icon {
-    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(255, 152, 0, 0.4);
+    box-shadow: 0 4px 20px 0px rgba(0, 0, 0, 0.14), 0 7px 10px -5px rgba(79, 74, 67, .40);
     background: linear-gradient(60deg,$fourth, #1c313c);
   }
   .card-icon{
@@ -116,6 +116,19 @@ $fourth: #284454;
       &:after {
         border-top-color: $gold;
       }
+    }
+  }
+  .table {
+    color: white;
+    th {
+      border-bottom: 1px solid rgba(245, 240, 240, 0.52);
+    }
+    td {
+      border-top: 1px solid rgba(245, 240, 240, .52);
+      border-bottom: 1px solid rgba(245, 240, 240, 0.52);
+    }
+    tr:last-child td {
+      border-bottom: none;
     }
   }
 }
