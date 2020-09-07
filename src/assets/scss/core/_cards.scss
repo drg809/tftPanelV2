@@ -335,7 +335,7 @@
     }
 
     .card-stats{
-        background: transparent;
+        background: #1f3643;
         display: flex;
 
         .author,
@@ -393,7 +393,7 @@
         }
         .card-title{
           margin-top: 15px;
-          color: $black-color;
+          color: $white-color;
         }
         h4{
           font-weight: 300;
