@@ -1,0 +1,9 @@
+.navbar{
+  .navbarDropdownMenuLink {
+    background-color: #102531;
+    .dropdown-menu .dropdown-item {
+      color: white !important;
+      box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.86);
+    }
+  }
+}
