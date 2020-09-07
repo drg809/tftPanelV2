@@ -5,12 +5,12 @@
   margin-bottom: 30px;
   margin-top: 30px;
   border-radius: $border-radius-large;
-  color: $gray-dark;
-  background: $white-color;
+  color: $white-color;
+  background: #446f8a;
   width: 100%;
 
     .card-category:not([class*="text-"]) {
-        color: $gray-color;
+        color: $white-color;
     }
     .card-category{
         margin-top: 10px;
@@ -200,6 +200,15 @@
     &.card-rotate.bg-danger .front,
     &.card-rotate.bg-danger .back{
       background: linear-gradient(60deg, $red-400, $red-600);
+    }
+
+    .card-header-custom .card-icon,
+    .card-header-custom .card-text,
+    .card-header-custom:not(.card-header-icon):not(.card-header-text),
+    &.bg-custom,
+    &.card-rotate.bg-custom .front,
+    &.card-rotate.bg-custom .back{
+      background: linear-gradient(60deg, #0e1d28, #03070a);
     }
 
     .card-header-rose .card-icon,
