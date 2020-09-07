@@ -11,7 +11,7 @@ import { AuthGuard } from 'app/shared/helpers/auth.guard';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css'],
+  styleUrls: ['./login.component.scss'],
   animations: [
     trigger('formState', [
       transition('* => error', [
