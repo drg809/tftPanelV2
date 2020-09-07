@@ -211,15 +211,6 @@
       background: linear-gradient(60deg, #0e1d28, #03070a);
     }
 
-    .card-header-rose .card-icon,
-    .card-header-rose .card-text,
-    .card-header-rose:not(.card-header-icon):not(.card-header-text),
-    &.bg-rose,
-    &.card-rotate.bg-rose .front,
-    &.card-rotate.bg-rose .back{
-      background: linear-gradient(60deg, $pink-400, $pink-600);
-    }
-
     .card-header-primary .card-icon,
     .card-header-primary:not(.card-header-icon):not(.card-header-text),
     .card-header-primary .card-text{
