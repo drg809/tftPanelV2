@@ -113,7 +113,7 @@
     // give correct size to ripple container
     .navbar-brand {
         position: relative;
-        color: inherit;
+        color: $white-color;
         height: 50px;
         font-size: $navbar-brand-font-size - 0.125;
         line-height: 30px;
@@ -198,7 +198,7 @@
         border-radius: $border-radius-base;
         line-height: 20px;
         margin-left: 5px;
-        color: inherit;
+        color: $white-color;
 
           &:not(.btn-just-icon) .fa{
               position: relative;
