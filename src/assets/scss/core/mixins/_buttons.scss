@@ -158,6 +158,9 @@
   &.btn-outline-warning {
     @include bmd-flat-button-variant($btn-warning-bg, $btn-warning-bg, $btn-warning-bg, $btn-warning-bg);
   }
+  &.btn-outline-custom {
+    @include bmd-flat-button-variant(#fff, #03070a, #03070a, #03070a);
+  }
   &.btn-outline-danger {
     @include bmd-flat-button-variant($btn-danger-bg, $btn-danger-bg, $btn-danger-bg, $btn-danger-bg);
   }
@@ -228,8 +231,8 @@
   &.btn-danger {
     @include bmd-raised-button-variant($btn-danger-color, $btn-danger-bg, $btn-danger-border-color);
   }
-  &.btn-rose {
-    @include bmd-raised-button-variant($btn-rose-color, $btn-rose-bg, $btn-rose-border-color);
+  &.btn-custom {
+    @include bmd-raised-button-variant(#fff, #03070a, #03070a);
   }
   &,
   &.btn-default{
