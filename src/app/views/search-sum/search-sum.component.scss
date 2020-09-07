@@ -16,4 +16,20 @@ $fourth: #284454;
       }
     }
   }
+  .table {
+    color: white;
+    th {
+      border-bottom: 1px solid rgba(245, 240, 240, 0.52);
+    }
+    td {
+      border-top: 1px solid rgba(245, 240, 240, .52);
+      border-bottom: 1px solid rgba(245, 240, 240, 0.52);
+    }
+    tr:last-child td {
+      border-bottom: none;
+    }
+  }
+  .form-control {
+    color: white !important;
+  }
 }

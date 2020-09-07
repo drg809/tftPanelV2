@@ -4,4 +4,7 @@ body{
     background-color: #102531 !important;
     box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.86) !important;
   }
+  .mat-slide-toggle.mat-checked .mat-slide-toggle-thumb {
+    background-color: #1b0f13 !important;
+  }
 }
