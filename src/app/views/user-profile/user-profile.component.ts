@@ -13,7 +13,7 @@ import { Utils } from 'app/shared/helpers/utils';
   styleUrls: ['./user-profile.component.css']
 })
 export class UserProfileComponent implements OnInit {
-  user: User; userProfile: UserProfile;
+  user: User; userProfile: UserProfile; userProfileLoaded: UserProfile;
   name: string; lastname: string; phone: string; country: string; about: string; obj: any;
   imageSrc = ImageDefault.getImage();
 
@@ -27,6 +27,7 @@ export class UserProfileComponent implements OnInit {
       this.phone = x.phone;
       this.country = x.country;
       this.about = x.about;
+      this.userProfileLoaded = x;
     });
   }
 
@@ -91,10 +92,15 @@ export class UserProfileComponent implements OnInit {
     }).afterClosed().subscribe((result) => {
       if (result) {
         this.userProfile = {userId: this.user._id, name: this.name, lastname: this.lastname, phone: this.phone, country: this.country, about: this.about};
-        this.userProfileService.create(this.userProfile).subscribe((x) => {
-          console.log(x);
-          Utils.showNotification('top', 'right', 'success', 'Perfil guardado correctamente.');
-        });
+        if (this.userProfileLoaded) {
+          this.userProfileService.update(this.userProfile).subscribe((x) => {
+            Utils.showNotification('top', 'right', 'success', 'Perfil guardado correctamente.');
+          });
+        } else {
+          this.userProfileService.create(this.userProfile).subscribe((x) => {
+            Utils.showNotification('top', 'right', 'success', 'Perfil guardado correctamente.');
+          });
+        }
       }
     });
   };
